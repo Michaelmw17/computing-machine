@@ -1,0 +1,19 @@
+{
+    "title": "Why our Services?",
+    "text": "From new home wiring, renovations or extensions and outdoor lighting solutions, JDP Electrical will assist you with all your electrical needs and requirements that will make your home more energy efficient.",
+  
+  "section": [
+    {
+      "title": "Why JDP?",
+      "content": "JDP Electrical Services provide a full range of electrical services and installations for homeowners",
+      "icon": "notes.svg"
+    },
+    {
+      
+  "title": "Our Electricians also provide inspection and reporting services to clients who are looking to purchase property.",
+  
+      "content": "We understand that safety is paramount in the home. As such, all electrical work is carried out by our qualified and fully insured electricians. All electrical works carried out are in compliances with AS/NZ3000 wiring regulations for electrical installation and are fully certified.",
+       "icon": "notes.svg"
+    }
+  ]
+}

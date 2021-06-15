@@ -1,0 +1,109 @@
+h1 {
+    text-align: center;
+}
+
+.Services-section
+{
+	text-align: left;
+	
+}
+
+.inner-width-services
+{
+	max-width: 2400px;
+	margin: auto;
+	color: #333;
+	overflow: hidden;
+}
+
+.team-section h1
+{
+	font-size: 20px;
+	text-transform: uppercase;
+	display: inline-block;
+	border-bottom: 4px solid;
+	padding-bottom: 10px;
+}
+
+.pie
+{
+	float: left;
+	overflow: hidden;
+	padding: 20px 20px 0;
+	transition: 0.4s;
+}
+
+.pie img
+{
+	width:250px;
+	height: 250px;
+	border-radius: 50%;
+}
+
+.p-naming
+{
+	margin: 15px;
+	margin-left: 55px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+
+}
+.fas {
+	margin-left: 40px;
+}
+.p-des
+{
+	font-style: italic;
+	color: #000;
+}
+
+.p-sm
+{
+	margin-top: 10px;
+	margin-left: 0px;
+	
+}
+
+.p-sm a
+{
+	margin: 0 4px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	transition: 0.4s;
+}
+
+
+.p-sm a i
+{
+	line-height: 30px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    /* Styles go here */
+    
+}
+@media screen and (max-width: 960px) {
+	.pie{
+		width: 100%;
+	}
+
+}
+@media screen and (max-width: 768px) {
+	.pie{
+		width: 100%;
+	}
+
+}
+@media screen and (max-width: 600px) {
+	.pie{
+		width: 100%;
+	}
+	
+}
+.Link {
+	margin-bottom: 600px;
+	display: absolute;
+}

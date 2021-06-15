@@ -1,0 +1,44 @@
+
+#MainButton::before,
+#MainButton::after
+ {
+    content: '';
+    position: absolute;
+    border-left: inherit;
+    z-index: -1;
+}
+
+#MainButton::after {
+    height: 100%;
+    top: 10%;
+    filter: brightness(0.8);
+}
+#MainButton:hover {
+   
+    background-color: red;
+}
+
+#MainButton::before{
+    height: 100%;
+    top: 20%;
+    filter: brightness(0.6);
+}
+
+#MainButton span {
+    position: relative;
+    height: 120%;
+    top: -10%;
+    width:150%;
+    margin-left: -5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transition: 0.5s;
+}
+
+.App:hover span {
+    transform: translateY(0.3em);
+}

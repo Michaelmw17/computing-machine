@@ -1,0 +1,14 @@
+.div-wrapper {
+    background-color: black;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.icon:hover {
+   color: white;
+}
+.icon {
+    color:"#000";
+    font-size: 20;
+    padding-top: 5;
+}
