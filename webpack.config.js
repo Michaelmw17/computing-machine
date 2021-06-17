@@ -7,19 +7,20 @@ module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-        path: path.resolve(__dirname, 'output'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, "dist/js"),
+        filename: "bundle.js"
     },
-    resolve: {
-        extensions: ['.js', '.jsx', '*']
-    },
+    
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
-                }
+                },
+                resolve: {
+        extensions: ['.js', '.jsx', '*']
+    },
             },
         {
         test: /\.css$/i,
