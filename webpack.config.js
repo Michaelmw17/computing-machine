@@ -35,11 +35,8 @@ module.exports = {
                     }
                 }
             ]
-            
         },
-        
         ]
-        
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -51,11 +48,9 @@ module.exports = {
 				{ family: "Ubuntu" },
 				{ family: "Poppins", variants: [ "400", "700italic" ], display: "block" }
 			]
-			/* ...options */
 		}),
             new MiniCssExtractPlugin({
             linkType: 'text/css',
         }),
-        
     ]
 }
