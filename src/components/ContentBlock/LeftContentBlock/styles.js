@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import React from "react";
+import styled from 'styled-components';
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 
 export const LeftContentBlock = styled.section`

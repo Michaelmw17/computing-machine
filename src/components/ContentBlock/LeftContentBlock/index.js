@@ -1,11 +1,11 @@
 // import { Row, Col } from "antd";
+import React  from "react";
 import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
 
 import SvgIcon from "../../../components/ImageComp/imgComp";
 
 import * as S from "./styles";
-import React  from "react";
 
 const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
