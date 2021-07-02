@@ -67,7 +67,7 @@ const Home = (props, i) => {
         </NavLink>
     </>
               <NavLink to='/About'>
-                    <h1 style={{textAlign: 'center', marginTop:30, color: 'white'}}>
+                    <h1 style={{textAlign: 'center', color: 'white'}}>
                     Enter JDP Electrical Services
                     </h1>
                     </NavLink>

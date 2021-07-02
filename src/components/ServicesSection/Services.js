@@ -33,7 +33,7 @@ const TestApp = ({ classes }) => {
                 <div className="row">
                     <div className="Services-section">
                   <div className="inner-width-services">
-                  <Grid container spacing={8} justify="flex-start">
+                  <Grid container spacing={10} justify="flex-start">
                     <Grid item xs={12} sm={12} md={6} lg={4}>
                     <ReactCardFlipper
                       width="300px"
@@ -47,10 +47,10 @@ const TestApp = ({ classes }) => {
                       <div className="pie">
                         <div className="p-naming" style={{ 
                           fontSize: 20, paddingRight:"20px", paddingBottom: 0
-                           }}>Residential</div>
+                          }}>Residential</div>
                         <HomeIcon  style={{
-                           fontSize: 230, paddingTop: 0, paddingLeft: 10 ,
-                           }} /></div>
+                          fontSize: 230, paddingTop: 0, paddingLeft: 10 ,
+                          }} /></div>
                       </div>
                       </div>
                       <div className="text-left">
@@ -84,7 +84,7 @@ const TestApp = ({ classes }) => {
                       </div>
                       </div>
                       <div className="text-left">
-                          <p style={{ marginLeft: 60,fontSize: 20,color: '#FFF', textTransform: 'uppercase'}}>Strata / Property Maintenance</p>
+                          <p style={{ marginLeft: 10,fontSize: 20,color: '#FFF', textTransform: 'uppercase',textAlign: 'center'}}>Strata / Property Maintenance</p>
                           <PinnedSubheaderList/>
                       </div>
                     </ReactCardFlipper>
