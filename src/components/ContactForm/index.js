@@ -154,7 +154,7 @@ const Contact = ({ title, content, id, t , e, handleSubmit}) => {
                     </a>
                 </div> 
               <div className="formText">
-                <a href="https://goo.gl/maps/hrBNba4G8a1EbgFg6" id="TextAddress">
+                <a href="https://goo.gl/maps/hrBNba4G8a1EbgFg6" >
                  Unit 17, 4-6 Chaplin Drive Lane Cove West NSW 2066
                   </a>
                   
