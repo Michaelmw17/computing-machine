@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const ContactContainer = styled.div`
-  padding: 7rem 10px;
+  padding: 8rem 10px;
   padding-left:40px;
   padding-right:40px;
   @media only screen and (min-width: 980px) {
-    padding: 4rem 3rem;
+    padding: 6rem 3rem;
   }
 
 `;
