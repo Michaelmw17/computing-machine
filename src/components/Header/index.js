@@ -13,7 +13,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
-        import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as S from "./styles";
 const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
@@ -54,33 +54,33 @@ const useStyles = makeStyles((theme) => ({
     return (
       <Fragment>
         <div className={classes.root} style={{ textAlign: "center" }}>
-         <S.CustomNavLinkSmall>
+        <S.CustomNavLinkSmall>
             <Link to="/">
-          <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 30  }} />
+          <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
               <S.Span><span>{t("Home")}</span></S.Span>
               </Link>
           </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Service")}>
-          <BuildIcon style={{ color:"RGB(209, 29, 50)", fontSize: 30   }} />
+          <BuildIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28   }} />
             <S.Span className="Span"><span>{t("Services")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("People")}>
-          <InfoIcon style={{color:"RGB(209, 29, 50)", fontSize: 30  }} />
+          <InfoIcon style={{color:"RGB(209, 29, 50)", fontSize: 28  }} />
           <S.Span ><span>{t("About")}</span></S.Span>
         </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Review")}>
-            <RateReviewIcon style={{ color:"RGB(209, 29, 50)", fontSize: 30 }} />
+            <RateReviewIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28 }} />
           <S.Span><span>{t("Reviews")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("Team")}>
-          <ContactMailIcon style={{ color:"RGB(209, 29, 50)", fontSize: 30  }} />
+          <ContactMailIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
           <S.Span><span>{t("Contact")}</span></S.Span>
           </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall >
           <div>
           <a href="tel:02-9419-7947">
       <Button classes={{ root: 'button', label: 'button-label'}} style={{  
-        marginBottom:40, 
+        marginBottom: 40, 
         background:  'FFF',
         color: 'rgb(209, 29, 50)',
         fontSize: '1rem',
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         cursor: "pointer",
         maxWidth: "180px",
   }}>
-    <p style={{padding: "3px", paddingTop: "20px"}}> CALL US NOW  </p>
+    <p class="p-CallUs"> CALL US NOW  </p>
       <PhoneForwardedIcon/>
       </Button>
       </a>
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
       <S.Container>
         <Row type="flex" justify="space-between" gutter={20}>
           <S.LogoContainer to="/" aria-label="homepage">
-             <Suspense fallback={<Loader type="Rings" color="#00BFFF"
+            <Suspense fallback={<Loader type="Rings" color="#00BFFF"
                     height={100}
                     width={100}
                     timeout={3000}/>

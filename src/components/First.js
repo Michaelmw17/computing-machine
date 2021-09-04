@@ -12,14 +12,14 @@ const testData = {
 };
 
 const containerStyle = {
-              height: `40vh`,
-              width: '80%',
-              marginLeft: '5px',
-              marginRight: '20px',
-              marginTop: '40px',
-              maxWidth: '1480px',
-              minheight: '40vh',
-              borderRadius: '14px'
+  height: `40vh`,
+  width: '80%',
+  marginLeft: '30px',
+  marginRight: '20px',
+  marginTop: '40px',
+  maxWidth: '1480px',
+  minheight: '40vh',
+  borderRadius: '14px'
 };
 
 const center = {

@@ -1,6 +1,6 @@
-span:hover {
+/* span:hover {
  color:rgb(209, 29, 50)
-}
+} */
 .intro{
     margin-top: 50px;
 }
@@ -15,4 +15,9 @@ span:hover {
 }
 .button-label {
   color: black;
+}
+.p-CallUs {
+  padding: 3px;
+  padding-top: 20px;
+  font-size: 14px;
 }

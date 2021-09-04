@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding: ${(props) => (props.padding ? "2.9rem" : "1rem 1rem 1rem 5rem ")};
+  padding: ${(props) => (props.padding ? "2.9rem" : "1rem 1rem 1rem 3rem ")};
   overflow: hidden;
   border-top: ${(props) => (props.border ? "1px solid #CDD1D4" : "")};
   @media only screen and (min-width: 1024px) {

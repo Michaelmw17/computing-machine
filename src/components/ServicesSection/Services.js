@@ -12,17 +12,15 @@ import './ServicesStyles.css'
 import ContainerCardFlip from '../../components/ContainerCardFlip';
 const styles = {
   root:{
-    
+  
   },
   container: {
     marginRight: "auto",
     marginLeft: "auto",
-  transition: '.5s all ease',
-  transform: 'rotateX(10deg) scale(1)',
-  perspective: '900px',
-
-  },
-  
+    transition: '.5s all ease',
+    transform: 'rotateX(10deg) scale(1)',
+    perspective: '900px',
+  }, 
 };
 
 const TestApp = ({ classes }) => {
@@ -33,7 +31,7 @@ const TestApp = ({ classes }) => {
                 <div className="row">
                     <div className="Services-section">
                   <div className="inner-width-services">
-                  <Grid container spacing={10} justify="flex-start">
+                  <Grid container spacing={5} justify="flex-start">
                     <Grid item xs={12} sm={12} md={6} lg={4}>
                     <ReactCardFlipper
                       width="300px"
@@ -56,8 +54,8 @@ const TestApp = ({ classes }) => {
                       <div className="text-left">
                           <p style={{ 
                             marginLeft: 80,fontSize: 20,color: '#FFF',
-                             textTransform: 'uppercase', listStyleType: 'none'
-                             }}>Residential</p>
+                            textTransform: 'uppercase', listStyleType: 'none'
+                            }}>Residential</p>
                           <MyListResidential/>
                       </div>
                     </ReactCardFlipper>
@@ -133,7 +131,6 @@ const styling = {
   root: {
     display: "block",
     margin: "50px",
-
     position: "relative"
   },
   card: {

@@ -7,9 +7,10 @@ const MyImage = ({ image }) => (
     effect="blur"
     src={ process.env.PUBLIC_URL + '/IMG_1050.jpg'} 
     style={{
-               display: "absolute",
+              display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
+                margin: "0 40px 0",
                 marginTop: "15px",
                 height: "100%",
                 width: "100%",

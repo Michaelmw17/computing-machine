@@ -1,6 +1,6 @@
-span:hover {
+/* span:hover {
  color:rgb(209, 29, 50)
-}
+} */
 .intro{
     margin-top: 50px;
 }
@@ -15,6 +15,11 @@ span:hover {
 }
 .button-label {
   color: black;
+}
+.p-CallUs {
+  padding: 3px;
+  padding-top: 20px;
+  font-size: 14px;
 }
 .div-wrapper {
     background-color: black;
@@ -226,7 +231,7 @@ margin-top:10px;
 }
 @media only screen and (max-width: 480px) {
    #Service {
-	padding-top: 120px;
+	padding-top: 140px;
 	padding-bottom: -50px;
 }
 #mission {

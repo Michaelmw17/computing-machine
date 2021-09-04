@@ -13,7 +13,7 @@ export const MiddleBlock = styled.section`
 `;
 
 export const Content = styled.p`
-  padding: 0.75rem 0.1rem 0.1rem 0.35rem;
+  padding: 0.5rem 1.1rem 0.1rem 1.35rem;
   font-size: 1.5rem;
   color: Red;
 `;

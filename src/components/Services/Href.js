@@ -13,11 +13,7 @@ class Href extends Component {
     const { text, url, target } = this.props;
 
     return (
-      <a
-        rel="noopener"
-        target={target}
-        href={url}
-      >
+      <a rel="noopener" target={target }href={url}>
         {text}
       </a>
     );

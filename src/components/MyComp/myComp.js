@@ -20,7 +20,7 @@ const MyComp = () => {
                 marginTop: "15px",
                 height: "100%",
                 width: "100%",
-                maxWidth: "70%",
+                maxWidth: "90%",
                 maxHeight: "55px",
             }}
             max-age="31536000"

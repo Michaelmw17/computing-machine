@@ -29,7 +29,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
         <Col lg={11} md={11} sm={11} xs={24}>
           <Slide left>
             <S.ContentWrapper>
-              <h3>{t(title)}</h3>
+              <h3 style={{ "padding": "4.7rem 0.5rem 0.5rem 0.3rem" }}>{t(title)}</h3>
               <S.Content>{t(content)}</S.Content>
               <S.Content> JDP Electrical Services offer a complete range of electrical installations and services throughout Sydney, North Shore Region and surrounding areas.</S.Content>
               

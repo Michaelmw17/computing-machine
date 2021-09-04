@@ -35,7 +35,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               <S.Content>We offer expert advice to customers, and assist them with design and implementation solutions providing them with lasting, efficient and practical lighting designs. We ensure all your electrical needs are met.</S.Content>
               <S.Content>Our guarantee of quality work and our commitment to providing the best and most cost-effective solutions to your electrical needs, is why JDP Electrical are known as trusted electrical contractors..</S.Content>
                 <div>
-          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 5, marginTop: -20}}>“Our approach is simple – we treat your home like our own.”</p>
+          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 15, marginTop: -10}}>“Our approach is simple – we treat your home like our own.”</p>
           <Col lg={12} md={24} sm={24} xs={24}>
           
     </Col>
@@ -43,7 +43,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
           <div id="ButtonMain">
           <a href="tel:02-9419-7947">
             <Button classes={{ root: 'buttonMain',  label: 'button-label-main'}} style={{  
-              marginBottom:40, 
+              marginBottom: 40, 
+              marginTop: 70, 
               background:  'FFF',
               color: 'rgb(209, 29, 50)',
               fontSize: '1rem',
@@ -57,7 +58,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               cursor: "pointer",
               maxWidth: "180px",
         }}>
-        <p style={{padding: "1px", paddingTop: "18px"}}> CALL US NOW  </p>
+        <p class="p-Call-us-now-main"> CALL US NOW  </p>
       <PhoneForwardedIcon/>
       </Button>
       </a>
