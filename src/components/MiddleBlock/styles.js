@@ -11,7 +11,7 @@ export const MiddleBlock = styled.section`
 `;
 
 export const Content = styled.p`
-  padding: 1.75rem 1.1rem 1.1rem 1.35rem;
+  padding: 1.75rem 1.1rem 0.1rem 1.35rem;
   font-size: 21px;
 `;
 

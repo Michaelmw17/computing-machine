@@ -12,12 +12,12 @@ const MyImageBlue = ({ image }) => (
                display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
-                marginTop: "15px",
                 height: "100%",
                 width: "100%",
                 maxWidth: "80%",
                 maxHeight: "90%",
                 left: '350px',
+                postition: 'inherit'
             }}/>
 );
 export default MyImageBlue;

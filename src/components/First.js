@@ -12,13 +12,13 @@ const testData = {
 };
 
 const containerStyle = {
-  height: `40vh`,
-  width: '80%',
-  marginLeft: '30px',
+  height: `400px`,
+  width: '90%',
+  marginLeft: '20px',
   marginRight: '20px',
   marginTop: '40px',
-  maxWidth: '1480px',
-  minheight: '40vh',
+  maxWidth: '480px',
+  maxHeight: '680px',
   borderRadius: '14px'
 };
 
@@ -31,8 +31,7 @@ function MyComponent(props) {
   const [isOpened, setOpened] = useState(false);
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyBWQPgM5WysP6GSH5Ay_Vm037aWajBpT6s"
-    >
+      googleMapsApiKey="AIzaSyBWQPgM5WysP6GSH5Ay_Vm037aWajBpT6s">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -52,23 +51,22 @@ function MyComponent(props) {
             getPixelPositionOffset={(width, height) => ({
               x: -(width / 2),
               y: -(height / 330)
-            })}
-          >
-             <div style={{ background: `white`, border: `1px solid #ccc`, padding: 5,}}>
-              <p style={{ textAlign:`center`}}>JDP Electrical </p>
-              <p style={{ textAlign:`center`}}> 17/4-6 Chaplin Dr, Lane Cove West NSW 2066</p>
-              <ul className='list-unstyled' >
-                      <li>
-                          <Href
-                          text={testData.text}
-                          url={testData.link}
-                          />
-                </li>
-              </ul>
-      </div>
+                })}
+                    >
+                    <div style={{ background: `white`, border: `1px solid #ccc`, padding: 5,}}>
+                      <p style={{ textAlign:`center`}}>JDP Electrical </p>
+                      <p style={{ textAlign:`center`}}> 17/4-6 Chaplin Dr, Lane Cove West NSW 2066</p>
+                      <ul className='list-unstyled' >
+                              <li>
+                                  <Href
+                                  text={testData.text}
+                                  url={testData.link}
+                                  />
+                        </li>
+                      </ul>
+              </div>
           </OverlayView>
         )}
-        { /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
     </LoadScript>

@@ -31,7 +31,6 @@ input, #number, #menu {
    outline: none;
    font-size: 0.875rem;
    padding: 1.50rem 0.5rem 0.7rem 1.25rem;
-   /* padding: 1rem 1.25rem; */
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
    color: #000;
@@ -42,7 +41,7 @@ input, #number, #menu {
    font-size: 18px;
 }
 #TextAddress, #TextNumber, #TextNumberDom, #TextNumberJoe, #TextNumberGen {
-   color: #2a4bf5;
+   color: #1890ff;
 }
 #TextAddress:hover, #TextNumber:hover, #TextNumberDom:hover, #TextNumberJoe:hover, #TextNumberGen:hover {
    color: rgb(209, 29, 50);

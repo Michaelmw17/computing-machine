@@ -9,6 +9,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import BusinessIcon from '@material-ui/icons/Business';
 import BuildSharpIcon from '@material-ui/icons/BuildSharp';
 import './ServicesStyles.css'
+import { Row} from 'antd';
 import ContainerCardFlip from '../../components/ContainerCardFlip';
 const styles = {
   root:{
@@ -33,6 +34,7 @@ const TestApp = ({ classes }) => {
                   <div className="inner-width-services">
                   <Grid container spacing={5} justify="flex-start">
                     <Grid item xs={12} sm={12} md={6} lg={4}>
+                    <Row justify="center">
                     <ReactCardFlipper
                       width="300px"
                       height="340px"
@@ -59,9 +61,10 @@ const TestApp = ({ classes }) => {
                           <MyListResidential/>
                       </div>
                     </ReactCardFlipper>
+                    </Row>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={4}>
-                    
+                    <Row justify="center">
                       <ReactCardFlipper
                       width="300px"
                       height="340px"
@@ -86,8 +89,10 @@ const TestApp = ({ classes }) => {
                           <PinnedSubheaderList/>
                       </div>
                     </ReactCardFlipper>
+                    </Row>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={4}>
+                    <Row justify="center">
                     <ReactCardFlipper
                       width="300px"
                       height="340px"
@@ -98,7 +103,7 @@ const TestApp = ({ classes }) => {
                       <div className="text-left">
                         <div className="Services">
                           <div className="pie">
-                            <div className="p-naming" style={{ 
+                            <div id="services-p-naming" className="p-naming" style={{ 
                               fontSize: 20, paddingLeft: 0, paddingBottom: 15 
                               }}>Commercial</div>
                             <BusinessIcon  style={{ 
@@ -115,6 +120,7 @@ const TestApp = ({ classes }) => {
                           <MyListCommercial/>
                       </div>
                     </ReactCardFlipper>
+                    </Row>
                     </Grid>
                   </Grid>
                 </div>
@@ -131,6 +137,7 @@ const styling = {
   root: {
     display: "block",
     margin: "50px",
+
     position: "relative"
   },
   card: {
@@ -139,10 +146,10 @@ const styling = {
     padding: "10px",
     marginBottom: "50px",
       
-  background:' RGB(209, 29, 50)',
-  '-webkit-box-shadow': "0 7px 8px rgba(0, 0, 0, 0.12)",
-  '-moz-box-shadow': "0 7px 8px rgba(0, 0, 0, 0.12)",
-  'box-shadow':" 0 7px 8px rgba(0, 0, 0, 0.12)",
+  background:' rgb(209, 29, 50)',
+  '-webkit-box-shadow': "0 7px 8px rgb(255 0 0 / 75%)",
+  '-moz-box-shadow': "0 7px 8px rgb(255 0 0 / 75%)",
+  'box-shadow':" 0 7px 8px rgb(255 0 0  / 75%)",
     color: "white",
   }
 };

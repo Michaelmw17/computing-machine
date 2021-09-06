@@ -25,7 +25,8 @@ export const Span = styled.p`
 export const ContentWrapper = styled.div`
   position: relative;
   max-width: 640px;
-  margin: 10rem 0rem 0rem 0rem;
+  margin: 10rem 0rem 0rem;
+
 
   @media only screen and (max-width: 480px) {
     margin: 2rem 0;

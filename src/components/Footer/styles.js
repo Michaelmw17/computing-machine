@@ -10,7 +10,8 @@ export const Title = styled.h4`
   font-size: 18px;
   text-transform: uppercase;
   color: #000;
-  padding: 2.5rem 0 0rem 0rem;
+  padding: 1.5rem 0 0;
+  line-height: 1.5rem;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;
@@ -68,7 +69,7 @@ export const Select = styled.div`
 
 export const Para = styled.div`
   color: rgba(2, 7, 62, 0.8);
-  max-width: 340px;
+  max-width: 225px;
   font-size: 18px;
   width: 100%;
 `;

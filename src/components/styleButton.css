@@ -57,21 +57,20 @@ position: absolute;
     
 }
 .box:active{
-    width:100px;
-    height:100px;
+  width:100px;
+  height:100px;
 	border-radius:50%;
-    border-top:none;
-    border:2px solid #BAB7AE;
+  border-top:none;
+  border:2px solid #BAB7AE;
 	background-color:#EEEEEE;
 	text-align:center;
 	position:relative;
 	color:#BAB7AE;
 	font-size:64px;
 	line-height:100px;
-	text-shadow:
-    0 1px 1px white,
-    0 1px 1px #BAB7AE;
-  
+	text-shadow: 
+  0 1px 1px white,
+  0 1px 1px #BAB7AE;
   box-shadow:  0 0 0 0 #BBB7AE;
 }
 .box:before{
@@ -101,59 +100,58 @@ p, p a{
 .box span{
   display:inline-block;
   box-shadow: 
-    inset 0 1px 1px 1px #7E7E7E, 
-    0 1px 1px white;
+  inset 0 1px 1px 1px #7E7E7E, 
+  0 1px 1px white;
   height:5px; 
   width:25px;
-  /* border-radius:50%; */
   background: linear-gradient(#AEADAA,#BAB7AE);
   margin:42px auto;
 }
 .Button {
-    height:50px;
-    background:tomato;
-    border:none;
-    outline:0;
-    box-shadow:0;
-    min-width:150px;
-    margin: 50px auto;
-    position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);
-    display:inline-block;
-    transition:all 0.8s;
-    font-family: 'Indie Flower', cursive;
-    font-size:20px;
-    cursor:pointer;
+  height:50px;
+  background:tomato;
+  border:none;
+  outline:0;
+  box-shadow:0;
+  min-width:150px;
+  margin: 50px auto;
+  position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);
+  display:inline-block;
+  transition:all 0.8s;
+  font-family: 'Indie Flower', cursive;
+  font-size:20px;
+  cursor:pointer;
 }
 .Button:before, .Button:after {
-    content:"";
-    position:absolute;
-    height:0;
-    width:0;
-    border:0px solid tomato;
+  content:"";
+  position:absolute;
+  height:0;
+  width:0;
+  border:0px solid tomato;
 }
 .Button:before {
-    top:-2px;
-    right:-2px;
+  top:-2px;
+  right:-2px;
 }
 .Button:after {
-    bottom:-2px;
-    left:-2px;
+  bottom:-2px;
+  left:-2px;
 }
 .Button:hover:before, button:hover:after {
-    width:100%;
-    height:100%;
-    border:2px solid tomato;
+  width:100%;
+  height:100%;
+  border:2px solid tomato;
 }
 button:hover:before {
-    border-bottom-color:transparent;
-    border-right-color:transparent;
-    transition: width 0.4s 0s, height 0.4s 0.4s;
+  border-bottom-color:transparent;
+  border-right-color:transparent;
+  transition: width 0.4s 0s, height 0.4s 0.4s;
 }
 .Button:hover:after {
-    border-top-color:transparent;
-    border-left-color:transparent;
-    transition: width 0.4s 0.8s, height 0.4s 1.2s, border 0s 0.8s;
+  border-top-color:transparent;
+  border-left-color:transparent;
+  transition: width 0.4s 0.8s, height 0.4s 1.2s, border 0s 0.8s;
 }
 .Button:hover {
-    background:transparent;
+  background:transparent;
 }

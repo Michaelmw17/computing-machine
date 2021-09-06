@@ -17,7 +17,7 @@ const MyImageRed = ({ image }) => (
                 width: "100%",
                 maxWidth: "90%",
                 maxHeight: "80%",
-                left: '850px',
+               padding: '0 ​0 5px 25px'
             }}/>
 );
 export default MyImageRed;

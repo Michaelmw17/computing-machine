@@ -1,43 +1,18 @@
 import React, {  lazy } from "react";
-import Button from "../../components/Toggler"
+import Button from '../../common/ButtonMains/ButtonMain'
 import {  NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-// import {ThemeProvider} from "styled-components";
-// import  {useDarkMode} from "../../components/useDarkMode"
-// import { GlobalStyles } from "../../globalStyles";
-// import { lightTheme, darkTheme } from "../../components/Themes"
 import Tooltip from "react-simple-tooltip"
 import {css} from "styled-components"
 import './homeStyles.css';
 
 const Container = lazy(() => import("../../common/Container"));
 
-const styles = theme => ({
-  fab: {
-    margin: theme.spacing(1),
-    
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-});
-
-
-const Home = (props, i) => {
-
-  // const [theme, themeToggler, mountedComponent] = useDarkMode();
-
-  // const themeMode = theme === 'light' ? lightTheme : darkTheme ;
-
-  // if(!mountedComponent) return <div/>
-
-  
+const Home = (props, i) => {  
   return (<div className="IntroContainer"> 
-    {/* <ThemeProvider theme={themeMode}  key={i}> */}
       <Container>
-      {/* <GlobalStyles/> */}
         <>
-           <NavLink to='/About'>
+          <NavLink to='/About'>
           <div className="AppCon">
             <div className="App">
                   <Tooltip
@@ -61,21 +36,18 @@ const Home = (props, i) => {
                             word-break: break-all;
                           `}
                     >
-                    <Button></Button>
-                  {/* <Toggle theme={theme} toggleTheme={themeToggler} key={i} /> */}
+                    <Button/>
                 </Tooltip>
               </div>
           </div>
         </NavLink>
     </>
-              <NavLink to='/About'>
-                    <h1 style={{textAlign: 'center', color: 'white', paddingTop: '25px'}}>
-                    Enter JDP Electrical Services
-                    </h1>
-                    </NavLink>
+      <NavLink to='/About'>
+            <h1 style={{textAlign: 'center', color: 'white', paddingTop: '25px'}}>
+            Enter JDP Electrical Services
+            </h1>
+            </NavLink>
           </Container>
-        {/* </ThemeProvider> */}
-        
     </div>
   );
 };

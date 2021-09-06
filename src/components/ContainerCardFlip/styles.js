@@ -9,15 +9,15 @@ export const Container = styled.div`
   overflow: hidden;
   border-top: ${(props) => (props.border ? "1px solid #CDD1D4" : "")};
   @media only screen and (min-width: 1024px) {
-    max-width: 1550px;
-    max-height: 2550px;
+    max-width: 1150px;
+    max-height: 755px;
   }
   @media only screen and (max-width: 768px) {
-    max-width: 530px;
+    max-width: 400px;
   }
   @media only screen and (max-width: 414px) {
-    max-width: 670px;
-    padding: ${(props) => (props.padding ? "2.9rem" : "0rem 0rem 1rem 0.5rem ")};
+    max-width: 340px;
+    padding: ${(props) => (props.padding ? "2.9rem" : "0rem 1.5rem 1rem 0.6rem")};
   }
  
 `;

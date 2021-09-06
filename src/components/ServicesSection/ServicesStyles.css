@@ -4,7 +4,6 @@ h1 {
 
 .Services-section {
 	text-align: left;
-	
 }
 
 .inner-width-services {
@@ -34,14 +33,15 @@ h1 {
 	border-radius: 50%;
 }
 
-.p-naming
-{
-	margin: 15px;
-	margin-left: 55px;
+.p-naming {
+    margin: 15px;
+	margin-left: 50px;
 	text-transform: uppercase;
 	text-align: center;
 	color: #fff;
-
+}
+#services-p-naming {
+	margin-left: 20px;
 }
 .fas {
 	margin-left: 40px;
@@ -54,7 +54,6 @@ h1 {
 .p-sm {
 	margin-top: 10px;
 	margin-left: 0px;
-	
 }
 
 .p-sm a {
@@ -85,14 +84,7 @@ h1 {
 @media screen and (max-width: 600px) {
 	.pie{
 		width: 100%;
-		
 	}
-
-.Services-section
-{
-	padding-right: 1px;
-	padding-left: 1px;
-}
 }
 .Link {
 	margin-bottom: 600px;

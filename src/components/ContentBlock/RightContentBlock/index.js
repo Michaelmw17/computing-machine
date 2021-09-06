@@ -22,9 +22,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
     });
   };
   return (
-     <Suspense fallback={<div>Loading..</div>}>
+    <Suspense fallback={<div>Loading..</div>}>
     <S.RightBlockContainer>
-
       <Row type="flex" justify="space-between" align="middle" id={id}>
         <Col lg={12} md={24} sm={24} xs={24}>
           <Slide left>
@@ -35,9 +34,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               <S.Content>We offer expert advice to customers, and assist them with design and implementation solutions providing them with lasting, efficient and practical lighting designs. We ensure all your electrical needs are met.</S.Content>
               <S.Content>Our guarantee of quality work and our commitment to providing the best and most cost-effective solutions to your electrical needs, is why JDP Electrical are known as trusted electrical contractors..</S.Content>
                 <div>
-          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 15, marginTop: -10}}>“Our approach is simple – we treat your home like our own.”</p>
+          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 0, marginTop: -10}}>“Our approach is simple – we treat your home like our own.”</p>
           <Col lg={12} md={24} sm={24} xs={24}>
-          
     </Col>
           <h6 style={{ color: 'black', fontSize:20, textAlign: 'center', marginBottom: 40, marginTop: -80}}><S.CustomNavLinkSmall >
           <div id="ButtonMain">
@@ -111,7 +109,6 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                       timeout={3000} />
                       </div>}>
                       <ImageMain rel="preload" />
-
                   </Suspense>
             </Slide>
           </Col>

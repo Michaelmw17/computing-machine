@@ -10,7 +10,7 @@ const MyImage = ({ image }) => (
               display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
-                margin: "0 40px 0",
+                margin: "0 35px 0",
                 marginTop: "15px",
                 height: "100%",
                 width: "100%",
