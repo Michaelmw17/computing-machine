@@ -1,25 +1,26 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[25],{
 
-/***/ "./node_modules/react-lazy-load-image-component/src/effects/blur.css":
-/*!***************************************************************************!*\
-  !*** ./node_modules/react-lazy-load-image-component/src/effects/blur.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./node_modules/react-lazy-load-image-component/src/effects/blur.css?");
-
-/***/ }),
-
-/***/ "./src/components/MyCompRed/myComp.js":
-/*!********************************************!*\
-  !*** ./src/components/MyCompRed/myComp.js ***!
-  \********************************************/
+/***/ "./src/common/TextArea/index.js":
+/*!**************************************!*\
+  !*** ./src/common/TextArea/index.js ***!
+  \**************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-lazy-load-image-component */ \"./node_modules/react-lazy-load-image-component/build/index.js\");\n/* harmony import */ var react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-lazy-load-image-component/src/effects/blur.css */ \"./node_modules/react-lazy-load-image-component/src/effects/blur.css\");\n/* harmony import */ var react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nvar MyImageRed = function MyImageRed(_ref) {\n  var image = _ref.image;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__[\"LazyLoadImage\"], {\n    effect: \"blur\",\n    \"max-age\": \"31536000\",\n    src: process.env.PUBLIC_URL + '/itc-logo-red.png',\n    alt: \"In The Cove\",\n    style: {\n      display: \"absolute\",\n      background: '#FFF',\n      marginRight: \"auto\",\n      marginTop: \"15px\",\n      height: \"100%\",\n      width: \"100%\",\n      maxWidth: \"90%\",\n      maxHeight: \"80%\",\n      padding: '0 ​0 5px 25px'\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (MyImageRed);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/node-libs-browser/node_modules/process/browser.js */ \"./node_modules/node-libs-browser/node_modules/process/browser.js\")))\n\n//# sourceURL=webpack:///./src/components/MyCompRed/myComp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles */ \"./src/common/TextArea/styles.js\");\n\n\n\nvar TextArea = function TextArea(_ref) {\n  var name = _ref.name,\n      id = _ref.id,\n      placeholder = _ref.placeholder,\n      onChange = _ref.onChange,\n      t = _ref.t;\n  return /*#__PURE__*/React.createElement(_styles__WEBPACK_IMPORTED_MODULE_1__[\"Container\"], null, /*#__PURE__*/React.createElement(_styles__WEBPACK_IMPORTED_MODULE_1__[\"TextArea\"], {\n    spellcheck: \"false\",\n    placeholder: t(placeholder),\n    id: name,\n    name: name,\n    onChange: onChange\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_i18next__WEBPACK_IMPORTED_MODULE_0__[\"withTranslation\"])()(TextArea));\n\n//# sourceURL=webpack:///./src/common/TextArea/index.js?");
+
+/***/ }),
+
+/***/ "./src/common/TextArea/styles.js":
+/*!***************************************!*\
+  !*** ./src/common/TextArea/styles.js ***!
+  \***************************************/
+/*! exports provided: Container, TextArea */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Container\", function() { return Container; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TextArea\", function() { return TextArea; });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nvar _templateObject, _templateObject2;\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\nvar Container = styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].div(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  display: inline-block;\\n  width: 100%;\\n\"])));\nvar TextArea = styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].textarea(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  width: 100%;\\n  outline: none;\\n  border-radius: 8px;\\n  padding: 1rem 1.25rem;\\n  resize: none;\\n  font-size: 0.875rem;\\n  height: 135px;\\n  transition: border-color 0.3s ease-in;\\n\\n  &:focus,\\n  &:hover {\\n    border-color: RGB(209, 29, 50);\\n  }\\n\"])));\n\n//# sourceURL=webpack:///./src/common/TextArea/styles.js?");
 
 /***/ })
 

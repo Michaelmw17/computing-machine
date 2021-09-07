@@ -1,5 +1,4 @@
 import React, {lazy} from "react";
-// import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 
@@ -27,8 +26,7 @@ const MiddleBlock = ({ title, content, button, t }) => {
                 <Button
                   name="submit"
                   type="submit"
-                  onClick={() => scrollTo("mission")}
-                >
+                  onClick={() => scrollTo("mission")}>
                   {t(button)}
                 </Button>
               ) : (

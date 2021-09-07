@@ -23,7 +23,7 @@ const containerStyle = {
 };
 
 const center = {
-   lat: -33.8097541497481,
+  lat: -33.8097541497481,
   lng:  151.14841320640292
 };
 
@@ -35,15 +35,13 @@ function MyComponent(props) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={15}
-          >
-              <Marker
-          title='JDP Electrical'
-          position={center}
-          onClick={() => {
-            setOpened(!isOpened);
-          }}
-        />
+        zoom={15}>
+          <Marker
+            title='JDP Electrical'
+            position={center}
+            onClick={() => {
+              setOpened(!isOpened);
+            }} />
         {isOpened && (
           <OverlayView
             position={center}
@@ -57,11 +55,10 @@ function MyComponent(props) {
                       <p style={{ textAlign:`center`}}>JDP Electrical </p>
                       <p style={{ textAlign:`center`}}> 17/4-6 Chaplin Dr, Lane Cove West NSW 2066</p>
                       <ul className='list-unstyled' >
-                              <li>
-                                  <Href
-                                  text={testData.text}
-                                  url={testData.link}
-                                  />
+                      <li>
+                          <Href
+                              text={testData.text}
+                              url={testData.link} />
                         </li>
                       </ul>
               </div>

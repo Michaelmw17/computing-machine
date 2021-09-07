@@ -56,7 +56,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               cursor: "pointer",
               maxWidth: "180px",
         }}>
-        <p class="p-Call-us-now-main"> CALL US NOW  </p>
+        <p className="p-Call-us-now-main"> CALL US NOW  </p>
       <PhoneForwardedIcon/>
       </Button>
       </a>

@@ -9,7 +9,7 @@ const MyImageBlue = ({ image }) => (
     alt="Neca"
     src={process.env.PUBLIC_URL + '/neca-nat-logo-text.png'} max-age="31536000"
     style={{
-               display: "absolute",
+                display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
                 height: "100%",

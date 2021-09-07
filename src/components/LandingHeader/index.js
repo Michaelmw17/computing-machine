@@ -48,41 +48,35 @@ const useStyles = makeStyles((theme) => ({
     };
     return (
       <Fragment>
-         <div className={classes.root}>
-      
-          
-            <Tooltip
-            arrow={8}
-  background="RGB(209, 29, 50)"
-  border="#0e1111"
-  color="#FFF"
-  content="Enter JDP Electrical"
-  fadeDuration={3}
-  fadeEasing="linear"
-  fixed={false}
-  fontFamily="inherit"
-  fontSize="inherit"
-  offset={0}
-  padding={15}
-  placement="right"
-  radius={5}
-  zIndex={1}
-            
-    customCss={css`
-      white-space: wrap;
-    `}
-          >
+            <div className={classes.root}>
+                    <Tooltip
+                    arrow={8}
+                    background="RGB(209, 29, 50)"
+                    border="#0e1111"
+                    color="#FFF"
+                    content="Enter JDP Electrical"
+                    fadeDuration={3}
+                    fadeEasing="linear"
+                    fixed={false}
+                    fontFamily="inherit"
+                    fontSize="inherit"
+                    offset={0}
+                    padding={15}
+                    placement="right"
+                    radius={5}
+                    zIndex={1}
+                        customCss={css`
+                          white-space: wrap;
+                        `} >
             <Link to="/about">
           <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 55   }} />
               <S.Span >{t("Welcome")}</S.Span>
           </Link>
           </Tooltip>
-        
-        <S.CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <S.Span>
+            <S.CustomNavLinkSmall
+              style={{ width: "180px" }}
+              onClick={() => scrollTo("contact")} >
+              <S.Span>
           </S.Span>
           </S.CustomNavLinkSmall>
           </div>

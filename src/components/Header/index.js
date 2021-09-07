@@ -77,26 +77,26 @@ const useStyles = makeStyles((theme) => ({
           <S.Span><span>{t("Contact")}</span></S.Span>
           </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall >
-          <div>
-          <a href="tel:02-9419-7947">
-      <Button classes={{ root: 'button', label: 'button-label'}} style={{  
-        marginBottom: 40, 
-        background:  'FFF',
-        color: 'rgb(209, 29, 50)',
-        fontSize: '1rem',
-        fontWeight: 600,
-        width: "100%",
-        border:'2px solid  rgb(209, 29, 50)',
-        borderRadius: "8px",
-        height: "50px",
-        right: "0",
-        outline: "none",
-        cursor: "pointer",
-        maxWidth: "180px",
-  }}>
-    <p class="p-CallUs"> CALL US NOW  </p>
-      <PhoneForwardedIcon/>
-      </Button>
+              <div>
+                <a href="tel:02-9419-7947">
+                  <Button classes={{ root: 'button', label: 'button-label'}} style={{  
+                    marginBottom: 40, 
+                    background:  'FFF',
+                    color: 'rgb(209, 29, 50)',
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    width: "100%",
+                    border:'2px solid  rgb(209, 29, 50)',
+                    borderRadius: "8px",
+                    height: "50px",
+                    right: "0",
+                    outline: "none",
+                    cursor: "pointer",
+                    maxWidth: "180px",
+              }}>
+            <p className="p-CallUs"> CALL US NOW  </p>
+          <PhoneForwardedIcon/>
+        </Button>
       </a>
     </div>
     </S.CustomNavLinkSmall>

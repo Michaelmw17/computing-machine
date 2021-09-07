@@ -7,7 +7,7 @@ const MyImage = ({ image }) => (
     effect="blur"
     src={ process.env.PUBLIC_URL + '/IMG_1050.jpg'} 
     style={{
-              display: "absolute",
+                display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
                 margin: "0 35px 0",
@@ -24,7 +24,6 @@ const MyImage = ({ image }) => (
                 objectFit: 'cover',
                 objectPosition: 'center',
                 filter: 'drop-shadow(2.5px 2.5px 5px #000)',
-                borderRadius: '5%',
-            }}/>
+                borderRadius: '5%' }}/>
 );
 export default MyImage;

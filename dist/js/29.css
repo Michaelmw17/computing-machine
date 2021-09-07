@@ -1,38 +1,4 @@
 
-.intro {
-    margin-top: 50px;
-}
-.button {
-  background-color: #6772e5;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
-}
-.button:hover {
-  background-color: white
-}
-.button-label {
-  color: black;
-}
-.p-CallUs {
-  padding: 3px;
-  padding-top: 20px;
-  font-size: 14px;
-}
-.div-wrapper {
-    background-color: black;
-    display: flex; 
-    justify-content: space-between;
-}
-
-.icon:hover {
-   color: white;
-}
-.icon {
-    color:"#000";
-    font-size: 20;
-    padding-top: 5;
-}
-
 .team-section {
 	text-align: center;
 }

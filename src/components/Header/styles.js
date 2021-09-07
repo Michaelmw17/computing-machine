@@ -22,7 +22,6 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const Container = styled.div`
-  position: fixed;
   width: 100%;
   padding-right: 25px;
   padding-left: 25px;

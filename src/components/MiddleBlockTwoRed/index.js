@@ -1,5 +1,4 @@
 import React, { lazy } from "react";
-// import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 

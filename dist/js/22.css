@@ -1,36 +1,18 @@
-#Paper ,#PaperH2 {
-  color: #FFF;
-}
-.containerCar {
-  padding: 60px;
-  background: rgb(209, 29, 50);
-}
-.review {
-  font-size: 24px;
-  margin-top: 10px;
-  color: white
-}
-#review-h1 {
-  color: white;
-  margin-top:-80px;
-  font-size: 34px;
-}
-#review-p{
-  color: white;
-  font-size: 23px;
+.lazy-load-image-background.blur {
+  filter: blur(15px);
 }
 
-#review-icon{
-  color: white;
-  font-size: 23px;
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  filter: blur(0);
+  transition: filter .3s;
 }
 
-#Name   {
-  color: white;
-  text-align: right;
-  font-size: 24px;
+.lazy-load-image-background.blur > img {
+  opacity: 0;
 }
-.Icon   {
-  color: white;
-  text-align: center;
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  opacity: 1;
+  transition: opacity .3s;
 }
+

@@ -79,13 +79,13 @@ const TestApp = ({ classes }) => {
                           fontSize: 20, paddingRight: 35, marginTop: -5}
                           }>Strata / Property Maintenance</div>
                           <BuildSharpIcon  style={{ 
-                        fontSize: 210, paddingTop: 0, color: "#FFF", paddingLeft: 45
+                        fontSize: 210, paddingTop: 0, paddingBottom: '51px', color: "#FFF", paddingLeft: 40
                           }} />
                       </div>
                       </div>
                       </div>
                       <div className="text-left">
-                          <p style={{ marginLeft: 10,fontSize: 20,color: '#FFF', textTransform: 'uppercase',textAlign: 'center'}}>Strata / Property Maintenance</p>
+                          <p style={{ marginLeft: 10, fontSize: 20, color: '#FFF', textTransform: 'uppercase',textAlign: 'center'}}>Strata / Property Maintenance</p>
                           <PinnedSubheaderList/>
                       </div>
                     </ReactCardFlipper>

@@ -9,7 +9,7 @@ const MyImageRed = ({ image }) => (
     src={process.env.PUBLIC_URL + '/itc-logo-red.png'} 
     alt="In The Cove"
     style={{
-               display: "absolute",
+                display: "absolute",
                 background: '#FFF',
                 marginRight: "auto",
                 marginTop: "15px",
@@ -17,7 +17,6 @@ const MyImageRed = ({ image }) => (
                 width: "100%",
                 maxWidth: "90%",
                 maxHeight: "80%",
-               padding: '0 ​0 5px 25px'
-            }}/>
+                padding: '0 ​0 5px 25px'}}/>
 );
 export default MyImageRed;
