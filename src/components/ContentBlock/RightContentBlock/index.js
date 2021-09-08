@@ -49,7 +49,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               color: 'rgb(209, 29, 50)',
               fontSize: '1rem',
               fontWeight: 600,
-              width: "115%",
+              width: "100%",
               border:'2px solid  rgb(209, 29, 50)',
               borderRadius: "8px",
               height: "55px",

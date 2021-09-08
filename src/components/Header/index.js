@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
                     color: 'rgb(209, 29, 50)',
                     fontSize: '1rem',
                     fontWeight: 600,
-                    width: "105%",
+                    width: "100%",
                     border:'2px solid  rgb(209, 29, 50)',
                     borderRadius: "8px",
                     height: "50px",
