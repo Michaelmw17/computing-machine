@@ -10,8 +10,11 @@ export const RightBlockContainer = styled.section`
 `;
 
 export const Content = styled.p`
-  margin: 1.5rem 0 2rem 0;
+  margin: 1.5rem 2rem 2rem 0;
   font-size: 20px;
+  @media only screen and (max-width: 480px) {
+   margin: 1.5rem 0 2rem 0;
+  }
 `;
 export const Span = styled.p`
   margin: 0.4rem -5rem 0rem -6rem;

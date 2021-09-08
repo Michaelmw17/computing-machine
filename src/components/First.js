@@ -17,7 +17,7 @@ const containerStyle = {
   marginLeft: '20px',
   marginRight: '20px',
   marginTop: '40px',
-  maxWidth: '480px',
+  maxWidth: '580px',
   maxHeight: '680px',
   borderRadius: '14px'
 };

@@ -14,11 +14,11 @@ export const Container = styled.div`
   }
   @media only screen and (max-width: 768px) {
     max-width: 400px;
+    padding: ${(props) => (props.padding ? "2.9rem" : "0rem 1.5rem 1rem 0.6rem")};
   }
   @media only screen and (max-width: 414px) {
     max-width: 340px;
     padding: ${(props) => (props.padding ? "2.9rem" : "0rem 1.5rem 1rem 0.6rem")};
   }
- 
 `;
 

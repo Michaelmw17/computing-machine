@@ -3,10 +3,9 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-
 import './stylesCarousel.css'
-export default function Example(props)
-{
+
+export default function Example(props) {
     const items = [
         {
             // name: " Mary (Mosman) -",
@@ -22,10 +21,7 @@ export default function Example(props)
 
     return (
         <Carousel autoPlay={false} navButtonsAlwaysVisible={true} navButtonsProps={{   
-        style: {
-            backgroundColor: 'transparent',
-        }
-    }} >
+        style: { backgroundColor: 'transparent',} }} >
         {
             items.map( (item, i) => <Item key={i} item={item} /> )
         }
@@ -38,22 +34,24 @@ const Item= (props) => {
         <Paper id="Paper">
             <div className="containerCar">
                 <div className="review">
-                    <h1 id="review-h1">
-                        Our Reviews
-                        </h1>
-                    <div className="Icon">
-                        <FormatQuoteIcon style={{ color:"#FFF", fontSize: 55, textAlign: 'right'  , marginTop: '-10px' }} />
-                        </div>
-                    {props.item.description}
-                    <p id="review-p">
-                        {/* NOT being used */}
+                    <h1 id="review-h1">Our Reviews</h1>
+                                <div className="Icon">
+                                    <FormatQuoteIcon style={{ 
+                                        color:"#FFF",
+                                        fontSize: 55, 
+                                        textAlign: 'right', 
+                                        marginTop: '-10px' }} />
+                                </div>
+                            {props.item.description}
+                        <p id="review-p">
+                           {/* NOT being used */}
                             {props.item.name}
-                        <span id="review-star-spans">
-                            <span class="star-icon filled">★</span>
-                            <span class="star-icon filled">★</span>
-                            <span class="star-icon filled">★</span>
-                            <span class="star-icon filled">★</span>
-                            <span class="star-icon filled">★</span>
+                            <span id="review-star-spans">
+                                <span className="star-icon filled">★</span>
+                                <span className="star-icon filled">★</span>
+                                <span className="star-icon filled">★</span>
+                                <span className="star-icon filled">★</span>
+                                <span className="star-icon filled">★</span>
                             </span>
                         </p>
                 </div>

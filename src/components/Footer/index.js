@@ -123,21 +123,22 @@ const scrollTo = (id) => {
                     width={100}
                     timeout={3000}/>
                             }>
-            <Col lg={8} md={6} sm={12} xs={24}>
+        <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
               <Link to="/" >
                 <S.LogoContainer>
                     <MyComp /> 
                 </S.LogoContainer>
               </Link>
               </Col>
-              <Col lg={8} md={6} sm={12} xs={24}>
+              
+        <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{"margin-bottom": "10px"}}>
               <Link to="/" >
                 <S.LogoContainer>
                     <MyCompRed />
                 </S.LogoContainer>
               </Link>
               </Col>
-              <Col lg={8} md={6} sm={12} xs={24}>
+        <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
               <Link to="/" >
                 <S.LogoContainer>
                     <MyCompBlue />

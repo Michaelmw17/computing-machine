@@ -34,10 +34,12 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               <S.Content>We offer expert advice to customers, and assist them with design and implementation solutions providing them with lasting, efficient and practical lighting designs. We ensure all your electrical needs are met.</S.Content>
               <S.Content>Our guarantee of quality work and our commitment to providing the best and most cost-effective solutions to your electrical needs, is why JDP Electrical are known as trusted electrical contractors..</S.Content>
                 <div>
-          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 0, marginTop: -10}}>“Our approach is simple – we treat your home like our own.”</p>
+          <p style={{ color: 'red', fontSize:22, textAlign: 'center', marginBottom: 0, marginTop: -10, padding: "0.5rem 1.5rem 0.1rem 1.5rem"}}>
+          “Our approach is simple – we treat your home like our own.”
+          </p>
           <Col lg={12} md={24} sm={24} xs={24}>
     </Col>
-          <h6 style={{ color: 'black', fontSize:20, textAlign: 'center', marginBottom: 40, marginTop: -80}}><S.CustomNavLinkSmall >
+          <h6 style={{ color: 'black', fontSize:20, textAlign: 'center', marginBottom: 40, marginTop: -100}}><S.CustomNavLinkSmall >
           <div id="ButtonMain">
           <a href="tel:02-9419-7947">
             <Button classes={{ root: 'buttonMain',  label: 'button-label-main'}} style={{  
@@ -47,10 +49,10 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
               color: 'rgb(209, 29, 50)',
               fontSize: '1rem',
               fontWeight: 600,
-              width: "100%",
+              width: "115%",
               border:'2px solid  rgb(209, 29, 50)',
               borderRadius: "8px",
-              height: "50px",
+              height: "55px",
               right: "0",
               outline: "none",
               cursor: "pointer",
@@ -100,7 +102,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
             </S.ContentWrapper>
           </Slide>
         </Col>
-        <Col lg={12} md={24} sm={24} xs={24}>
+          <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
             <Slide right>
               <Suspense fallback={<div>
                 <Loader type="Rings" color="#00BFFF"
