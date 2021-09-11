@@ -1,5 +1,6 @@
 .IntroContainer{
   height: 150vh;
+  width: 100vw;
   background-color: #2B2D2F;
   background-size: cover;
 }
