@@ -183,4 +183,8 @@ Button.btn,.btn {
 .whiteContainer {
 	max-width: 2000px;
     margin: auto;
+	overflow: visible;
+}
+body {
+	overflow: visible;
 }

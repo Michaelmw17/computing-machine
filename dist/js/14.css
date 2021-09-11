@@ -55,4 +55,5 @@ input, #number, #menu {
 }
 #demo-simple-select {
    margin-top: 10px;
+   border-radius: 8px;
 }

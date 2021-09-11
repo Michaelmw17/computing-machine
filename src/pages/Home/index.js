@@ -8,43 +8,48 @@ import './homeStyles.css';
 const Container = lazy(() => import("../../common/Container"));
 
 const Home = (props, i) => {  
+  // document.getElementById('#App').overflow = "hidden"
+  // document.body.classList.add("no-sroll")
+  document.body.scroll = "no";
+document.body.style.overflow = 'hidden';
+document.height = window.innerHeight;
   return (<div className="IntroContainer"> 
       <Container>
-        <>
-          <NavLink to='/About'>
-          <div className="AppAboutContainer">
-            <div className="AppCon">
-              <div className="App">
-                    <Tooltip
-                          arrow={8}
-                          background="rgb(209, 29, 50)"
-                          border="#0e1111"
-                          color="#FFF"
-                          content="Click to Enter JDP Electrical"
-                          fadeDuration={3}
-                          fadeEasing="linear"
-                          fixed={false}
-                          fontFamily="inherit"
-                          fontSize="inherit"
-                          offset={0}
-                          padding={16}
-                          placement="bottom"
-                          radius={3}
-                          zIndex={1}
-                            customCss={css`
-                              white-space: nowrap;
-                              word-break: break-all;
-                            `}
-                      >
-                      <Button/>
-                  </Tooltip>
-                </div>
+          <>
+            <NavLink to='/About'>
+            <div className="AppAboutContainer">
+              <div className="AppCon">
+                <div className="App">
+                      <Tooltip
+                            arrow={8}
+                            background="rgb(209, 29, 50)"
+                            border="#0e1111"
+                            color="#FFF"
+                            content="Click to Enter JDP Electrical"
+                            fadeDuration={3}
+                            fadeEasing="linear"
+                            fixed={false}
+                            fontFamily="inherit"
+                            fontSize="inherit"
+                            offset={0}
+                            padding={16}
+                            placement="bottom"
+                            radius={3}
+                            zIndex={1}
+                              customCss={css`
+                                white-space: nowrap;
+                                word-break: break-all;
+                              `}
+                        >
+                        <Button/>
+                    </Tooltip>
+                  </div>
+              </div>
             </div>
-          </div>
-        </NavLink>
-    </>
+          </NavLink>
+      </>
       <NavLink to='/About'>
-            <h1 style={{textAlign: 'center', color: 'white', paddingTop: '25px'}}>
+            <h1 style={{textAlign: 'center', color: 'white', paddingTop: '25px', transform: 'uppercase'}}>
             Enter JDP Electrical Services
             </h1>
             </NavLink>

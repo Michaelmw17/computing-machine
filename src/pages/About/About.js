@@ -23,55 +23,57 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 
 function First() {
-  return (<>
-    <div className="whiteContainer">
-        <Container>
-          <Header />
-            <ScrollToTop />
-            <ContentBlockMain
-            type="right"
-            first="true"
-            title={IntroContent.title}
-            content={IntroContent.text}
-            button={IntroContent.button}
-            icon="developer.svg"
-            id="intro"
-          />
-            </Container>
-          <div id="Service">
-            <MiddleBlock
-              title={MiddleBlockContent.title}
-              content={MiddleBlockContent.text}/>
-              <MeetTheTeam/>
-          <MiddleBlockText/>
-                <MiddleBlockTwo
-                  content={MiddleBlockContentTwo.text} />
-              <MiddleBlockTwoRed
-                content={MiddleBlockTwoRedText.text} />
-            <MiddleBlockTwo
-              content={MiddleBlockContentThree.text} />
-          </div>
-          <Container>
-            <div id="People"></div>
-              <ContentBlock
-                type="right"
-                title={MissionContent.title}
-                content={MissionContent.text}
-                icon="product-launch.svg"
-                  id="mission"
-                />
-              </Container>
-          <div id="Review">
-            <Carousel/>
-          </div>
-            <ContactFrom
-              title={ContactContent.title}
-              content={ContactContent.text}
-              href={ContactContent.href}
-              id="Team"/>
+    document.body.scroll = "yes";
+    document.body.style.overflow = 'visible';
+    document.height = window.innerHeight;
+    return (<>
+        <div className="whiteContainer">
+            <Container>
+              <Header />
+                <ScrollToTop />
+                  <ContentBlockMain
+                  type="right"
+                  first="true"
+                  title={IntroContent.title}
+                  content={IntroContent.text}
+                  button={IntroContent.button}
+                  icon="developer.svg"
+                  id="intro" />
+                  </Container>
+                  <div id="Service">
+                    <MiddleBlock
+                      title={MiddleBlockContent.title}
+                      content={MiddleBlockContent.text}/>
+                        <MeetTheTeam/>
+                          <MiddleBlockText/>
+                      <MiddleBlockTwo
+                          content={MiddleBlockContentTwo.text} />
+                      <MiddleBlockTwoRed
+                        content={MiddleBlockTwoRedText.text} />
+                    <MiddleBlockTwo
+                      content={MiddleBlockContentThree.text} />
+                  </div>
+                  <Container>
+                    <div id="People"></div>
+                      <ContentBlock
+                        type="right"
+                        title={MissionContent.title}
+                        content={MissionContent.text}
+                        icon="product-launch.svg"
+                          id="mission"
+                        />
+                      </Container>
+                  <div id="Review">
+                    <Carousel/>
+                  </div>
+                <ContactFrom
+                  title={ContactContent.title}
+                  content={ContactContent.text}
+                  href={ContactContent.href}
+                  id="Team"/>
               <Footer />
-            </div>
-        </>
+          </div>
+      </>
   );
 }
 

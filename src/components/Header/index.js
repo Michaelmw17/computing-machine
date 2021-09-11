@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       <Fragment>
         <div className={classes.root} style={{ textAlign: "center" }}>
         <S.CustomNavLinkSmall>
-            <Link to="/">
+            <Link to="/"  onClick={scrollToTop}>
           <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
               <S.Span><span>{t("Home")}</span></S.Span>
               </Link>
@@ -106,12 +106,14 @@ const useStyles = makeStyles((theme) => ({
       </Fragment>
     );
   };
-
+const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <S.Header>
       <S.Container>
         <Row type="flex" justify="space-between" gutter={20}>
-          <S.LogoContainer to="/" aria-label="homepage">
+          <S.LogoContainer to="/" aria-label="homepage" onClick={scrollToTop} >
             <Suspense fallback={<Loader type="Rings" color="#00BFFF"
                     height={100}
                     width={100}
@@ -121,19 +123,19 @@ const useStyles = makeStyles((theme) => ({
                                 <MyComp rel="preload" /> 
                     </Suspense>
           </S.LogoContainer>
-          <S.NotHidden>
-            <MenuItem />
-          </S.NotHidden>
-          <S.Burger onClick={showDrawer}>
-            <S.Outline />
-          </S.Burger>
+            <S.NotHidden>
+              <MenuItem />
+            </S.NotHidden>
+              <S.Burger onClick={showDrawer}>
+                <S.Outline />
+              </S.Burger>
         </Row>
-        <CSSTransition
-          in={!isSmallScreen || isNavVisible}
-          timeout={350}
-          classNames="NavAnimation"
-          unmountOnExit
-        >
+          <CSSTransition
+            in={!isSmallScreen || isNavVisible}
+            timeout={350}
+            classNames="NavAnimation"
+            unmountOnExit
+          >
           <Drawer closable={true} visible={visible} onClose={onClose}>
             <Col style={{ marginBottom: "2.5rem" }}>
               <S.Label onClick={onClose} style={{ textAlign: "center" }}>

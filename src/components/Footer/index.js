@@ -26,6 +26,9 @@ const scrollTo = (id) => {
       behavior: "smooth",
     });
   };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <Fragment>
       <Fade bottom>
@@ -53,7 +56,7 @@ const scrollTo = (id) => {
               </Col>
               <Col lg={6} md={6} sm={12} xs={24} >
               <S.Title>{t("JDP Electrical Services")}</S.Title>
-                <S.Large left="true" to="/">
+                <S.Large left="true" to="/" onClick={scrollToTop}>
                   {t("Home")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("mission")}>
@@ -80,73 +83,70 @@ const scrollTo = (id) => {
                 </a>
                 </S.Para>
                 <Mailto email=" info@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                 <S.Chat>{t(`Info@jdpelectrical.com.au`)}</S.Chat>
+                    <S.Chat>{t(`Info@jdpelectrical.com.au`)}</S.Chat>
                   </Mailto>
-                <S.Large left="true" to="/">
-                  
+                <S.Large left="true" >
                 </S.Large>
-                <S.Large left="true" to="/">
+                <S.Large left="true" >
                 </S.Large>
                 <Mailto email=" accounts@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                   <S.Chat>{t(`Accounts@jdpelectrical.com.au`)}</S.Chat>
+                    <S.Chat>{t(`Accounts@jdpelectrical.com.au`)}</S.Chat>
                   </Mailto>
               </Col>
               <Col lg={8} md={6} sm={12} xs={24}>
-               
                 <S.Title>{t("Joe Panetta")}</S.Title>
-                <S.Para>
-                <a href="tel:0412-450-300" id="TextNumberJoe">
-                            {t("Ph: 0412 450 300")}
-                </a>
-                </S.Para>
+                  <S.Para>
+                    <a href="tel:0412-450-300" id="TextNumberJoe">
+                                {t("Ph: 0412 450 300")}
+                    </a>
+                  </S.Para>
               </Col>
               <Col lg={5} md={8} sm={12} xs={24}>
-                
                 <S.Title >{t("Dominic Panetta")}</S.Title>
                 <S.Para>
                 <a href="tel:0412-479-557" id="TextNumberDom">
-                            {t("Ph: 0412 479 557")}
+                      {t("Ph: 0412 479 557")}
                 </a>
                 </S.Para>
               </Col>
               </Row>
           </Container>
         </S.Footer>
-        <S.Extra>
-          <Container border="true">
+      <S.Extra>
+        <Container border="true">
             <Row
               type="flex"
               align="middle"
-              style={{ paddingTop: "3rem" }}
-            ><Suspense fallback={<Loader type="Rings" color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={3000}/>
+              style={{ paddingTop: "3rem" }} >
+            <Suspense fallback={
+                    <Loader type="Rings" color="#00BFFF"
+                              height={100}
+                              width={100}
+                              timeout={3000}/>
                             }>
-        <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyComp /> 
-                </S.LogoContainer>
-              </Link>
-              </Col>
-              
-        <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{"margin-bottom": "10px"}}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyCompRed />
-                </S.LogoContainer>
-              </Link>
-              </Col>
-        <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyCompBlue />
-                </S.LogoContainer>
-              </Link>
-              </Col> 
-              </Suspense>
-              <S.FooterContainer>
+                    <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
+                          <Link to="/" onClick={scrollToTop} >
+                            <S.LogoContainer>
+                                <MyComp /> 
+                            </S.LogoContainer>
+                          </Link>
+                      </Col>
+                  <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{"margin-bottom": "10px"}}>
+                        <Link to="/" onClick={scrollToTop}  >
+                          <S.LogoContainer>
+                              <MyCompRed />
+                          </S.LogoContainer>
+                        </Link>
+                        </Col>
+                    <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
+                          <Link to="/"  onClick={scrollToTop} >
+                            <S.LogoContainer>
+                                <MyCompBlue />
+                            </S.LogoContainer>
+                      </Link>
+                    </Col> 
+                  </Suspense>
+                <S.FooterContainer>
               </S.FooterContainer>
             </Row>
           </Container>

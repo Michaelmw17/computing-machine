@@ -83,12 +83,14 @@ const useStyles = makeStyles((theme) => ({
       </Fragment>
     );
   };
-
+const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <S.Header>
       <S.Header>
         <Row type="flex" justify="space-between" gutter={20}>
-          <S.LogoContainer to="/" aria-label="homepage">
+          <S.LogoContainer to="/" aria-label="homepage" onClick={scrollToTop}>
                   <Suspense fallback={<Loader type="Rings" color="#00BFFF"
                     height={100}
                     width={100}

@@ -65,3 +65,6 @@
 /* .AppAboutContainer{
     max-width: 155px; 
 } */
+.no-sroll {
+  position: sticky;
+}
