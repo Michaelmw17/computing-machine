@@ -38,9 +38,9 @@ const Home = (props, i) => {
                             fontFamily="inherit"
                             fontSize="inherit"
                             offset={0}
-                            padding={16}
+                            padding={10}
                             placement="bottom"
-                            radius={3}
+                            radius={33}
                             zIndex={1}
                               customCss={css`
                                 white-space: nowrap;
