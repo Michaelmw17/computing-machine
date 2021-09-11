@@ -26,7 +26,7 @@ const styles = {
 
 const TestApp = ({ classes }) => {
     return (<>
-     <ContainerCardFlip >
+    <ContainerCardFlip >
         <div className={classes.container}>
             <div id="main" className="containerS">
                 <div className="row">
@@ -47,12 +47,12 @@ const TestApp = ({ classes }) => {
                                 <div className="p-naming" style={{ fontSize: 20, paddingRight:"20px", paddingBottom: 0 }}>
                                   Residential
                                   </div>
-                                <HomeIcon  style={{fontSize: 230, paddingTop: 0, paddingLeft: 10 , }} />
+                                <HomeIcon  style={{ fontSize: 230, paddingTop: 0, paddingLeft: 10 }} />
                                 </div>
                             </div>
                           </div>
                           <div className="text-left">
-                              <p style={{ marginLeft: 80,fontSize: 20,color: '#FFF',textTransform: 'uppercase', listStyleType: 'none'  }}>
+                              <p style={{ marginLeft: 80, fontSize: 20, color: '#FFF', textTransform: 'uppercase', listStyleType: 'none'  }}>
                               Residential
                               </p>
                               <MyListResidential/>
@@ -72,14 +72,16 @@ const TestApp = ({ classes }) => {
                             <div className="Services">
                               <div className="pie">
                                 <div className="p-naming" style={{  fontSize: 20, paddingRight: 35, marginTop: -5}}>
-                                  Strata / Property Maintenance
+                                  <p id="Strata-Top" >
+                                    Strata / Property Maintenance
+                                    </p>
                                   </div>
                                   <BuildSharpIcon  style={{ fontSize: 210, paddingTop: 0, paddingBottom: '51px', color: "#FFF", paddingLeft: 40}} />
                               </div>
                             </div>
                           </div>
                           <div className="text-left">
-                              <p style={{ marginLeft: 10, fontSize: 20, color: '#FFF', textTransform: 'uppercase',textAlign: 'center'}}>Strata / Property Maintenance</p>
+                              <p id="Strata-flipped">Strata / Property Maintenance</p>
                               <PinnedSubheaderList/>
                           </div>
                       </ReactCardFlipper>
@@ -96,9 +98,7 @@ const TestApp = ({ classes }) => {
                       <div className="text-left">
                         <div className="Services">
                           <div className="pie">
-                            <div id="services-p-naming" className="p-naming" style={{ 
-                              fontSize: 20, paddingLeft: 0, paddingBottom: 15 
-                              }}>Commercial</div>
+                            <div id="services-p-naming" className="p-naming">Commercial</div>
                             <BusinessIcon  style={{ 
                               fontSize: 220, paddingTop: 50, color: "#FFF", 
                               paddingLeft: 30 }} />
@@ -106,8 +106,7 @@ const TestApp = ({ classes }) => {
                         </div>
                       </div>
                       <div className="text-left">
-                          <p style={{  marginLeft: 80,fontSize: 20,color: '#FFF', 
-                            textTransform: 'uppercase', listStyleType: 'none'}}>
+                          <p id='Commercial-p'>
                             Commercial
                             </p>
                               <MyListCommercial/>

@@ -42,7 +42,11 @@ h1 {
 }
 #services-p-naming {
 	margin-left: 20px;
+	font-size: 20px;
+	padding-left: 0px;
+	padding-bottom: 15px;
 }
+
 .fas {
 	margin-left: 40px;
 }
@@ -89,4 +93,23 @@ h1 {
 .Link {
 	margin-bottom: 600px;
 	display: absolute;
+}
+#Commercial-p {
+	margin-left: 70px;
+	font-size: 20px;
+	color: #FFF;
+    text-transform: uppercase;
+    list-style-type: none;
+}
+#Strata-Top {
+	font-size: 20;
+	padding-right: 35;
+	margin-top: -5;
+}
+#Strata-flipped {
+	margin-left: 10px;
+	font-size: 20px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center;
 }

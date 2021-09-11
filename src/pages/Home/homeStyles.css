@@ -6,7 +6,7 @@
 .App {
   width: 250px; 
   height: 400px; 
-  margin-top:50px;
+  margin-top: 50px;
   background: rgba(255, 255, 255, 0.932);
   border-radius: 20px; 
   margin-left: auto;
@@ -31,9 +31,28 @@
   background: rgba(255, 255, 255, 0.973);
 }
 
-/* .AppAboutContainer{
-    max-width: 155px; 
-} */
-.no-sroll {
-  position: sticky;
+body {
+  overflow: visible; 
+}
+#Enter-Title {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+#Enter-Title{
+  text-align: center;
+  color: white;
+  transform: uppercase;
+  font-size: 30px;
+}
+
+@media (min-width: 600px) {
+  body {
+    overflow: hidden; /* This is how it looks on desktop */
+  }
+  #Enter-Title {
+    padding-top: 25px;
+  }
+  #Enter-Title {
+    font-size: 52px;
+  }
 }

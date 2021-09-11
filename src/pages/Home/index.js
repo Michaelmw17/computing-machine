@@ -8,11 +8,6 @@ import './homeStyles.css';
 const Container = lazy(() => import("../../common/Container"));
 
 const Home = (props, i) => {  
-  // document.getElementById('#App').overflow = "hidden"
-  // document.body.classList.add("no-sroll")
-  document.body.scroll = "no";
-document.body.style.overflow = 'hidden';
-document.height = window.innerHeight;
   return (<div className="IntroContainer"> 
       <Container>
           <>
@@ -49,7 +44,7 @@ document.height = window.innerHeight;
           </NavLink>
       </>
       <NavLink to='/About'>
-            <h1 style={{textAlign: 'center', color: 'white', paddingTop: '25px', transform: 'uppercase'}}>
+            <h1 id="Enter-Title">
             Enter JDP Electrical Services
             </h1>
             </NavLink>
