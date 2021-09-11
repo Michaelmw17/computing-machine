@@ -65,12 +65,12 @@ body {
     margin: 6px 6px;
   }
 }
-/* .App, .AppCon {
-    width: 200px;
-    height: 350px;
-  } */
 
   .css-140rygk-BaseToolTop {
     top: 85% !important;
     left: 135% !important;
+  }
+  .css-ffrbnv {
+    top: 80% !important;
+    left: 129% !important;
   }
