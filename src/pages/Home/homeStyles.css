@@ -1,7 +1,7 @@
 .IntroContainer{
   height: 150vh;
   width: 100vw;
-  background-color: #2B2D2F;
+  background-color: #1f1c1d;
   background-size: cover;
 }
 .App {
@@ -9,7 +9,6 @@
   height: 350px; 
   margin-top: 10px;
   background: rgba(255, 255, 255, 0.932);
-  border-radius: 20px; 
   margin-left: auto;
   margin-right: auto ;
   border-radius: 10px;
@@ -20,9 +19,8 @@
 .AppCon {
   width: 235px; 
   height: 355px; 
-  margin-top:70px;
+  margin-top: 50px;
   background: rgba(255, 255, 255, 0.932);
-  border-radius: 10px; 
   margin-left: auto;
   margin-right: auto ;
   border-radius: 10px;
@@ -37,7 +35,7 @@ body {
   overflow: visible; 
 }
 #Enter-Title {
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 0px;
 }
 #Enter-Title{
@@ -46,7 +44,7 @@ body {
   transform: uppercase;
   font-size: 30px;
 }
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   body {
     overflow: hidden; /* This is how it looks on desktop */
   }
