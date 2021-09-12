@@ -14,18 +14,15 @@ export const Button = styled.button`
   margin-top: 0.625rem;
   max-width: 180px;
   margin-bottom: 1.625rem;
-
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }
-
   @media only screen and (max-width: 768px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }
-
   @media only screen and (max-width: 480px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
     margin-left: 0rem;
   }
-  
+
 `;

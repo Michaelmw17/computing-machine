@@ -1,26 +1,26 @@
 .IntroContainer{
   height: 150vh;
-  background-color: #2B2D2F;
+  width: 100vw;
+  background-color: #1f1c1d;
   background-size: cover;
 }
 .App {
-  width: 250px; 
-  height: 400px; 
-  margin-top:50px;
+  width: 230px;
+  height: 350px;
+  margin-top: 10px;
   background: rgba(255, 255, 255, 0.932);
-  border-radius: 20px; 
   margin-left: auto;
   margin-right: auto ;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 100, 0.56) 0px 22px 70px 4px;
   cursor: pointer;
+  padding-top: 10px;
 }
 .AppCon {
-  width: 255px; 
-  height: 405px; 
-  margin-top:50px;
+  width: 235px;
+  height: 355px;
+  margin-top: 50px;
   background: rgba(255, 255, 255, 0.932);
-  border-radius: 10px; 
   margin-left: auto;
   margin-right: auto ;
   border-radius: 10px;
@@ -31,6 +31,46 @@
   background: rgba(255, 255, 255, 0.973);
 }
 
-/* .AppAboutContainer{
-    max-width: 155px; 
-} */
+body {
+  overflow: visible; 
+}
+#Enter-Title {
+  padding: 5px 0 ;
+}
+#Enter-Title{
+  text-align: center;
+  color: white;
+  transform: uppercase;
+  font-size: 30px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+@media (min-width: 900px) {
+  body {
+    overflow: hidden; /* This is how it looks on desktop */
+  }
+  #Enter-Title {
+    padding-top: 25px;
+  }
+  #Enter-Title {
+    font-size: 52px;
+  }
+  .AppCon{
+    width: 255px; 
+    height: 400px; 
+  }
+  .App {
+    width: 243px;
+    height: 390px;
+    position: absolute;
+    margin: 6px 6px;
+  }
+}
+
+  .css-140rygk-BaseToolTop {
+    top: 85% !important;
+    left: 135% !important;
+  }
+  .css-ffrbnv {
+    top: 80% !important;
+    left: 129% !important;
+  }

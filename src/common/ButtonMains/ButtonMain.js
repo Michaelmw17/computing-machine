@@ -34,17 +34,7 @@ const useStyles = makeStyles((theme) => ({
           title="Click to Enter"
           variant="outlined"
           color="primary"
-          id="MainButton"
-          style={{"position": "absolute",
-            "top": "0", 
-            "left": "0",
-            "display": "block",
-            "width": "150%",
-            "height": "60%",
-            "borderRadius": "20%",
-              "background": "linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white",
-              "boxShadow": "rgba(0, 23, 25, 0.2) 0px 19px 38px, #71d9ff 0px 5px 22px"
-          }}>
+          id="MainButton">
           
           <span style={{"position": "absolute",
           

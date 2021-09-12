@@ -51,11 +51,14 @@ const useStyles = makeStyles((theme) => ({
       });
       setVisibility(false);
     };
+    const scrollToTop = () => {
+    window.scrollTo(0, 0)
+    }
     return (
       <Fragment>
         <div className={classes.root} style={{ textAlign: "center" }}>
         <S.CustomNavLinkSmall>
-            <Link to="/">
+            <Link to="/" onClick={scrollToTop} >
           <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
               <S.Span><span>{t("Home")}</span></S.Span>
               </Link>
@@ -106,12 +109,14 @@ const useStyles = makeStyles((theme) => ({
       </Fragment>
     );
   };
-
+const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <S.Header>
       <S.Container>
         <Row type="flex" justify="space-between" gutter={20}>
-          <S.LogoContainer to="/" aria-label="homepage">
+          <S.LogoContainer to="/" aria-label="homepage" onClick={scrollToTop}>
             <Suspense fallback={<Loader type="Rings" color="#00BFFF"
                     height={100}
                     width={100}
