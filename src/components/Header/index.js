@@ -126,19 +126,19 @@ const scrollToTop = () => {
                                 <MyComp rel="preload" /> 
                     </Suspense>
           </S.LogoContainer>
-          <S.NotHidden>
-            <MenuItem />
-          </S.NotHidden>
-          <S.Burger onClick={showDrawer}>
-            <S.Outline />
-          </S.Burger>
+            <S.NotHidden>
+              <MenuItem />
+            </S.NotHidden>
+              <S.Burger onClick={showDrawer}>
+                <S.Outline />
+              </S.Burger>
         </Row>
-        <CSSTransition
-          in={!isSmallScreen || isNavVisible}
-          timeout={350}
-          classNames="NavAnimation"
-          unmountOnExit
-        >
+          <CSSTransition
+            in={!isSmallScreen || isNavVisible}
+            timeout={350}
+            classNames="NavAnimation"
+            unmountOnExit
+          >
           <Drawer closable={true} visible={visible} onClose={onClose}>
             <Col style={{ marginBottom: "2.5rem" }}>
               <S.Label onClick={onClose} style={{ textAlign: "center" }}>

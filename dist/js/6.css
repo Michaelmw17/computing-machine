@@ -15,7 +15,7 @@
 }
 .p-CallUs {
   padding: 3px;
-  padding-top: 20px;
+  padding-top: 17px;
   font-size: 14px;
 }
 
@@ -218,4 +218,8 @@ Button.btn,.btn {
 .whiteContainer {
 	max-width: 2000px;
     margin: auto;
+	overflow: visible;
+}
+body {
+	overflow: visible;
 }

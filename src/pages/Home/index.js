@@ -22,7 +22,6 @@ const Home = (props, i) => {
   const scrollToTop = () => {
     window.scrollTo(0, 0)
   } 
-  
   return (<div className="IntroContainer"> 
       <Container>
           <>

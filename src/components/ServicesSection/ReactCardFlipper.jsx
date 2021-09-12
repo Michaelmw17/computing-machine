@@ -5,7 +5,7 @@ import classNames from "classnames";
 type Props = { 
   width: string,
   height: string,
-   behavior: string,
+  behavior: string,
   levitate: boolean,
   innerCardClass?: string,
   className?: string,

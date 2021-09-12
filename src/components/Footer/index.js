@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 import {  Link } from 'react-router-dom';
 import * as S from "./styles";
-
+import  ScrollToTop from '../../components/ScrollTopFunc';
 const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 const MyComp = lazy(() => import("../../components/MyComp/myComp"));
@@ -49,14 +49,14 @@ const scrollTo = (id) => {
                 </Mailto>
               </Col>
               <Col lg={6} md={6} sm={12} xs={24}>
-                <S.Title>{t("ADDRESS")}</S.Title>
+               <S.Title>{t("ADDRESS")}</S.Title>
                 <S.Para>Unit 17 </S.Para>
                 <S.Para>4-6 Chaplin Drive</S.Para>
                 <S.Para> Lane Cove West NSW 2066</S.Para>
               </Col>
               <Col lg={6} md={6} sm={12} xs={24} >
               <S.Title>{t("JDP Electrical Services")}</S.Title>
-                <S.Large left="true" to="/" onClick={scrollToTop} >
+                <S.Large left="true" to="/" onClick={scrollToTop}>
                   {t("Home")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("mission")}>
@@ -115,35 +115,35 @@ const scrollTo = (id) => {
           </Container>
         </S.Footer>
         <S.Extra>
+         <ScrollToTop>
           <Container border="true">
             <Row
               type="flex"
               align="middle"
               style={{ paddingTop: "3rem" }}
             >
-            <Suspense fallback={
-            <Loader type="Rings" color="#00BFFF"
+            <Suspense fallback={<Loader type="Rings" color="#00BFFF"
                     height={100}
                     width={100}
                     timeout={3000}/>
                             }>
         <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
-              <Link to="/" onClick={scrollToTop} >
+              <Link to="/" >
                 <S.LogoContainer>
                     <MyComp /> 
                 </S.LogoContainer>
               </Link>
               </Col>
               
-        <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{ marginBottom: "10px" }}>
-              <Link to="/" onClick={scrollToTop} >
+        <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{marginBottom: "10px"}}>
+              <Link to="/" >
                 <S.LogoContainer>
                     <MyCompRed />
                 </S.LogoContainer>
               </Link>
               </Col>
         <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
-              <Link to="/" onClick={scrollToTop}>
+              <Link to="/" >
                 <S.LogoContainer>
                     <MyCompBlue />
                 </S.LogoContainer>
@@ -154,6 +154,7 @@ const scrollTo = (id) => {
               </S.FooterContainer>
             </Row>
           </Container>
+           </ScrollToTop>
         </S.Extra>
       </Fade>
     </Fragment>
