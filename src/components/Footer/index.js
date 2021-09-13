@@ -115,46 +115,46 @@ const scrollTo = (id) => {
           </Container>
         </S.Footer>
         <S.Extra>
-         <ScrollToTop>
-          <Container border="true">
-            <Row
-              type="flex"
-              align="middle"
-              style={{ paddingTop: "3rem" }}
-            >
-            <Suspense fallback={<Loader type="Rings" color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={3000}/>
-                            }>
-        <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyComp /> 
-                </S.LogoContainer>
-              </Link>
-              </Col>
-              
-        <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{marginBottom: "10px"}}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyCompRed />
-                </S.LogoContainer>
-              </Link>
-              </Col>
-        <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
-              <Link to="/" >
-                <S.LogoContainer>
-                    <MyCompBlue />
-                </S.LogoContainer>
-              </Link>
-              </Col> 
-              </Suspense>
-              <S.FooterContainer>
-              </S.FooterContainer>
-            </Row>
-          </Container>
-           </ScrollToTop>
+          <ScrollToTop>
+              <Container border="true">
+                <Row
+                  type="flex"
+                  align="middle"
+                  style={{ paddingTop: "3rem" }}
+                >
+                <Suspense fallback={<Loader type="Rings" color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000}/>
+                                }>
+            <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
+                  <Link to="/" >
+                    <S.LogoContainer>
+                        <MyComp /> 
+                    </S.LogoContainer>
+                  </Link>
+                  </Col>
+                  
+            <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{marginBottom: "10px"}}>
+                  <Link to="/" >
+                    <S.LogoContainer>
+                        <MyCompRed />
+                    </S.LogoContainer>
+                  </Link>
+                  </Col>
+            <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
+                  <Link to="/" >
+                    <S.LogoContainer>
+                        <MyCompBlue />
+                    </S.LogoContainer>
+                  </Link>
+                  </Col> 
+                  </Suspense>
+                  <S.FooterContainer>
+                  </S.FooterContainer>
+                </Row>
+              </Container>
+            </ScrollToTop>
         </S.Extra>
       </Fade>
     </Fragment>
