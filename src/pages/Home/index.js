@@ -40,7 +40,7 @@ const Home = (props, i) => {
                                       fontFamily="inherit"
                                       fontSize="inherit"
                                       offset={0}
-                                      padding={10}
+                                      padding={8}
                                       placement="bottom"
                                       radius={33}
                                       zIndex={1}

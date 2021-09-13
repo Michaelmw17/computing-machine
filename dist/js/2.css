@@ -43,18 +43,17 @@
 
 }
 @media (min-width: 600px) { 
-    #MainButton {
-    position: absolute;
-    left: -2px;
-    top: -17px;
-    display: block;
-    width: 150%;
-    height: 60%;
-    border-radius: 20%;
-    background: linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white;
-    box-shadow: rgba(0, 23, 25, 0.2) 0px 19px 38px, #71d9ff 0px 5px 22px;
-
-}
+        #MainButton {
+        position: absolute;
+        left: -2px;
+        top: -17px;
+        display: block;
+        width: 150%;
+        height: 60%;
+        border-radius: 20%;
+        background: linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white;
+        box-shadow: rgba(0, 23, 25, 0.2) 0px 19px 38px, #71d9ff 0px 5px 22px;
+    }
 }
 
 .IntroContainer{
@@ -91,18 +90,26 @@
 }
 
 body {
-  overflow: visible; 
+  overflow: hidden; 
 }
 #Enter-Title {
-  padding-top: 5px;
-  padding-bottom: 0px;
+  padding: 5px 0 ;
 }
 #Enter-Title{
   text-align: center;
   color: white;
   transform: uppercase;
   font-size: 30px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
+.css-140rygk-BaseToolTop {
+    top: 85% !important;
+    left: 128% !important;
+  }
+  .css-ffrbnv {
+    top: 80% !important;
+    left: 137%!important
+  }
 @media (min-width: 900px) {
   body {
     overflow: hidden; /* This is how it looks on desktop */
@@ -119,13 +126,11 @@ body {
   }
   .App {
     width: 243px;
-    height: 390px;
+    height: 392px;
     position: absolute;
-    margin: 6px 6px;
+    margin: 3px 6px;
   }
-}
-
-  .css-140rygk-BaseToolTop {
+    .css-140rygk-BaseToolTop {
     top: 85% !important;
     left: 135% !important;
   }
@@ -133,3 +138,5 @@ body {
     top: 80% !important;
     left: 129% !important;
   }
+}
+
