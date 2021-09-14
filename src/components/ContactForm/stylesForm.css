@@ -5,7 +5,7 @@
 #inputEmail{
    margin: 10px 0;
 }
-#message{
+#message {
    display: block;
    width: 100%;
    overflow: hidden;
@@ -14,7 +14,7 @@
    max-height: 250px;
    line-height: 20px;
 }
-input, #number, #menu {
+input, #number, #menu, #firstName {
    width: 100%;
    border-width: 1px;
    border-style: solid;
@@ -27,32 +27,19 @@ input, #number, #menu {
 }
 
 #firstName {
-   width: 100%;
-   border-width: 1px;
-   border-style: solid;
-   outline: none;
-   font-size: 0.875rem;
-   padding: 0.7rem 1.25rem;
-   transition: border-color 0.3s ease-in;
-   border-radius: 8px;
-   color: #000;
    margin-top: 70px;
 }
 #subject {
-   margin-bottom: 10px;
    height: 50%;
    width: 100%;
    border-width: 1px;
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
-   padding: 1.5rem 0.5rem 1.5rem 1.25rem;
    padding: 1.7rem 1.25rem 1.4rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
    color: #000;
-   margin-bottom:20px;
-   /* margin: 0 ​0 10px; */
 
 }
 .formText {
@@ -80,4 +67,7 @@ input, #number, #menu {
       #suburb {
       margin: 10px 0;
    }
+}
+#Submit {
+   margin-top: 0rem;
 }

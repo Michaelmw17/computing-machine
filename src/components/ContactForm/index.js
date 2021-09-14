@@ -10,7 +10,7 @@ const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/li
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 const OtherComponent = lazy(() => import("../First.js"));
 const Block = lazy(() => import("../Block"));
-const Button = lazy(() => import("../../common/Button"));
+// const Button = lazy(() => import("../../common/Button"));
 const TextArea = lazy(() => import("../../common/TextArea"));
 const SimpleSelect = lazy(() => import("../../common/DropDown"));
 
@@ -99,9 +99,9 @@ const Contact = ({ title, content, id, t , e, handleSubmit}) => {
                   />
               </Col>
               <S.ButtonContainer>
-                <Button name="submit" type="submit"  id="Submit">
+                <S.Button name="submit" type="submit"  id="Submit">
                   {t("Submit")}
-                </Button>
+                </S.Button>
               </S.ButtonContainer>
             </S.FormGroup>
           </Col>

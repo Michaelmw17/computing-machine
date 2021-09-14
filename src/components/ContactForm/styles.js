@@ -43,8 +43,35 @@ export const ButtonContainer = styled.div`
   text-align: end;
   position: relative;
   margin-bottom: 2.75rem;
+  margin-top: 0rem;
   @media only screen and (max-width: 414px) {
-    padding-top: 0.75rem;
+    // padding-top: 0.75rem;
     
+  }
+`;
+
+export const Button = styled.button`
+  background: ${(props) => props.color || 'rgb(209, 29, 50)'};
+  color: ${(props) => (props.color ? 'rgb(209, 29, 50)' : '#fff')};
+  font-size: 1rem;
+  font-weight: 700;
+  width: 100%;
+  border: ${(props) => (props.color ? '1px solid #687864' : '0px')};
+  border-radius: 8px;
+  height: 60px;
+  outline: none;
+  cursor: pointer;
+  margin-top: 0rem;
+  max-width: 180px;
+  margin-bottom: 0rem;
+  @media only screen and (max-width: 1024px) {
+    width: ${(props) => (props.width ? '180px' : '100%')};
+  }
+  @media only screen and (max-width: 768px) {
+    width: ${(props) => (props.width ? '180px' : '100%')};
+  }
+  @media only screen and (max-width: 480px) {
+    width: ${(props) => (props.width ? '180px' : '100%')};
+    margin-left: 0rem;
   }
 `;
