@@ -120,9 +120,10 @@ body {
   #Enter-Title {
     font-size: 52px;
   }
-  .AppCon{
+  .AppCon {
     width: 255px; 
     height: 400px; 
+    margin-top: 100px;
   }
   .App {
     width: 243px;

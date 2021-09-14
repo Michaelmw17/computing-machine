@@ -95,7 +95,8 @@ const Contact = ({ title, content, id, t , e, handleSubmit}) => {
                   placeholder="Message"
                   name="message"
                   id="Message"
-                  minLength="5" />
+                  minLength="5"
+                  />
               </Col>
               <S.ButtonContainer>
                 <Button name="submit" type="submit"  id="Submit">

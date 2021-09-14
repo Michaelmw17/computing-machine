@@ -1,20 +1,29 @@
+#menu {
+   border-width: 0px;
+   margin-bottom: 10px;
+}
+#inputEmail{
+   margin: 10px 0;
+}
+#message{
+   display: block;
+   width: 100%;
+   overflow: hidden;
+   resize: vertical;
+   min-height: 50px;
+   max-height: 250px;
+   line-height: 20px;
+}
 input, #number, #menu {
    width: 100%;
    border-width: 1px;
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
-   padding: 1rem 1.25rem;
+   padding: 0.7rem 1.25rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
    color: #000;
-}
-#menu {
-   border-width: 0px;
-   margin-bottom: 10px;
-}
-#inputEmail, #suburb {
-   margin: 10px 0;
 }
 
 #firstName {
@@ -23,24 +32,27 @@ input, #number, #menu {
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
-   padding: 1rem 1.25rem;
+   padding: 0.7rem 1.25rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
    color: #000;
    margin-top: 70px;
 }
 #subject {
+   margin-bottom: 10px;
+   height: 50%;
    width: 100%;
    border-width: 1px;
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
-   padding: 1.50rem 0.5rem 0.7rem 1.25rem;
+   padding: 1.5rem 0.5rem 1.5rem 1.25rem;
+   padding: 1.7rem 1.25rem 1.4rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
    color: #000;
    margin-bottom:20px;
-   margin: 0 ​0 10px;
+   /* margin: 0 ​0 10px; */
 
 }
 .formText {
@@ -54,6 +66,18 @@ input, #number, #menu {
    color: rgb(209, 29, 50);
 }
 #demo-simple-select {
-   margin-top: 10px;
    border-radius: 8px;
+}
+#menu {
+   border-width: 0px;
+   margin-bottom: 10px;
+}
+#suburb {
+   margin: 10px 0 0;
+   padding: 0.7rem 1.25rem;
+}
+@media (min-width: 900px) {
+      #suburb {
+      margin: 10px 0;
+   }
 }
