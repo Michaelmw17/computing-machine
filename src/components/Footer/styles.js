@@ -78,7 +78,6 @@ export const Large = styled(Link)`
   font-size: 16px;
   color: rgba(2, 7, 62, 0.8);
   text-align: ${(props) => (props.left ? 'left' : '')};
-  padding: ${(props) => (props.left ? '0 15%' : '')};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-transform: capitalize;

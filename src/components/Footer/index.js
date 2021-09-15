@@ -37,19 +37,17 @@ const scrollTo = (id) => {
             <Row type="flex" justify="space-between">
               <Col lg={9} md={10} sm={12} xs={24}>
                 <S.Title>{t("Contact")}</S.Title>
-                <S.Large to="/">{t("Tell us everything")}</S.Large>
+                <S.Title style={{textTransform: "capitalize"}}>{t("Tell us everything")}</S.Title>
                 <S.Para>
-                  {t(
-                    `Do you have any question regarding our services? 
-                    Feel free to reach out.`
-                  )}
+                  {t(`Do you have any question regarding our services? 
+                    Feel free to reach out.`)}
                 </S.Para>
                 <Mailto email="info@jdpelectrical.com.au " subject="Enquire To JDP" body="Hello JDP!" >
                   <S.Chat>{t(`Let's Chat`)}</S.Chat>
                 </Mailto>
               </Col>
-              <Col lg={6} md={6} sm={12} xs={24}>
-               <S.Title>{t("ADDRESS")}</S.Title>
+              <Col lg={6} md={8} sm={12} xs={24}>
+              <S.Title>{t("ADDRESS")}</S.Title>
                 <S.Para>Unit 17 </S.Para>
                 <S.Para>4-6 Chaplin Drive</S.Para>
                 <S.Para> Lane Cove West NSW 2066</S.Para>
@@ -72,10 +70,7 @@ const scrollTo = (id) => {
                   {t("Contact")}
                 </S.Large>
               </Col>
-
-
-
-              <Col lg={10} md={10} sm={12} xs={24}>
+              <Col lg={9} md={10} sm={12} xs={24}>
                 <S.Title>{t("General & Accounts")}</S.Title>
                 <S.Para>
                 <a href="tel:02-9419-7947" id="TextNumberGen">
@@ -94,7 +89,7 @@ const scrollTo = (id) => {
                   <S.Chat>{t(`Accounts@jdpelectrical.com.au`)}</S.Chat>
                   </Mailto>
               </Col>
-              <Col lg={8} md={6} sm={12} xs={24}>
+              <Col lg={6} md={6} sm={12} xs={24}>
                 <S.Title>{t("Joe Panetta")}</S.Title>
                 <S.Para>
                 <a href="tel:0412-450-300" id="TextNumberJoe">
@@ -102,7 +97,7 @@ const scrollTo = (id) => {
                 </a>
                 </S.Para>
               </Col>
-              <Col lg={5} md={8} sm={12} xs={24}>
+              <Col lg={6} md={8} sm={12} xs={24}>
                 
                 <S.Title >{t("Dominic Panetta")}</S.Title>
                 <S.Para>
