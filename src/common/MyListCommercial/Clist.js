@@ -3,7 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import './Cstyle.css'
 
-const words = ['Maintenance and repairs', 'Lighting and power ', 'Testing and tagging ', 'Data points  ', 'Smoke detectors', 'Emergency lighting' ];
+const words = [
+  'Maintenance and repairs',
+  'Lighting and power ',
+  'Testing and tagging ',
+  'Data points  ',
+  'Smoke detectors',
+  'Emergency lighting'
+];
 const items = words.map((word, e) => {
     return <li key={e}>{word}</li>;
 });
@@ -29,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PinnedSubheaderList() {
   const classes = useStyles();
-
   return (
     <List className={classes.root} subheader={<li />}>
           <ul className={classes.ul}>
@@ -37,7 +43,6 @@ export default function PinnedSubheaderList() {
               {items} 
               </ul>
           </ul>
-      
     </List>
   );
 }

@@ -8,7 +8,6 @@ import './stylesCarousel.css'
 export default function Example(props) {
     const items = [
         {
-            // name: " Mary (Mosman) -",
             description: " Mary (Mosman) - ' Joe and Dominic have been our electricians for over 12 years, delivering high quality service including major electrical renovations and outdoor lighting. Joe and Dominic are a pleasure to have working in our home and we highly recommend their services. '"
         },
         {

@@ -10,7 +10,6 @@ const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/li
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 const OtherComponent = lazy(() => import("../First.js"));
 const Block = lazy(() => import("../Block"));
-// const Button = lazy(() => import("../../common/Button"));
 const TextArea = lazy(() => import("../../common/TextArea"));
 const SimpleSelect = lazy(() => import("../../common/DropDown"));
 

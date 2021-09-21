@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Input = () => {
-   const classes = useStyles();
+  const classes = useStyles();
   const scrollUp = () => {
     const element = document.getElementById("intro");
     element.scrollIntoView({
@@ -26,7 +26,7 @@ const Input = () => {
   return (
     <S.Up onClick={scrollUp}>
       <div className={classes.root}>
-       <IconButton color="secondary" aria-label="add an alarm">
+      <IconButton color="secondary" aria-label="add an alarm">
         <KeyboardArrowUpIcon />
       </IconButton>
       </div>

@@ -11,6 +11,7 @@ import BuildSharpIcon from '@material-ui/icons/BuildSharp';
 import './ServicesStyles.css'
 import { Row} from 'antd';
 import ContainerCardFlip from '../../components/ContainerCardFlip';
+
 const styles = {
   root:{
   
@@ -26,14 +27,11 @@ const styles = {
 
 const TestApp = ({ classes }) => {
     return (<>
-    <ContainerCardFlip >
-        <div className={classes.container}>
-            <div id="main" className="containerS">
-                <div className="row">
-                    <div className="Services-section">
-                      <div className="inner-width-services">
-                      <Grid container spacing={5} justify="flex-start">
-                        <Grid item xs={12} sm={12} md={6} lg={4}>
+        <ContainerCardFlip >
+            <div className={classes.container}>
+                <div className="inner-width-services">
+                    <Grid container spacing={5} justify="flex-start">
+                      <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Row justify="center">
                         <ReactCardFlipper
                           width="300px"
@@ -110,17 +108,14 @@ const TestApp = ({ classes }) => {
                             Commercial
                             </p>
                               <MyListCommercial/>
-                          </div>
-                        </ReactCardFlipper>
-                      </Row>
-                    </Grid>
-                  </Grid>
-                </div>
-              </div>
+                        </div>
+                    </ReactCardFlipper>
+                  </Row>
+                </Grid>
+              </Grid>
             </div>
           </div>
-        </div>
-    </ContainerCardFlip >
+        </ContainerCardFlip >
     </>
     )
 };

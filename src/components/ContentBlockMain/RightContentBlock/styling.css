@@ -12,3 +12,11 @@
     font-size: 20;
     padding-top: 5;
 }
+.Main-Title {
+    padding:  3.7rem 0.5rem 0.5rem 0.3rem;
+}
+@media (min-width: 900px) {
+    .Main-Title {
+        padding:  2.7rem 0.5rem 0.5rem 0.3rem;
+    }
+}

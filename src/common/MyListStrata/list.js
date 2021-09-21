@@ -3,7 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import './style.css'
 
-const words = ['Maintenance and repairs', 'General power outlets', 'Lighting control systems', 'Main switchboards upgrades', 'Switches and circuit breakers ','Light and power points ', 'Appliance installations and repairs  ', 'Hot water repairs ', ' Preventative maintenance', ];
+const words = [
+    'Maintenance and repairs',
+    'General power outlets',
+    'Lighting control systems',
+    'Main switchboards upgrades',
+    'Switches and circuit breakers ',
+    'Light and power points ',
+    'Appliance installations and repairs  ',
+    'Hot water repairs ', 
+    ' Preventative maintenance',
+];
 const items = words.map((word, e) => {
     return <li key={e}>{word}</li>;
 });
@@ -36,7 +46,6 @@ export default function PinnedSubheaderList() {
               {items} 
               </ul>
           </ul>
-      
     </List>
   );
 }
