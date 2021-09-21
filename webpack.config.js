@@ -19,8 +19,8 @@ module.exports = {
                     loader: 'babel-loader'
                 },
                 resolve: {
-        extensions: ['.js', '.jsx', '*']
-    },
+                    extensions: ['.js', '.jsx', '*']
+                },
             },
         {
         test: /\.css$/i,
