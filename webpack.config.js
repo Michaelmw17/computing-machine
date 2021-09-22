@@ -42,9 +42,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./public/index.html",
-            filename: "./index.html"
-         }),
-         new GoogleFontsPlugin({
+            filename: "./index.html",
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+            },
+        }),
+        new GoogleFontsPlugin({
 			fonts: [
 				{ family: "Ubuntu" },
 				{ family: "Poppins", variants: [ "400", "700italic" ], display: "block" }
