@@ -1,26 +1,20 @@
-#menu {
-   border-width: 0px;
-   margin-bottom: 10px;
-}
-#inputEmail{
-   margin: 10px 0;
-}
-#message {
+textarea {
    display: block;
    width: 100%;
-   overflow: hidden;
+   overflow: visible;
    resize: vertical;
-   min-height: 50px;
+   min-height: 100px;
    max-height: 250px;
    line-height: 20px;
    margin-bottom: 5px;
 }
-input, #number, #menu, #firstName {
+input, #number, #menu, #firstName, #suburb, #inputEmail {
    width: 100%;
    border-width: 1px;
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
+   margin: 10px 0;
    padding: 0.7rem 1.25rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
@@ -53,22 +47,12 @@ input, #number, #menu, #firstName {
 #TextAddress:hover, #TextNumber:hover, #TextNumberDom:hover, #TextNumberJoe:hover, #TextNumberGen:hover {
    color: rgb(209, 29, 50);
 }
-#demo-simple-select {
-   border-radius: 8px;
-}
 #menu {
-   border-width: 0px;
-   margin-bottom: 10px;
+   margin: 10px 1px 2px;
+   padding: 1rem 1.25rem;
+   width: 98%;
+   background-color: #fff;
 }
-#suburb {
-   margin: 10px 0 0;
-   padding: 0.7rem 1.25rem;
-}
-@media (min-width: 900px) {
-      #suburb {
-      margin: 10px 0;
-   }
-}
-#Submit {
-   margin-top: 0rem;
+.errorMessage {
+   color: rgb(209, 29, 50);
 }

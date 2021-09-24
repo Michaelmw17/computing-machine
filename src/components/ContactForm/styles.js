@@ -61,9 +61,9 @@ export const Button = styled.button`
   height: 60px;
   outline: none;
   cursor: pointer;
-  margin-top: 0rem;
+  margin-top: 1rem;
   max-width: 180px;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }
