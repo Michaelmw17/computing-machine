@@ -12,13 +12,13 @@ const testData = {
 };
 
 const containerStyle = {
-  height: `400px`,
+  height: `350px`,
   width: '90%',
   marginLeft: '20px',
   marginRight: '20px',
-  marginTop: '40px',
+  marginTop: '10px',
   maxWidth: '580px',
-  maxHeight: '680px',
+  maxHeight: '530px',
   borderRadius: '14px'
 };
 

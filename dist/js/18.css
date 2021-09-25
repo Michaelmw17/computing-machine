@@ -42,6 +42,14 @@ input, #number, #firstName, #suburb, #inputEmail {
    margin-left: 1.2rem;
    font-size: 18px;
 }
+.formText:nth-child(2) {
+   margin-bottom: 2rem;
+}
+@media screen and (min-width: 1024px) {
+   .formText:nth-child(2) {
+   margin-bottom: 0rem;
+}
+}
 #TextAddress, #TextNumber, #TextNumberDom, #TextNumberJoe, #TextNumberGen {
    color: #1890ff;
 }

@@ -64,6 +64,7 @@ export const Button = styled.button`
   margin-top: 1rem;
   max-width: 180px;
   margin-bottom: 1rem;
+  float: right;
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }

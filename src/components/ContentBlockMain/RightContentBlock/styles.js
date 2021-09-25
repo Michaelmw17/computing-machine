@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const RightBlockContainer = styled.section`
   position: relative;
-  padding: 7rem 0 8rem;
+  padding: 9.5rem 0 8rem;
 
   @media only screen and (max-width: 768px) {
-    padding: 7rem 0 5rem;
+    padding: 4rem 0 5rem;
   }
 `;
 

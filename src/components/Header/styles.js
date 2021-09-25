@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons';
 
 export const Header = styled.header`
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 88px;
+  height: 99px;
   z-index: 10;
   background: #FFF;
 `;

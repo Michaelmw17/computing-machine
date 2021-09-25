@@ -9,7 +9,7 @@ import IntroContent from "../../content/IntroContent.json";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ContentBlockMain from "../../components/ContentBlockMain";
-import Headroom from 'react-headroom';
+
 import './about.css'
 const MeetTheTeam = lazy(() => import('../../components/ServicesSection/Services.js'))
 const Carousel = lazy(() => import("../../components/CarouselTest/Carousel"));
@@ -29,9 +29,7 @@ function First() {
     return (<>
         <div className="whiteContainer">
             <Container>
-            <Headroom>
-            <Header />
-            </Headroom>
+              <Header />
                 <ScrollToTop />
                   <ContentBlockMain
                   type="right"

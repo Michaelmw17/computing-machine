@@ -72,6 +72,9 @@ export const Para = styled.div`
   max-width: 225px;
   font-size: 18px;
   width: 100%;
+    &:nth-child(2) {
+        margin-top: 20px;
+    }
 `;
 
 export const Large = styled(Link)`
