@@ -56,3 +56,8 @@ input, #number, #menu, #firstName, #suburb, #inputEmail {
 .errorMessage {
    color: rgb(209, 29, 50);
 }
+.Toastify__toast--success {
+   border: 1px solid #4cb925;
+   background: #bce0ce;
+   color: #0e7a44;
+}

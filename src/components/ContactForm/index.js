@@ -24,7 +24,7 @@ const ContactForm = ({ title, content, id }) => {
 
     // Function that displays a success toast on bottom right of the page when form submission is successful
     const toastifySuccess = () => {
-        toast('Form sent!', {
+        toast.success('Form sent!', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 5000,
             hideProgressBar: true,
@@ -56,10 +56,10 @@ const ContactForm = ({ title, content, id }) => {
 
         // Use emailjs to email contact form data
     await emailjs.send(
-                "service_miluilw",
-                "template_vrzieau",
+                "service_a9ktqlp",
+                "template_l0mglga",
                 templateParams,
-                "user_jsnJWEQR5CCPz5u6Zz6bJ"
+                "user_yw3a8DYtaKOIm8KcBtk2L"
     );
         // Reset contact form fields after submission
         reset();
