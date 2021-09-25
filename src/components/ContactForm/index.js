@@ -163,7 +163,7 @@ const ContactForm = ({ title, content, id }) => {
                                     },
                                     })}
                                 >
-                                <option value="" disabled hidden>What can we help you with? *</option>
+                                <option value="" disabled hidden className="hidden">What can we help you with? *</option>
                                     <option value="Residential">Residential</option>
                                     <option value="Strata / Property Maintenance">Strata / Property Maintenance</option>
                                     <option value="Commercial">Commercial</option>
@@ -215,11 +215,13 @@ const ContactForm = ({ title, content, id }) => {
                                     }
                                     })}
                                     className='form-control formInput'
-                                    placeholder='Message'
+                                    placeholder='Message *'
                                 ></textarea>
                                 {errors.message && <span className='errorMessage'>{errors.message.message}</span>}
                             </Col>
-                            <S.Button className='submit-btn' disabled={disabled} type='submit'>
+                            <S.Button className='submit-btn' disabled={disabled} type='submit' onClick={() => {
+                                    register("firstName", { type: "focus" }, { shouldFocus: true });
+                                    }}>
                                 Submit
                             </S.Button>
                             </form>

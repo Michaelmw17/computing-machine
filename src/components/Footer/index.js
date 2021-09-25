@@ -46,12 +46,6 @@ const scrollTo = (id) => {
                   <S.Chat>{t(`Let's Chat`)}</S.Chat>
                 </Mailto>
               </Col>
-              <Col lg={6} md={8} sm={12} xs={24}>
-              <S.Title>{t("ADDRESS")}</S.Title>
-                <S.Para>Unit 17 </S.Para>
-                <S.Para>4-6 Chaplin Drive</S.Para>
-                <S.Para> Lane Cove West NSW 2066</S.Para>
-              </Col>
               <Col lg={6} md={6} sm={12} xs={24} >
               <S.Title>{t("JDP Electrical Services")}</S.Title>
                 <S.Large left="true" to="/" onClick={scrollToTop}>
@@ -69,6 +63,12 @@ const scrollTo = (id) => {
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("Team")}>
                   {t("Contact")}
                 </S.Large>
+              </Col>
+              <Col lg={6} md={8} sm={12} xs={24}>
+              <S.Title>{t("ADDRESS")}</S.Title>
+                <S.Para>Unit 17 </S.Para>
+                <S.Para>4-6 Chaplin Drive</S.Para>
+                <S.Para> Lane Cove West NSW 2066</S.Para>
               </Col>
               <Col lg={9} md={10} sm={12} xs={24}>
                 <S.Title>{t("General & Accounts")}</S.Title>

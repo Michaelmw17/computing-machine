@@ -89,6 +89,9 @@ export const Large = styled(Link)`
   &:hover {
     color: rgb(209, 29, 50)
   }
+  &:nth-child(2) {
+        margin-top: 20px;
+    }
 `;
 export const Mailto = styled(Link)`
   font-size: 16px;

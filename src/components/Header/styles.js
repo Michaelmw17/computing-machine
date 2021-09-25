@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons';
 
 export const Header = styled.header`
-  padding: 1rem 0.0rem;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -52,7 +50,7 @@ export const Burger = styled.div`
   @media only screen and (max-width: 1289px) {
     display: block !important;
   }
-  padding: 1.25rem 1.25rem;
+  padding: 0.01rem 1.25rem 1.05rem;
   display: none;
 `;
 

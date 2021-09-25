@@ -1,20 +1,21 @@
 textarea {
    display: block;
-   width: 100%;
    overflow: visible;
-   resize: vertical;
    min-height: 100px;
    max-height: 250px;
    line-height: 20px;
    margin-bottom: 5px;
+   border-width: 1px;
+   border-radius: 8px;
+   border-style: solid;
 }
-input, #number, #menu, #firstName, #suburb, #inputEmail {
+input, #number, #firstName, #suburb, #inputEmail {
    width: 100%;
    border-width: 1px;
    border-style: solid;
    outline: none;
    font-size: 0.875rem;
-   margin: 10px 0;
+   margin: 5px 0;
    padding: 0.7rem 1.25rem;
    transition: border-color 0.3s ease-in;
    border-radius: 8px;
@@ -48,10 +49,18 @@ input, #number, #menu, #firstName, #suburb, #inputEmail {
    color: rgb(209, 29, 50);
 }
 #menu {
-   margin: 10px 1px 2px;
-   padding: 1rem 1.25rem;
+   margin: 5px 1px 2px;
    width: 98%;
    background-color: #fff;
+   padding: 0.96rem 0.80rem;
+   color: rgb(73, 73, 73);
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+
 }
 .errorMessage {
    color: rgb(209, 29, 50);
@@ -60,4 +69,24 @@ input, #number, #menu, #firstName, #suburb, #inputEmail {
    border: 1px solid #4cb925;
    background: #bce0ce;
    color: #0e7a44;
+}
+@media only screen and (max-device-width: 991px) {
+   #menu  {
+         width: 100%;
+   }
+}
+
+@media only screen and (max-device-width: 480px) {
+   #menu  {
+      width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      outline: none;
+      font-size: 0.875rem;
+      margin: 5px 0;
+      padding: 0.7rem 1.25rem;
+      transition: border-color 0.3s ease-in;
+      border-radius: 8px;
+      color: #000;
+   }
 }
