@@ -22,6 +22,7 @@ const MyImage = ({ image }) => (
                 objectFit: 'cover',
                 objectPosition: 'center',
                 filter: 'drop-shadow(2.5px 2.5px 5px #000)',
-                borderRadius: '5%' }}/>
+                borderRadius: '5%' 
+                }}/>
 );
 export default MyImage;
