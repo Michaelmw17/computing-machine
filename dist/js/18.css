@@ -1,16 +1,59 @@
-.div-wrapper {
-    background-color: black;
-    display: flex; 
-    justify-content: space-between;
+textarea {
+   display: block;
+   width: 100%;
+   overflow: visible;
+   resize: vertical;
+   min-height: 100px;
+   max-height: 250px;
+   line-height: 20px;
+   margin-bottom: 5px;
 }
-.buttonMain {
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
+input, #number, #menu, #firstName, #suburb, #inputEmail {
+   width: 100%;
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   margin: 10px 0;
+   padding: 0.7rem 1.25rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+   color: #000;
 }
-.button-label-main {
-  color: black;
+
+#firstName {
+   margin-top: 70px;
 }
-.p-Call-us-now-main {
-  padding: 13px 4px 0 2px;
-  font-size: 14px;
+#subject {
+   height: 50%;
+   width: 100%;
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   padding: 1.7rem 1.25rem 1.4rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+   color: #000;
+
 }
+.formText {
+   margin-left: 1.2rem;
+   font-size: 18px;
+}
+#TextAddress, #TextNumber, #TextNumberDom, #TextNumberJoe, #TextNumberGen {
+   color: #1890ff;
+}
+#TextAddress:hover, #TextNumber:hover, #TextNumberDom:hover, #TextNumberJoe:hover, #TextNumberGen:hover {
+   color: rgb(209, 29, 50);
+}
+#menu {
+   margin: 10px 1px 2px;
+   padding: 1rem 1.25rem;
+   width: 98%;
+   background-color: #fff;
+}
+.errorMessage {
+   color: rgb(209, 29, 50);
+}
+

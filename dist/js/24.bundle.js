@@ -1,25 +1,26 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[24],{
 
-/***/ "./node_modules/react-lazy-load-image-component/src/effects/blur.css":
-/*!***************************************************************************!*\
-  !*** ./node_modules/react-lazy-load-image-component/src/effects/blur.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./node_modules/react-lazy-load-image-component/src/effects/blur.css?");
-
-/***/ }),
-
-/***/ "./src/components/MyCompRed/myComp.js":
-/*!********************************************!*\
-  !*** ./src/components/MyCompRed/myComp.js ***!
-  \********************************************/
+/***/ "./src/components/Block/index.js":
+/*!***************************************!*\
+  !*** ./src/components/Block/index.js ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-lazy-load-image-component */ \"./node_modules/react-lazy-load-image-component/build/index.js\");\n/* harmony import */ var react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-lazy-load-image-component/src/effects/blur.css */ \"./node_modules/react-lazy-load-image-component/src/effects/blur.css\");\n/* harmony import */ var react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_lazy_load_image_component_src_effects_blur_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nvar MyImageRed = function MyImageRed(_ref) {\n  var image = _ref.image;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_lazy_load_image_component__WEBPACK_IMPORTED_MODULE_1__[\"LazyLoadImage\"], {\n    effect: \"blur\",\n    \"max-age\": \"31536000\",\n    src: process.env.PUBLIC_URL + '/itc-logo-red.png',\n    alt: \"In The Cove\",\n    style: {\n      display: \"absolute\",\n      background: '#FFF',\n      marginRight: \"auto\",\n      marginTop: \"15px\",\n      height: \"100%\",\n      width: \"100%\",\n      maxWidth: \"90%\",\n      maxHeight: \"80%\",\n      padding: '0 ​0 5px 25px'\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (MyImageRed);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/node-libs-browser/node_modules/process/browser.js */ \"./node_modules/node-libs-browser/node_modules/process/browser.js\")))\n\n//# sourceURL=webpack:///./src/components/MyCompRed/myComp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var react_reveal_Fade__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-reveal/Fade */ \"./node_modules/react-reveal/Fade.js\");\n/* harmony import */ var react_reveal_Fade__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_reveal_Fade__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ \"./src/components/Block/styles.js\");\n\n\n\n\nvar Block = function Block(_ref) {\n  var title = _ref.title,\n      content = _ref.content,\n      t = _ref.t;\n  return /*#__PURE__*/React.createElement(_styles__WEBPACK_IMPORTED_MODULE_2__[\"Container\"], null, /*#__PURE__*/React.createElement(react_reveal_Fade__WEBPACK_IMPORTED_MODULE_1___default.a, {\n    left: true\n  }, /*#__PURE__*/React.createElement(\"h3\", null, t(title)), /*#__PURE__*/React.createElement(_styles__WEBPACK_IMPORTED_MODULE_2__[\"TextWrapper\"], null, /*#__PURE__*/React.createElement(_styles__WEBPACK_IMPORTED_MODULE_2__[\"Content\"], null, t(content)))));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_i18next__WEBPACK_IMPORTED_MODULE_0__[\"withTranslation\"])()(Block));\n\n//# sourceURL=webpack:///./src/components/Block/index.js?");
+
+/***/ }),
+
+/***/ "./src/components/Block/styles.js":
+/*!****************************************!*\
+  !*** ./src/components/Block/styles.js ***!
+  \****************************************/
+/*! exports provided: Content, Container, TextWrapper */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Content\", function() { return Content; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Container\", function() { return Container; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TextWrapper\", function() { return TextWrapper; });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nvar _templateObject, _templateObject2, _templateObject3;\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\nvar Content = styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].p(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  margin-top: -5.5rem;\\n  margin-left: 0.8rem;\\n  font-size: 20px\\n\"])));\nvar Container = styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([\"\\n  position: relative;\\n  max-width: 700px;\\n\"])));\nvar TextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral([\"\\n  border-radius: 3rem;\\n  max-width: 600px;\\n\"])));\n\n//# sourceURL=webpack:///./src/components/Block/styles.js?");
 
 /***/ })
 
