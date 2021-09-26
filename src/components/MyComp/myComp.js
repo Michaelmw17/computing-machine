@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
+import './styles.css'
 const MyComp = () => {
     return<Suspense fallback={
                 <Loader
@@ -13,17 +13,9 @@ const MyComp = () => {
                     />
                             }>
         <img src={process.env.PUBLIC_URL + '/JDP-BRANDING-04.png'}
-            alt="Logo" style={{
-                display: "absolute",
-                background: '#FFF',
-                marginRight: "auto",
-                marginTop: "15px",
-                height: "100%",
-                width: "100%",
-                maxWidth: "85%",
-                maxHeight: "55px",
-            }}
+            alt="Logo" 
             max-age="31536000"
+            className="JDP-BRANDING"
         />
     </Suspense>;
 };

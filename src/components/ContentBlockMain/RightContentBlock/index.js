@@ -26,13 +26,11 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
     <S.RightBlockContainer>
       <Row type="flex" justify="space-between" align="middle" id={id}>
         <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
-          <Slide left>
             <S.ContentWrapper>
               <h3 className="Main-Title">{t(title)}</h3>
               <S.Content>{t(content)}</S.Content>
               <S.Content> JDP Electrical Services offer a complete range of electrical installations and 
               services throughout Sydney, North Shore Region and surrounding areas.</S.Content>
-                <Row>
                 <Row>
                     <Col xs={12} sm={24} md={24} lg={12} xl={12}>
                       <S.ButtonWrapper>
@@ -67,12 +65,10 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                                       </Button>
                                     );
                                   })}
-                              </S.ButtonWrapper>
-                            </Col>
-                      </Row>
-              </Row>
-            </S.ContentWrapper>
-          </Slide>
+                            </S.ButtonWrapper>
+                          </Col>
+                    </Row>
+              </S.ContentWrapper>
         </Col>
         <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
           <Slide right>

@@ -13,12 +13,14 @@ import HomeIcon from '@material-ui/icons/Home';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
+import Fade from "react-reveal/Fade";
+
 import { Link } from 'react-router-dom';
 import * as S from "./styles";
-const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
-const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 
 const MyComp = lazy(() => import("../../components/MyComp/myComp"));
+const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
+const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 
 const Header = ({ t }) => {
   const [isNavVisible] = useState(false);
@@ -59,24 +61,34 @@ const useStyles = makeStyles((theme) => ({
         <div className={classes.root} style={{ textAlign: "center" }}>
         <S.CustomNavLinkSmall>
             <Link to="/" onClick={scrollToTop} >
+            <Fade up>
           <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
+          </Fade>
               <S.Span><span>{t("Home")}</span></S.Span>
               </Link>
           </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Service")}>
+           <Fade up>
           <BuildIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28   }} />
+          </Fade>
             <S.Span className="Span"><span>{t("Services")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("People")}>
+        <Fade up>
           <InfoIcon style={{color:"RGB(209, 29, 50)", fontSize: 28  }} />
+          </Fade>
           <S.Span ><span>{t("About")}</span></S.Span>
         </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Review")}>
+          <Fade up>
             <RateReviewIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28 }} />
+            </Fade>
           <S.Span><span>{t("Reviews")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("Team")}>
+        <Fade up>
           <ContactMailIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
+          </Fade>
           <S.Span><span>{t("Contact")}</span></S.Span>
           </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall >

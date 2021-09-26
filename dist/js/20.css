@@ -1,59 +1,103 @@
-#Paper ,#PaperH2 {
-  color: #FFF;
+textarea {
+   display: block;
+   overflow: visible;
+   min-height: 100px;
+   max-height: 250px;
+   line-height: 20px;
+   margin-bottom: 5px;
+   border-width: 1px;
+   border-radius: 8px;
+   border-style: solid;
 }
-.containerCar {
-  padding: 60px;
-  background: rgb(209, 29, 50);
-}
-.review {
-  font-size: 24px;
-  margin-top: 10px;
-  color: white
-}
-#review-h1 {
-  color: white;
-  margin-top:-80px;
-  font-size: 34px;
-}
-#review-p{
-  color: white;
-  font-size: 23px;
-}
-
-#review-icon{
-  color: white;
-  font-size: 23px;
+input, #number, #firstName, #suburb, #inputEmail {
+   width: 100%;
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   margin: 5px 0;
+   padding: 0.7rem 1.25rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+   color: #000;
 }
 
-#Name   {
-  color: white;
-  text-align: right;
-  font-size: 24px;
+#firstName {
+   margin-top: 70px;
 }
-.Icon   {
-  color: white;
-  text-align: center;
+#subject {
+   height: 50%;
+   width: 100%;
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   padding: 1.7rem 1.25rem 1.4rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+   color: #000;
+
 }
-.star-icon {
-    color: #ccc;
-    font-size: 24px;
-    vertical-align: middle;
+.formText {
+   margin-left: 1.2rem;
+   font-size: 18px;
+}
+.formText:nth-child(2) {
+   margin-bottom: 2rem;
+}
+@media screen and (min-width: 1024px) {
+   .formText:nth-child(2) {
+   margin-bottom: 0rem;
+}
+}
+#TextAddress, #TextNumber, #TextNumberDom, #TextNumberJoe, #TextNumberGen {
+   color: #1890ff;
+}
+#TextAddress:hover, #TextNumber:hover, #TextNumberDom:hover, #TextNumberJoe:hover, #TextNumberGen:hover {
+   color: rgb(209, 29, 50);
+}
+#menu {
+   margin: 5px 1px 2px;
+   width: 98%;
+   background-color: #fff;
+   padding: 0.96rem 0.80rem;
+   color: rgb(73, 73, 73);
+   border-width: 1px;
+   border-style: solid;
+   outline: none;
+   font-size: 0.875rem;
+   transition: border-color 0.3s ease-in;
+   border-radius: 8px;
+
+}
+.errorMessage {
+   color: rgb(209, 29, 50);
+}
+.Toastify__toast--success {
+   border: 1px solid #4cb925;
+   background: #bce0ce;
+   color: #0e7a44;
+}
+@media only screen and (max-device-width: 991px) {
+   #menu  {
+         width: 100%;
+   }
 }
 
-.star-icon.filled {
-    color: #F7A115;
+@media only screen and (max-device-width: 480px) {
+   #menu  {
+      width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      outline: none;
+      font-size: 0.875rem;
+      margin: 5px 0;
+      padding: 0.7rem 1.25rem;
+      transition: border-color 0.3s ease-in;
+      border-radius: 8px;
+      color: #000;
+   }
 }
-
-.reviews-text {
-  color: #4a4a4a;
-  font-size: 14px;
-  font-weight: normal;
-  text-decoration: underline;
-  margin-left: 5px;
-  vertical-align: middle;
-}
-#review-star-spans {
-  position: absolute;
-  right: 0px;
-  width: 225px;
+select {
+   -webkit-appearance: none;
 }

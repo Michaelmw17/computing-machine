@@ -227,7 +227,6 @@ const ContactForm = ({ title, content, id }) => {
                             </form>
                                 <ToastContainer />
                                 </Col>
-                                {/* <Col lg={12} md={11} sm={24}> */}
                                 <Col lg={12} md={11} sm={24}>
                             <div id="TextAddress">
                                 <div className="formText" >

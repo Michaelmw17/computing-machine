@@ -1,0 +1,11 @@
+.blue-logo {
+    display: absolute;
+    background: #FFF;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+    max-width: 80%;
+    max-height: 90%;
+    left: 350px;
+    position: inherit;
+}
