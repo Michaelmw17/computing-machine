@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 const Input = () => {
   const classes = useStyles();
   const scrollUp = () => {
-    const element = document.getElementById("intro");
+    const element = document.getElementById("Main-Title");
     element.scrollIntoView({
       behavior: "smooth",
       block: "end",

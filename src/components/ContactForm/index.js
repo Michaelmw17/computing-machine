@@ -163,7 +163,11 @@ const ContactForm = ({ title, content, id }) => {
                                     },
                                     })}
                                 >
-                                <option value="" disabled hidden className="hidden">What can we help you with? *</option>
+                                <option 
+                                value="" 
+                                disabled 
+                                hidden 
+                                className="hidden">What can we help you with? *</option>
                                     <option value="Residential">Residential</option>
                                     <option value="Strata / Property Maintenance">Strata / Property Maintenance</option>
                                     <option value="Commercial">Commercial</option>
@@ -241,11 +245,11 @@ const ContactForm = ({ title, content, id }) => {
                                     </div>
                                 </div>
                                     <Suspense fallback={<div>
-                                            <Loader  type="Puff"
-                                            color="#00BFFF"
-                                            height={100}
-                                            width={100}
-                                            timeout={3000} />
+                                        <Loader
+                                        type="BallTriangle" 
+                                        color="#00BFFF" 
+                                        height={80} 
+                                        width={80} />
                                         </div>}>
                                     <LazyLoadComponent>
                                 <OtherComponent/>

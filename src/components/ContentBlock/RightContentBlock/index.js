@@ -22,7 +22,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
     });
   };
   return (
-    <Suspense fallback={<div>Loading..</div>}>
+    <Suspense fallback={<div>Loading... </div>}>
     <S.RightBlockContainer>
       <Row type="flex" justify="space-between" align="middle" id={id}>
         <Col lg={12} md={24} sm={24} xs={24}>

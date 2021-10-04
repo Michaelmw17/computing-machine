@@ -29,7 +29,7 @@ export const ContentWrapper = styled.div`
 
 
   @media only screen and (max-width: 480px) {
-    margin: 2rem 0;
+    margin: 2rem 0.6rem;
   }
 `;
 

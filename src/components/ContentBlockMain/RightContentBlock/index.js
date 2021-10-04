@@ -27,7 +27,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
       <Row type="flex" justify="space-between" align="middle" id={id}>
         <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
             <S.ContentWrapper>
-              <h3 className="Main-Title">{t(title)}</h3>
+              <h3 className="Main-Title" id="Main-Title">{t(title)}</h3>
               <S.Content>{t(content)}</S.Content>
               <S.Content> JDP Electrical Services offer a complete range of electrical installations and 
               services throughout Sydney, North Shore Region and surrounding areas.</S.Content>
