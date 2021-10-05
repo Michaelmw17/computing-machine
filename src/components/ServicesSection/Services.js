@@ -11,7 +11,6 @@ import BuildSharpIcon from '@material-ui/icons/BuildSharp';
 import './ServicesStyles.css'
 import { Row} from 'antd';
 import ContainerCardFlip from '../../components/ContainerCardFlip';
-import Fade from "react-reveal/Fade";
 
 const styles = {
   root:{
@@ -46,9 +45,7 @@ const TestApp = ({ classes }) => {
                                 <div className="p-naming" style={{ fontSize: 20, paddingRight:"20px", paddingBottom: 0 }}>
                                   Residential
                                   </div>
-                                  <Fade up>
                                 <HomeIcon  style={{ fontSize: 230, paddingTop: 0, paddingLeft: 10 }} />
-                                </Fade>
                                 </div>
                             </div>
                           </div>
@@ -77,9 +74,7 @@ const TestApp = ({ classes }) => {
                                     Strata / Property Maintenance
                                     </p>
                                   </div>
-                                  <Fade up>
                                   <BuildSharpIcon  style={{ fontSize: 210, paddingTop: 0, paddingBottom: '51px', color: "#FFF", paddingLeft: 40}} />
-                                </Fade> 
                               </div>
                             </div>
                           </div>
@@ -102,11 +97,9 @@ const TestApp = ({ classes }) => {
                         <div className="Services">
                           <div className="pie">
                             <div id="services-p-naming" className="p-naming">Commercial</div>
-                            <Fade up>
                             <BusinessIcon  style={{ 
                               fontSize: 220, paddingTop: 50, color: "#FFF", 
                               paddingLeft: 30 }} />
-                              </Fade>
                           </div>
                         </div>
                       </div>
