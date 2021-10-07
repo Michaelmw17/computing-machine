@@ -1,4 +1,3 @@
-// import { withTranslation } from "react-i18next";
 import * as S from "./styles";
 
 const TextArea = ({ name, id, placeholder, onChange, t }) => (

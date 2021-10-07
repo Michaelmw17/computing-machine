@@ -1,5 +1,4 @@
 import React, {  lazy, Suspense } from "react";
-// import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton'
 import './styling.css'
@@ -41,7 +40,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon,  id }) => {
                                     <ButtonAnimated key={id}>
                                           <S.Span>
                                             {(item.title1)}
-                                            <BuildlIcon className='icon' style={{ fontSize: 20,paddingTop: 4, }} />
+                                            <BuildlIcon className='icon' style={{ fontSize: 20, marginBottom: -3, }} />
                                           </S.Span>
                                       </ButtonAnimated>
                                     );
@@ -61,7 +60,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon,  id }) => {
                                         onClick={() => scrollTo("Team")}
                                       > 
                                         {(item.title)}
-                                      <ContactMailIcon style={{ color:"#FFF", fontSize: 25,paddingTop: 6, paddingLeft: 6  }} />
+                                      <ContactMailIcon style={{ color:"#FFF", fontSize: 25,paddingTop: 6, paddingLeft: 6,  marginBottom: -2,   }} />
                                       </Button>
                                     );
                                   })}
@@ -70,7 +69,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon,  id }) => {
                     </Row>
               </S.ContentWrapper>
         </Col>
-        <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
+        <Col xs={{ span: 22, offset: 2  }} lg={{ span: 11, offset: 1  }}>
           <Slide right>
           <Suspense fallback={<div>
                     <Loader type="Rings" 
@@ -78,9 +77,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon,  id }) => {
                             height={100}
                             width={100}
                             timeout={3000}/>
-                    </div>
-                        }>
-            <Image id='ImageComp' rel="preload" />
+                    </div>}>
+            <Image rel="preload" id="JDP-Electrical-light"/>
             </Suspense>
           </Slide>
         </Col>

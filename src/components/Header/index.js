@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Loader from "react-loader-spinner";
 import {  Drawer } from "antd";
 import { CSSTransition } from "react-transition-group";
-// import { withTranslation } from "react-i18next";
 import { makeStyles } from '@material-ui/core/styles';
 import BuildIcon from '@material-ui/icons/Build';
 import InfoIcon from '@material-ui/icons/Info';

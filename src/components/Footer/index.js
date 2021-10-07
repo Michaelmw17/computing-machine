@@ -1,6 +1,5 @@
 import React, { lazy, Fragment,Suspense  } from "react";
 import Loader from "react-loader-spinner";
-// import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 import {  Link } from 'react-router-dom';
 import * as S from "./styles";

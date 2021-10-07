@@ -1,5 +1,4 @@
 import React from "react";
-// import { withTranslation } from "react-i18next";
 import * as S from "./styles";
 
 const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));

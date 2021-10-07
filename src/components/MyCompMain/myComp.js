@@ -1,23 +1,20 @@
-import React, { Suspense } from "react";
-import Loader from "react-loader-spinner";
+import React  from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import './styles.css'
+import Img from "react-webp-image";
+// import imgPath from "assets/photo.png";
+// import webpPath from "../../../public/images/light3_768.webp";
+ 
+
 const MyComp = () => {
-    return<Suspense fallback={
-        <Loader
-            type="Puff"
-            color="#00BFFF"
-            height={100}
-            width={100}
-            timeout={2000}/>
-                            }>
-        <img src={process.env.PUBLIC_URL + '/light3.jpg'}
-            alt="MainDisplay"
-            className="light"
-            loading="lazy"
-            max-age="31536000"
+    return <Img src={process.env.PUBLIC_URL + '/images/light3.jpg'} 
+        srcSet={ process.env.PUBLIC_URL + '/images/light3_768.jpg 768w'  }
+        webp={process.env.PUBLIC_URL + '/images/light3_768.webp'}
+        alt="Lighting JDP Electrical Services"
+        className="light"
+        loading="lazy"
+        max-age="31536000"
         />
-    </Suspense>;
 };
 
 

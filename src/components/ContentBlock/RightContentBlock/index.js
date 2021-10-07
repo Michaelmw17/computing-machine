@@ -4,7 +4,6 @@ import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
 
 import Loader from "react-loader-spinner";
 import Button from '@material-ui/core/Button';
-// import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton'
 import * as S from "./styles";
@@ -102,7 +101,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
             </S.ContentWrapper>
           </Slide>
         </Col>
-          <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
+          <Col xs={{ span: 22, offset: 2  }} lg={{ span: 11, offset: 1  }}>
             <Slide right>
               <Suspense fallback={<div>
                 <Loader type="Rings" color="#00BFFF"
@@ -110,7 +109,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                       width={100}
                       timeout={3000} />
                       </div>}>
-                      <ImageMain rel="preload" />
+                      <ImageMain rel="preload"  id="JoeDominic" />
                   </Suspense>
             </Slide>
           </Col>
