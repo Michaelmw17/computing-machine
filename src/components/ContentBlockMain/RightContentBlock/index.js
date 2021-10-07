@@ -1,5 +1,5 @@
 import React, {  lazy, Suspense } from "react";
-import { withTranslation } from "react-i18next";
+// import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton'
 import './styling.css'
@@ -15,7 +15,7 @@ const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/li
 
 const Image = lazy(() => import("../../MyCompMain/myComp.js"));
 
-const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
+const RightBlock = ({ title, content, contentTwo, button, icon,  id }) => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     element.scrollIntoView({
@@ -27,8 +27,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
       <Row type="flex" justify="space-between" align="middle" id={id}>
         <Col xs={{ span: 22, offset: 1  }} lg={{ span: 11, offset: 1  }}>
             <S.ContentWrapper>
-              <h3 className="Main-Title" id="Main-Title">{t(title)}</h3>
-              <S.Content>{t(content)}</S.Content>
+              <h3 className="Main-Title" id="Main-Title">{(title)}</h3>
+              <S.Content>{(content)}</S.Content>
               <S.Content> JDP Electrical Services offer a complete range of electrical installations and 
               services throughout Sydney, North Shore Region and surrounding areas.</S.Content>
                 <Row>
@@ -40,7 +40,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                                     return (
                                     <ButtonAnimated key={id}>
                                           <S.Span>
-                                            {t(item.title1)}
+                                            {(item.title1)}
                                             <BuildlIcon className='icon' style={{ fontSize: 20,paddingTop: 4, }} />
                                           </S.Span>
                                       </ButtonAnimated>
@@ -60,7 +60,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                                         width="true"
                                         onClick={() => scrollTo("Team")}
                                       > 
-                                        {t(item.title)}
+                                        {(item.title)}
                                       <ContactMailIcon style={{ color:"#FFF", fontSize: 25,paddingTop: 6, paddingLeft: 6  }} />
                                       </Button>
                                     );
@@ -89,4 +89,4 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
   );
 };
 
-export default withTranslation()(RightBlock);
+export default (RightBlock);

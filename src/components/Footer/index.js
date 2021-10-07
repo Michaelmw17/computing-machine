@@ -1,6 +1,6 @@
 import React, { lazy, Fragment,Suspense  } from "react";
 import Loader from "react-loader-spinner";
-import { withTranslation } from "react-i18next";
+// import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 import {  Link } from 'react-router-dom';
 import * as S from "./styles";
@@ -19,7 +19,7 @@ const Mailto = ({ email, subject = '', body = '', children }) => {
 
   return <a href={`mailto:${email}${params}`}>{children}</a>;
 };
-const Footer = ({ t }) => {
+const Footer = () => {
 const scrollTo = (id) => {
     const element = document.getElementById(id);
     element.scrollIntoView({
@@ -36,49 +36,49 @@ const scrollTo = (id) => {
           <Container id="footer">
             <Row type="flex" justify="space-between">
               <Col lg={9} md={10} sm={12} xs={24}>
-                <S.Title>{t("Contact")}</S.Title>
-                <S.Title style={{textTransform: "capitalize"}}>{t("Tell us everything")}</S.Title>
+                <S.Title>{("Contact")}</S.Title>
+                <S.Title style={{textTransform: "capitalize"}}>{("Tell us everything")}</S.Title>
                 <S.Para>
-                  {t(`Do you have any question regarding our services? 
+                  {(`Do you have any question regarding our services? 
                     Feel free to reach out.`)}
                 </S.Para>
                 <Mailto email="info@jdpelectrical.com.au " subject="Enquire To JDP" body="Hello JDP!" >
-                  <S.Chat>{t(`Let's Chat`)}</S.Chat>
+                  <S.Chat>{(`Let's Chat`)}</S.Chat>
                 </Mailto>
               </Col>
               <Col lg={6} md={6} sm={12} xs={24} >
-              <S.Title>{t("JDP Electrical Services")}</S.Title>
+              <S.Title>{("JDP Electrical Services")}</S.Title>
                 <S.Large left="true" to="/" onClick={scrollToTop}>
-                  {t("Home")}
+                  {("Home")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("mission")}>
-                  {t("About")}
+                  {("About")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("Service")}>
-                  {t("Services")}
+                  {("Services")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("Review")}>
-                  {t("Reviews")}
+                  {("Reviews")}
                 </S.Large>
                 <S.Large left="true"  to="/about" onClick={() => scrollTo("Team")}>
-                  {t("Contact")}
+                  {("Contact")}
                 </S.Large>
               </Col>
               <Col lg={6} md={8} sm={12} xs={24}>
-              <S.Title>{t("ADDRESS")}</S.Title>
+              <S.Title>{("ADDRESS")}</S.Title>
                 <S.Para>Unit 17 </S.Para>
                 <S.Para>4-6 Chaplin Drive</S.Para>
                 <S.Para> Lane Cove West NSW 2066</S.Para>
               </Col>
               <Col lg={9} md={10} sm={12} xs={24}>
-                <S.Title>{t("General & Accounts")}</S.Title>
+                <S.Title>{("General & Accounts")}</S.Title>
                 <S.Para>
                 <a href="tel:02-9419-7947" id="TextNumberGen">
-                            {t("Ph: (02) 9419 7947 ")}
+                            {("Ph: (02) 9419 7947 ")}
                 </a>
                 </S.Para>
                 <Mailto email=" info@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                <S.Chat>{t(`Info@jdpelectrical.com.au`)}</S.Chat>
+                <S.Chat>{(`Info@jdpelectrical.com.au`)}</S.Chat>
                   </Mailto>
                 <S.Large left="true" to="/">
                   
@@ -86,23 +86,23 @@ const scrollTo = (id) => {
                 <S.Large left="true" to="/">
                 </S.Large>
                 <Mailto email=" accounts@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                  <S.Chat>{t(`Accounts@jdpelectrical.com.au`)}</S.Chat>
+                  <S.Chat>{(`Accounts@jdpelectrical.com.au`)}</S.Chat>
                   </Mailto>
               </Col>
               <Col lg={6} md={6} sm={12} xs={24}>
-                <S.Title>{t("Joe Panetta")}</S.Title>
+                <S.Title>{("Joe Panetta")}</S.Title>
                 <S.Para>
                 <a href="tel:0412-450-300" id="TextNumberJoe">
-                            {t("Ph: 0412 450 300")}
+                            {("Ph: 0412 450 300")}
                 </a>
                 </S.Para>
               </Col>
               <Col lg={6} md={8} sm={12} xs={24}>
                 
-                <S.Title >{t("Dominic Panetta")}</S.Title>
+                <S.Title >{("Dominic Panetta")}</S.Title>
                 <S.Para>
                 <a href="tel:0412-479-557" id="TextNumberDom">
-                            {t("Ph: 0412 479 557")}
+                            {("Ph: 0412 479 557")}
                 </a>
                 </S.Para>
               </Col>
@@ -156,4 +156,4 @@ const scrollTo = (id) => {
   );
 };
 
-export default withTranslation()(Footer);
+export default (Footer);

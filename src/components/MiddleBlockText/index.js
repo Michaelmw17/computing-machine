@@ -1,5 +1,5 @@
 import React, {lazy} from "react";
-import { withTranslation } from "react-i18next";
+// import { withTranslation } from "react-i18next";
 import Fade from "react-reveal/Fade";
 
 import * as S from "./styles";
@@ -7,7 +7,7 @@ const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/li
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 const Button = lazy(() => import("../../common/Button"));
 
-const MiddleBlock = ({ title, content, button, t }) => {
+const MiddleBlock = ({ title, content, button  }) => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     element.scrollIntoView({
@@ -20,14 +20,14 @@ const MiddleBlock = ({ title, content, button, t }) => {
         <Fade bottom>
           <S.ContentWrapper>
             <Col lg={24} md={24} sm={24} xs={24}>
-              <S.Content>{t(content)}</S.Content>
+              <S.Content>{(content)}</S.Content>
               {button ? (
                 <Button
                   name="submit"
                   type="submit"
                   onClick={() => scrollTo("mission")}
                 >
-                  {t(button)}
+                  {(button)}
                 </Button>
               ) : (
                 ""
@@ -40,4 +40,4 @@ const MiddleBlock = ({ title, content, button, t }) => {
   );
 };
 
-export default withTranslation()(MiddleBlock);
+export default (MiddleBlock);

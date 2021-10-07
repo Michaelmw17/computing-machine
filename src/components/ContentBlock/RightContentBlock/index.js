@@ -4,7 +4,7 @@ import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
 
 import Loader from "react-loader-spinner";
 import Button from '@material-ui/core/Button';
-import { withTranslation } from "react-i18next";
+// import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton'
 import * as S from "./styles";
@@ -14,7 +14,7 @@ const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/li
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 const ImageMain = lazy(() => import("../../LazyImages/index.js"));
 
-const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
+const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     element.scrollIntoView({
@@ -28,8 +28,8 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
         <Col lg={12} md={24} sm={24} xs={24}>
           <Slide left>
             <S.ContentWrapper>
-              <h3>{t(title)}</h3>
-              <S.Content>{t(content)}</S.Content>
+              <h3>{(title)}</h3>
+              <S.Content>{(content)}</S.Content>
               <S.Content>Brothers Dominic and Joseph Panetta have built a reputable electrical contracting business specialising in all electrical installations and repairs for Residential and Commercial sectors. </S.Content>
               <S.Content>We offer expert advice to customers, and assist them with design and implementation solutions providing them with lasting, efficient and practical lighting designs. We ensure all your electrical needs are met.</S.Content>
               <S.Content>Our guarantee of quality work and our commitment to providing the best and most cost-effective solutions to your electrical needs, is why JDP Electrical are known as trusted electrical contractors..</S.Content>
@@ -75,7 +75,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                                 button.map((item, id) => {
                                   return (
                                   <ButtonAnimated key={id}>
-                                      <S.Span>{t(item.title1)}</S.Span>
+                                      <S.Span>{(item.title1)}</S.Span>
                                     </ButtonAnimated>
                                   );
                                 })}
@@ -91,7 +91,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
                                       width="true"
                                       onClick={() => scrollTo("Team")}
                                     > 
-                                      {t(item.title)}
+                                      {(item.title)}
                                     </Button>
                                   );
                                 })}
@@ -120,4 +120,4 @@ const RightBlock = ({ title, content, contentTwo, button, icon, t, id }) => {
   );
 };
 
-export default withTranslation()(RightBlock);
+export default (RightBlock);

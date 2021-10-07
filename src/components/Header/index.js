@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Loader from "react-loader-spinner";
 import {  Drawer } from "antd";
 import { CSSTransition } from "react-transition-group";
-import { withTranslation } from "react-i18next";
+// import { withTranslation } from "react-i18next";
 import { makeStyles } from '@material-ui/core/styles';
 import BuildIcon from '@material-ui/icons/Build';
 import InfoIcon from '@material-ui/icons/Info';
@@ -22,7 +22,7 @@ const MyComp = lazy(() => import("../../components/MyComp/myComp"));
 const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
 const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
 
-const Header = ({ t }) => {
+const Header = () => {
   const [isNavVisible] = useState(false);
   const [isSmallScreen] = useState(false);
   const [visible, setVisibility] = useState(false);
@@ -64,32 +64,32 @@ const useStyles = makeStyles((theme) => ({
             <Fade up>
           <HomeIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
           </Fade>
-              <S.Span><span>{t("Home")}</span></S.Span>
+              <S.Span><span>{("Home")}</span></S.Span>
               </Link>
           </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Service")}>
            <Fade up>
           <BuildIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28   }} />
           </Fade>
-            <S.Span className="Span"><span>{t("Services")}</span></S.Span>
+            <S.Span className="Span"><span>{("Services")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("People")}>
         <Fade up>
           <InfoIcon style={{color:"RGB(209, 29, 50)", fontSize: 28  }} />
           </Fade>
-          <S.Span ><span>{t("About")}</span></S.Span>
+          <S.Span ><span>{("About")}</span></S.Span>
         </S.CustomNavLinkSmall>
           <S.CustomNavLinkSmall onClick={() => scrollTo("Review")}>
           <Fade up>
             <RateReviewIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28 }} />
             </Fade>
-          <S.Span><span>{t("Reviews")}</span></S.Span>
+          <S.Span><span>{("Reviews")}</span></S.Span>
         </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall onClick={() => scrollTo("Team")}>
         <Fade up>
           <ContactMailIcon style={{ color:"RGB(209, 29, 50)", fontSize: 28  }} />
           </Fade>
-          <S.Span><span>{t("Contact")}</span></S.Span>
+          <S.Span><span>{("Contact")}</span></S.Span>
           </S.CustomNavLinkSmall>
         <S.CustomNavLinkSmall >
               <div>
@@ -170,4 +170,4 @@ const scrollToTop = () => {
   );
 };
 
-export default withTranslation()(Header);
+export default (Header);
