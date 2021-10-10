@@ -1,21 +1,29 @@
-.div-wrapper {
-    background-color: black;
-    display: flex; 
-    justify-content: space-between;
+.lazy-load-image-background.blur {
+  filter: blur(15px);
 }
-.buttonMain {
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
+
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  filter: blur(0);
+  transition: filter .3s;
 }
-.button-label-main {
-  color: black;
+
+.lazy-load-image-background.blur > img {
+  opacity: 0;
 }
-.p-Call-us-now-main {
-  padding: 13px 4px 0 2px;
-  font-size: 14px;
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  opacity: 1;
+  transition: opacity .3s;
 }
-@media screen and (max-width: 300px) {
-  .p-Call-us-now-main {
-    font-size: 10px;
-  }
+
+.blue-logo {
+    display: absolute;
+    background: #FFF;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+    max-width: 80%;
+    max-height: 90%;
+    left: 350px;
+    position: inherit;
 }

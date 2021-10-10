@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'RGB(209, 29, 50)',
     padding: 0,
     paddingRight: 50,
+    
   },
 }));
 

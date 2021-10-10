@@ -30,7 +30,7 @@ const TestApp = ({ classes }) => {
         <ContainerCardFlip >
             <div className={classes.container}>
                 <div className="inner-width-services">
-                    <Grid container spacing={5} justify="flex-start">
+                    <Grid container spacing={2} justifycontent="flex-start">
                       <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Row justify="center">
                         <ReactCardFlipper
@@ -50,7 +50,7 @@ const TestApp = ({ classes }) => {
                             </div>
                           </div>
                           <div className="text-left">
-                              <p style={{ marginLeft: 80, fontSize: 20, color: '#FFF', textTransform: 'uppercase', listStyleType: 'none'  }}>
+                              <p style={{ marginLeft: 80, marginBottom: 5, fontSize: 20, color: '#FFF', textTransform: 'uppercase', listStyleType: 'none'  }}>
                               Residential
                               </p>
                               <MyListResidential/>
@@ -123,7 +123,6 @@ const TestApp = ({ classes }) => {
 const styling = {
   root: {
     display: "block",
-    margin: "50px",
     position: "relative"
   },
   card: {

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 360,
     backgroundColor: 'rgb(209, 29, 50)',
     position: 'relative',
-    maxHeight: 300,
+    maxHeight: 266,
     color: '#FFF'
   },
   listSection: {
@@ -37,8 +37,9 @@ const useStyles = makeStyles((theme) => ({
   ul: {
     backgroundColor: 'rgb(209, 29, 50)',
     padding: 0,
-    paddingRight: 20,
+    paddingRight: 40,
     borderRadius: '15px',
+    
   },
 }));
 

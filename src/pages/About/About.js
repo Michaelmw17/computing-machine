@@ -17,7 +17,6 @@ const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const ContactFrom = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const MiddleBlockTwo = lazy(() => import("../../components/MiddleBlockTwo"));
-const MiddleBlockText = lazy(() => import("../../components/MiddleBlockTwo"));
 const MiddleBlockTwoRed = lazy(() => import("../../components/MiddleBlockTwoRed"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
@@ -45,7 +44,6 @@ function First() {
                       title={MiddleBlockContent.title}
                       content={MiddleBlockContent.text}/>
                         <MeetTheTeam/>
-                          <MiddleBlockText/>
                       <MiddleBlockTwo
                           content={MiddleBlockContentTwo.text} />
                       <MiddleBlockTwoRed
