@@ -11,7 +11,7 @@ import Footer from "../../components/Footer";
 import ContentBlockMain from "../../components/ContentBlockMain";
 
 import './about.css'
-const MeetTheTeam = lazy(() => import('../../components/ServicesSection/Services.js'))
+const FlipperCards = lazy(() => import('../../components/FlippingCards'))
 const Carousel = lazy(() => import("../../components/CarouselTest/Carousel"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const ContactFrom = lazy(() => import("../../components/ContactForm"));
@@ -43,7 +43,7 @@ function First() {
                     <MiddleBlock
                       title={MiddleBlockContent.title}
                       content={MiddleBlockContent.text}/>
-                        <MeetTheTeam/>
+                        <FlipperCards/>
                       <MiddleBlockTwo
                           content={MiddleBlockContentTwo.text} />
                       <MiddleBlockTwoRed

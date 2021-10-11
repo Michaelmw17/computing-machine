@@ -16,14 +16,14 @@
   transition: opacity .3s;
 }
 
-.blue-logo {
+.red-logo {
     display: absolute;
     background: #FFF;
     margin-right: auto;
+    margin-top: 15px;
     height: 100%;
     width: 100%;
-    max-width: 80%;
-    max-height: 90%;
-    left: 350px;
-    position: inherit;
+    max-width: 90%;
+    max-height: 80%;
+    padding: 0 ​0 5px 25px;
 }
