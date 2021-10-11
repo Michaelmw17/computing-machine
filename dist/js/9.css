@@ -119,6 +119,7 @@ ul li:before {
     -moz-box-shadow: 0 7px 8px rgb(255 0 0 / 75%);
     box-shadow: 0 7px 8px rgb(255 0 0  / 75%);
     color: white;
+    
     }
 .Title, .Title-Two {
     color: white;
@@ -140,4 +141,7 @@ ul li:before {
     .ContainerFlipper {
         font-size: 14px;
     }
+}
+.social-icons {
+    text-align: left;
 }
