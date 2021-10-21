@@ -10,7 +10,6 @@ module.exports = {
         path: path.join(__dirname, "dist/js"),
         filename: "bundle.js"
     },
-    
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
@@ -26,7 +25,7 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
-         {
+        {
             test: /\.(png|jpg|gif)$/i,
             use: [
                 {

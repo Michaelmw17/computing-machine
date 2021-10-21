@@ -2,9 +2,6 @@ import React  from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import './styles.css'
 import Img from "react-webp-image";
-// import imgPath from "assets/photo.png";
-// import webpPath from "../../../public/images/light3_768.webp";
- 
 
 const MyComp = () => {
     return <Img src={process.env.PUBLIC_URL + '/images/light3.jpg'} 

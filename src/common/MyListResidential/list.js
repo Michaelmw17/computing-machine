@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   ul: {
     backgroundColor: 'rgb(209, 29, 50)',
     padding: 0,
-    paddingRight: 40,
+    paddingRight: 25,
     borderRadius: '15px',
     
   },
