@@ -1,232 +1,143 @@
-
-.intro {
-    margin-top: 50px;
-}
-.button {
-  background-color: #6772e5;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
-}
-.button:hover {
-  background-color: white
-}
-.button-label {
-  color: black;
-}
-.p-CallUs {
-  padding-top: 15px;
-  font-size: 14px;
+#MainButton::before{
+    height: 100%;
+    top: 20%;
+    filter: brightness(0.6);
 }
 
-.div-wrapper {
-    background-color: black;
-    display: flex; 
-    justify-content: space-between;
+#MainButton span {
+    position: relative;
+    height: 120%;
+    top: -10%;
+    width:150%;
+    margin-left: -5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transition: 0.5s;
 }
 
-.icon:hover {
-   color: white;
+.button-enter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 150%;
+    height: 60%;
+    border-radius: 20%;
+    background: linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
-.icon {
-    color:"#000";
-    font-size: 20;
-    padding-top: 5;
+#MainButton {
+    position: absolute;
+    left: -8px;
+    top: -21px; 
+    display: block;
+    width: 150%;
+    height: 60%;
+    border-radius: 20%;
+    background: linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white;
+    box-shadow: rgba(0, 23, 25, 0.2) 0px 19px 38px, #71d9ff 0px 5px 22px;
+
 }
-.Main-Title {
-    padding:  3.7rem 0.5rem 0.5rem 0.3rem;
-}
-@media (min-width: 900px) {
-    .Main-Title {
-        padding:  2.7rem 0.5rem 0.5rem 0.3rem;
+@media (min-width: 600px) { 
+        #MainButton {
+        position: absolute;
+        left: -2px;
+        top: -17px;
+        display: block;
+        width: 150%;
+        height: 60%;
+        border-radius: 20%;
+        background: linear-gradient(to bottom right, white, rgba(220,220,220,.5)), white;
+        box-shadow: rgba(0, 23, 25, 0.2) 0px 19px 38px, #71d9ff 0px 5px 22px;
     }
 }
 
-.team-section {
-	text-align: center;
+.IntroContainer{
+  height: 150vh;
+  width: 100vw;
+  background-color: #1f1c1d;
+  background-size: cover;
 }
-
-.inner-width {
-	max-width: 1000px;
-	margin: auto;
-	padding: 40px;
-	color: #333;
-	overflow: hidden;
+.App {
+  width: 230px;
+  height: 350px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.932);
+  margin-left: auto;
+  margin-right: auto ;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 100, 0.56) 0px 22px 70px 4px;
+  cursor: pointer;
+  padding-top: 10px;
 }
-
-.team-section h1 {
-	font-size: 20px;
-	text-transform: uppercase;
-	display: inline-block;
-	border-bottom: 4px solid;
-	padding-bottom: 10px;
-}
-
-.pe, .pe-two, .pe-one {
-	float: left;
-	overflow: hidden;
-	padding: 30px 20px 0;
-	transition: 0.4s;
-}
-.pe-two {
-	float: left;
-	overflow: hidden;
-	padding: 40px 90px 0;
-	transition: 0.4s;
-}
-.pe-one {
-	float: left;
-	overflow: hidden;
-	padding: 30px 90px 0;
-	transition: 0.4s;
-}
-.pe img, .pe-two img, .pe-one img {
-	width:250px;
-	height: 250px;
-	border-radius: 50%;
-}
-
-.p-name {
-	margin: 15px;
-	margin-left: 35px;
-	text-transform: uppercase;
-	text-align: center;
-	color: #000;
-}
-
-.p-des {
-	font-style: italic;
-	color: #3498db;
-}
-
-.p-sm {
-	margin-top: 160px;
-}
-
-.p-sm a {
-	margin: 0 4px;
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	transition: 0.4s;
-}
-
-.p-sm a i {
-	line-height: 30px;
-}
-
-@media screen and (max-width: 960px) {
-	.pe, .pe-one,  .pe-two{
-		width: 100%;
-		padding: 30px 20px 0;
-	}
-}
-@media screen and (max-width: 768px) {
-	.pe, .pe-one,  .pe-two{
-		width: 100%;
-		padding: 30px 20px 0;
-	}
-}
-@media screen and (max-width: 600px) {
-	.pe, .pe-one,  .pe-two{
-		width: 100%;
-		padding: 30px 20px 0;
-	}
-}
-.Link {
-	margin-bottom: 600px;
-	display: absolute;
-}
-input::-moz-focus-inner,
-Button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-input[type="submit"].btn,
-Button.btn {
+.AppCon {
+  width: 235px;
+  height: 355px;
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.932);
+  margin-left: auto;
+  margin-right: auto ;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   cursor: pointer;
 }
-
-Button.btn,.btn {
-	display: inline-block;
-	outline: none;
-	*zoom: 1;
-	text-align: center;
-	text-decoration: none;
-	font-family: inherit;
-	font-weight: 600;
-	letter-spacing: 1px;
-	vertical-align: middle;
-	border: 1px solid;
-	transition: all 0.2s ease;
-	box-sizing: border-box;
-	text-shadow: 0 1px 0 rgba(0,0,0,0.01);
-	border: 2px solid rgb(209, 29, 50);
-}
-.btn-radius {
-	margin-top:10px;
-	border-radius: 8px;
-	padding: 8px 50px 30px 58px ;
-	border-radius: 8px;
-	height: 60px;
-	outline: none;
-	cursor: pointer;
-	margin-top: 0.625rem;
-	max-width: 180px;
-	border-color: rgb(209, 29, 50);
-	color: #000;
-}
-.btn-radius:hover {
-	border-radius: 8px;
-	height: 60px;
-	outline: none;
-	cursor: pointer;
-	margin-top: 0.625rem;
-	max-width: 180px;
-	background-color: rgb(209, 29, 50);
-	color: #FFF;
+.App:hover{
+  background: rgba(255, 255, 255, 0.973);
 }
 
-.children  {
-	color: #000 !important;
-}
-.children:hover  {
-	color: #fff  !important;
-}
-#SpanButton {
-	padding-top: 50px;
-	color: #000;
-	font-weight: bold;
-	padding-right: 40px;;	
-}
-#SpanButton:hover {
-	padding-top: 50px;
-	color: rgb(255, 255, 255);
-	font-weight: bold;
-}
-#Service {
-	padding-top: 90px;
-}
-#Review {
-	padding-top: 130px;
-}
-#mission {
-	padding-top: -80px;
-}
-@media only screen and (max-width: 480px) {
-	#Service {
-		padding-top: 140px;
-		padding-bottom: -50px;
-	}
-	#mission {
-		padding-top: 100px;
-	}
-}
-.whiteContainer {
-	max-width: 2000px;
-    margin: auto;
-	overflow: visible;
-}
 body {
-	overflow: visible;
+  overflow: hidden; 
 }
+#Enter-Title {
+  padding: 5px 0 ;
+}
+#Enter-Title{
+  text-align: center;
+  color: white;
+  transform: uppercase;
+  font-size: 30px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.css-140rygk-BaseToolTop {
+    top: 85% !important;
+    left: 128% !important;
+  }
+  .css-ffrbnv {
+    top: 80% !important;
+    left: 129%!important
+  }
+@media (min-width: 900px) {
+  body {
+    overflow: hidden; /* This is how it looks on desktop */
+  }
+  #Enter-Title {
+    padding-top: 25px;
+  }
+  #Enter-Title {
+    font-size: 52px;
+  }
+  .AppCon {
+    width: 255px; 
+    height: 400px; 
+    margin-top: 100px;
+  }
+  .App {
+    width: 243px;
+    height: 392px;
+    position: absolute;
+    margin: 3px 6px;
+  }
+    .css-140rygk-BaseToolTop {
+    top: 85% !important;
+    left: 135% !important;
+  }
+  .css-ffrbnv {
+    top: 80% !important;
+    left: 137% !important;
+  }
+}
+

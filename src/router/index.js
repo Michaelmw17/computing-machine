@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import routes from "./config";
 import GlobalStyles from "../globalStyles";
 const Home = lazy(() => import('../pages/Home'))
-const About = lazy(() => import('../pages/About/About'))
+const About = lazy(() => import('../pages/About'))
 
 
 const Router = () => {
@@ -11,6 +11,15 @@ const Router = () => {
     <Suspense fallback={null}>
       <GlobalStyles />
       <Switch>
+       {/* Removes trailing slashes */}
+      <Route
+        path="/:url*(/+)"
+        exact
+        strict
+        render={({ location }) => (
+          <Redirect to={location.pathname.replace(/\/+$/, "")} />
+        )}
+      />
         {routes.map((routeItem) => {
           return (
             <Route
@@ -25,7 +34,7 @@ const Router = () => {
         <Route exact path='/' >
         <Home/>
         </Route>
-        <Route path="/About">
+        <Route  exact strict  path="/About">
       <About />
     </Route>
       </Switch>
