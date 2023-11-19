@@ -9,7 +9,7 @@ export const Header = styled.header`
   width: 100%;
   height: 99px;
   z-index: 10;
-  background: #FFF;
+  background: #fff;
 `;
 
 export const LogoContainer = styled(Link)`
@@ -25,13 +25,13 @@ export const Container = styled.div`
   padding-right: 25px;
   padding-left: 25px;
   margin-right: auto;
-  background: #FFF;
+  background: #fff;
+  height: 99px;
 `;
 
 export const NavLink = styled.div`
   display: inline-block;
   text-align: center;
-  
 `;
 export const CustomNavLink = styled.div`
   width: 203px;
@@ -57,7 +57,7 @@ export const Burger = styled.div`
 
 export const NotHidden = styled.div`
   @media only screen and (max-width: 1289px) {
-      display: none;
+    display: none;
   }
 `;
 
@@ -90,7 +90,7 @@ export const Label = styled.span`
 `;
 
 export const Outline = styled(MenuOutlined)`
-padding-top: 40px;
+  padding-top: 40px;
   font-size: 22px;
   padding-right: ${(props) => (props.padding ? '10px' : '')};
   text-align: center;
@@ -99,6 +99,6 @@ padding-top: 40px;
 export const Span = styled.div`
   cursor: pointer;
   color: #000;
-	font-size: 16;
-	position: "static";
+  font-size: 16;
+  position: 'static';
 `;

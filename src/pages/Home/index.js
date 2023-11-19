@@ -1,70 +1,81 @@
-import React, {  lazy } from "react";
-import Button from '../../common/ButtonMains/ButtonMain'
-import {  NavLink } from 'react-router-dom';
-import Tooltip from "react-simple-tooltip"
-import {css} from "styled-components"
-import './homeStyles.css';
-import  ScrollToTop from '../../components/ScrollTopFunc';
+import React, { lazy } from 'react';
+import MissionContent from '../../content/MissionContent.json';
+import MiddleBlockContent from '../../content/MiddleBlockContent.json';
+import MiddleBlockContentTwo from '../../content/MiddleBlockContentTwo.json';
+import MiddleBlockContentThree from '../../content/MiddleBlockContentThree.json';
+import MiddleBlockTwoRedText from '../../content/MiddleBlockContentTwoRed.json';
+import ContactContent from '../../content/ContactContent.json';
+import IntroContent from '../../content/IntroContent.json';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import ContentBlockMain from '../../components/ContentBlockMain';
 
-const Container = lazy(() => import("../../common/Container"));
+import './about.css';
+const FlipperCards = lazy(() => import('../../components/FlippingCards'));
+const Carousel = lazy(() => import('../../components/CarouselTest/Carousel'));
+const ContentBlock = lazy(() => import('../../components/ContentBlock'));
+const ContactFrom = lazy(() => import('../../components/ContactForm'));
+const MiddleBlock = lazy(() => import('../../components/MiddleBlock'));
+const MiddleBlockTwo = lazy(() => import('../../components/MiddleBlockTwo'));
+const MiddleBlockTwoRed = lazy(() =>
+  import('../../components/MiddleBlockTwoRed')
+);
+const Container = lazy(() => import('../../common/Container'));
+const ScrollToTop = lazy(() => import('../../common/ScrollToTop'));
 
-
-const Home = (props, i) => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  window.addEventListener('resize', () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  });
-  const scrollToTop = () => {
-    window.scrollTo(0, 0)
-  } 
-  return (<div className="IntroContainer"> 
-          <ScrollToTop>
-                <Container>
-                    <>
-                      <NavLink to='/About'>
-                      <div className="AppAboutContainer">
-                        <div className="AppCon">
-                          <div className="App">
-                                <Tooltip
-                                      arrow={8}
-                                      background="rgb(209, 29, 50)"
-                                      border="#0e1111"
-                                      color="#FFF"
-                                      content="Click to Enter JDP Electrical"
-                                      fadeDuration={3}
-                                      fadeEasing="linear"
-                                      fixed={false}
-                                      fontFamily="inherit"
-                                      fontSize="inherit"
-                                      offset={0}
-                                      padding={8}
-                                      placement="bottom"
-                                      radius={33}
-                                      zIndex={1}
-                                        customCss={css`
-                                          white-space: nowrap;
-                                          word-break: break-all;
-                                        `}
-                                  >
-                                  <Button onClick={scrollToTop}/>
-                              </Tooltip>
-                            </div>
-                        </div>
-                      </div>
-                    </NavLink>
-                </>
-                  <NavLink to='/About'>
-                    <h1 id="Enter-Title">
-                    Enter JDP Electrical Services
-                    </h1>
-                </NavLink>
-            </Container>
-          </ScrollToTop>
-    </div>
+const Home = () => {
+  document.body.scroll = 'yes';
+  document.body.style.overflow = 'visible';
+  document.height = window.innerHeight;
+  return (
+    <>
+      <div className="whiteContainer">
+        <Container>
+          <Header />
+          <ScrollToTop />
+          <ContentBlockMain
+            type="right"
+            first="true"
+            title={IntroContent.title}
+            content={IntroContent.text}
+            button={IntroContent.button}
+            icon="developer.svg"
+            id="intro"
+          />
+        </Container>
+        <div id="Service">
+          <MiddleBlock
+            title={MiddleBlockContent.title}
+            content={MiddleBlockContent.text}
+          />
+          <FlipperCards />
+          <MiddleBlockTwo content={MiddleBlockContentTwo.text} />
+          <MiddleBlockTwoRed content={MiddleBlockTwoRedText.text} />
+          <MiddleBlockTwo content={MiddleBlockContentThree.text} />
+        </div>
+        <Container>
+          <div id="People"></div>
+          <ContentBlock
+            type="right"
+            title={MissionContent.title}
+            content={MissionContent.text}
+            icon="product-launch.svg"
+            id="mission"
+          />
+        </Container>
+        <div id="Review">
+          <Carousel />
+        </div>
+        <ContactFrom
+          title={ContactContent.title}
+          content={ContactContent.text}
+          href={ContactContent.href}
+          id="Team"
+        />
+        <Footer />
+      </div>
+    </>
   );
 };
 
-export default (Home);
+export default Home;
