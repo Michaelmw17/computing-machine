@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const ContactContainer = styled.div`
-  padding: 8rem 10px;
-  padding-left:40px;
-  padding-right:40px;
+  padding: 5rem 10px;
+  padding-left: 40px;
+  padding-right: 40px;
   @media only screen and (min-width: 980px) {
     padding: 6rem 3rem;
   }
-
 `;
 
 export const Contact = styled.section`
@@ -46,7 +45,6 @@ export const ButtonContainer = styled.div`
   margin-top: 0rem;
   @media only screen and (max-width: 414px) {
     // padding-top: 0.75rem;
-    
   }
 `;
 

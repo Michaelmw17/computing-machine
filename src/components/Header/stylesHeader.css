@@ -1,6 +1,5 @@
-
 .intro {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 .button {
   background-color: #6772e5;
@@ -8,7 +7,7 @@
   padding: 7px 14px;
 }
 .button:hover {
-  background-color: white
+  background-color: white;
 }
 .button-label {
   color: black;
@@ -16,4 +15,7 @@
 .p-CallUs {
   padding-top: 15px;
   font-size: 14px;
+}
+#logo-hamburger {
+  flex-flow: nowrap;
 }

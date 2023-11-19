@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 export const RightBlockContainer = styled.section`
   position: relative;
-  padding: 9.5rem 0 8rem;
+  padding: 6.5rem 0 0;
 
   @media only screen and (max-width: 768px) {
     padding: 4rem 0 5rem;
+    text-align: center;
+  }
+  @media only screen and (max-width: 414px) {
+    padding: 1rem 0 5rem;
   }
 `;
 
@@ -13,18 +17,18 @@ export const Content = styled.p`
   margin: 1.5rem 2rem 2rem 0;
   font-size: 20px;
   @media only screen and (max-width: 480px) {
-      margin: 1.5rem 0 2rem 0;
+    margin: 1.5rem 0 2rem 0;
   }
 `;
 export const Span = styled.p`
   margin: 0.4rem -5rem 0rem -6rem;
-  font-size: 16px
+  font-size: 16px;
 `;
 
 export const ContentWrapper = styled.div`
   position: relative;
   max-width: 640px;
-  margin-left:1rem;
+  margin-left: 1rem;
 
   @media only screen and (max-width: 480px) {
     margin: 2rem 0;
