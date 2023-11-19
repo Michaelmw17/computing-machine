@@ -26,7 +26,9 @@ export const Container = styled.div`
   padding-left: 25px;
   margin-right: auto;
   background: #fff;
-  height: 99px;
+  @media only screen and (min-width: 768px) {
+    height: 99px;
+  }
 `;
 
 export const NavLink = styled.div`
