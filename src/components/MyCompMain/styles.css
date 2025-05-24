@@ -1,29 +1,31 @@
 .light {
-    background: #FFF;
-    margin-right: auto;
+  background: #fff;
+  height: 85%;
+  width: 85%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(7.5px 8.5px 12px #000);
+  border-radius: 5%;
+  min-width: 85%;
+  margin: 3rem auto 0 auto; /* Center horizontally */
+  display: block; /* Needed for margin auto to work on images */
+}
+
+@media screen and (min-width: 900px) {
+  .light {
+    background: rgb(129, 35, 35);
     height: 100%;
     width: 100%;
-    max-width: 85%;
+    max-width: 95%;
     max-height: 80%;
-    position: relative ;
     object-fit: cover;
     object-position: center;
     filter: drop-shadow(7.5px 8.5px 12px #000);
     border-radius: 5%;
-    min-width: 85%;
-}
-@media screen and (min-width: 900px) {
-	.light {
-        background: rgb(129, 35, 35);
-        margin-right: auto;
-        height: 100%;
-        width: 100%;
-        max-width: 95%;
-        max-height: 80%;
-        position: relative ;
-        object-fit: cover;
-        object-position: center;
-        filter: drop-shadow(7.5px 8.5px 12px #000);
-        border-radius: 5%;
-    }
+    margin: 3rem auto 0 auto; /* Still center on desktop */
+    display: block;
+  }
 }

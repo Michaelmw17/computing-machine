@@ -1,4 +1,5 @@
-import * as S from "./styles";
+import React from 'react';
+import * as S from './styles';
 
 const ContainerCard = ({ padding, border, children }) => (
   <S.Container padding={padding} border={border}>

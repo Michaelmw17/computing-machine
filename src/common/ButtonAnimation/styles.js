@@ -11,8 +11,7 @@ export const ButtonAnimated = styled.button`
   height: 60px;
   outline: none;
   cursor: pointer;
-  margin-top: 0.625rem;
-  
+
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '160px' : '100%')};
   }
@@ -25,5 +24,4 @@ export const ButtonAnimated = styled.button`
     width: ${(props) => (props.width ? '160px' : '100%')};
     margin-left: 0rem;
   }
-  
 `;

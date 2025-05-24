@@ -1,22 +1,17 @@
 .JDP-BRANDING {
+  display: block; /* Prevent inline spacing issues */
+  height: 55px; /* Fixed height */
+  width: auto; /* Auto width to keep aspect ratio */
+  max-width: 100%; /* Responsive max width */
+  margin: 15px 0 0 30px; /* shorthand for margin-top and margin-left */
   background: #fff;
-  margin-right: auto;
-  margin-top: 15px;
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  max-height: 55px;
-  margin-left: 30px;
+  object-fit: contain; /* Ensures image fits inside without distortion */
 }
+
 @media screen and (max-width: 600px) {
   .JDP-BRANDING {
-    background: rgb(255, 255, 255);
-    margin-right: auto;
-    margin-top: 10px;
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
-    max-height: 55px;
-    margin-left: 0;
+    margin: 10px 0 0 0; /* Remove left margin on small screens */
+    height: 55px; /* Keep height fixed */
+    width: auto; /* Maintain aspect ratio */
   }
 }

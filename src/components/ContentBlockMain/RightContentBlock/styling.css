@@ -13,16 +13,40 @@
   padding-top: 5;
 }
 .Main-Title {
-  padding: 3.7rem 0.5rem 0.5rem 0.3rem;
+  padding: 2.7rem 0.5rem 0.5rem 0.3rem;
+  font-size: 30px;
+  font-weight: bold;
 }
-@media (min-width: 900px) {
-  .Main-Title {
-    padding: 2.7rem 0.5rem 0.5rem 0.3rem;
+
+.button-row {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 12px;
   }
 }
-@media (max-width: 768px) {
-  #Button-top {
-    display: flex;
-    justify-content: center;
+@media (min-width: 424px) {
+  .Main-Title {
+    padding: 1.7rem 0.5rem 0.5rem 0.3rem;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+@media (min-width: 768px) {
+  .Main-Title {
+    padding: 2.7rem 0.5rem 0.5rem 0.3rem;
+    font-size: 40px;
   }
 }

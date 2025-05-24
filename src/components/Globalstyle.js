@@ -1,4 +1,5 @@
-import { createGlobalStyle} from "styled-components"
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -7,4 +8,4 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.50s linear;
   }
   
-  `
+  `;

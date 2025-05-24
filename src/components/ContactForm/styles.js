@@ -63,6 +63,13 @@ export const Button = styled.button`
   max-width: 180px;
   margin-bottom: 1rem;
   float: right;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+    border: 2px solid rgb(209, 29, 50);
+  }
+
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }

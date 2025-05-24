@@ -1,7 +1,6 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import './RStyle.css'
+import './RStyle.css';
 
 const words = [
   'Repairs & Maintenance',
@@ -18,9 +17,8 @@ const words = [
   'TV – DATA – Communications',
 ];
 
-
 const items = words.map((word, e) => {
-    return <li key={e}>{word}</li>;
+  return <li key={e}>{word}</li>;
 });
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'rgb(209, 29, 50)',
     position: 'relative',
     maxHeight: 266,
-    color: '#FFF'
+    color: '#FFF',
   },
   listSection: {
     backgroundColor: 'rgb(209, 29, 50)',
@@ -39,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     paddingRight: 25,
     borderRadius: '15px',
-    
   },
 }));
 
@@ -48,11 +45,9 @@ export default function PinnedSubheaderList() {
 
   return (
     <List className={classes.root} subheader={<li />}>
-          <ul className={classes.ul}>
-              <ul className='list-unstyled'>
-              {items} 
-              </ul>
-          </ul>
+      <ul className={classes.ul}>
+        <ul className="list-unstyled">{items}</ul>
+      </ul>
     </List>
   );
 }

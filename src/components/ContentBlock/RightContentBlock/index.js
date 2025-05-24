@@ -3,7 +3,7 @@ import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
 
 import Loader from 'react-loader-spinner';
 import Button from '@material-ui/core/Button';
-import Slide from 'react-reveal/Slide';
+import { motion } from 'framer-motion';
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton';
 import * as S from './styles';
 import './styling.css';
@@ -16,6 +16,16 @@ const Col = React.lazy(() =>
 );
 const ImageMain = lazy(() => import('../../LazyImages/index.js'));
 
+const slideLeft = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const slideRight = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
 const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
@@ -23,12 +33,18 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
       behavior: 'smooth',
     });
   };
+
   return (
     <Suspense fallback={<div>Loading... </div>}>
       <S.RightBlockContainer>
         <Row type="flex" justify="space-between" align="middle" id={id}>
           <Col lg={12} md={24} sm={24} xs={24}>
-            <Slide left>
+            <motion.div
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <S.ContentWrapper>
                 <h3>{title}</h3>
                 <S.Content>{content}</S.Content>
@@ -58,7 +74,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                       textAlign: 'center',
                       marginBottom: 0,
                       marginTop: -10,
-                      padding: '0.5rem 1.5rem 0.1rem 1.5rem',
+                      padding: ' 0.5rem 0.5rem 0.1rem 0.5rem',
                     }}
                   >
                     “Our approach is simple – we treat your home like our own.”
@@ -77,14 +93,12 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                         <a href="tel:02-9419-7947">
                           <Button
                             classes={{
-                              root: 'buttonMain',
+                              root: 'buttonMainAbout',
                               label: 'button-label-main',
                             }}
                             style={{
-                              marginBottom: 40,
+                              marginBottom: 0,
                               marginTop: 70,
-                              background: 'FFF',
-                              color: 'rgb(209, 29, 50)',
                               fontSize: '1rem',
                               fontWeight: 600,
                               width: '100%',
@@ -97,8 +111,13 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                               maxWidth: '180px',
                             }}
                           >
-                            <p className="p-Call-us-now-main"> CALL US NOW </p>
-                            <PhoneForwardedIcon />
+                            <p className="p-Call-us-now-main"> Call us now </p>
+                            <PhoneForwardedIcon
+                              style={{
+                                width: '0.7em',
+                                marginBottom: '6px',
+                              }}
+                            />
                           </Button>
                         </a>
                       </div>
@@ -139,10 +158,15 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                   </div>
                 </Row>
               </S.ContentWrapper>
-            </Slide>
+            </motion.div>
           </Col>
           <Col xs={{ span: 22, offset: 2 }} lg={{ span: 11, offset: 1 }}>
-            <Slide right>
+            <motion.div
+              variants={slideRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <Suspense
                 fallback={
                   <div>
@@ -158,7 +182,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
               >
                 <ImageMain rel="preload" id="JoeDominic" />
               </Suspense>
-            </Slide>
+            </motion.div>
           </Col>
         </Row>
       </S.RightBlockContainer>

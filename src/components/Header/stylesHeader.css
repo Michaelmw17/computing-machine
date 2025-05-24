@@ -9,6 +9,16 @@
 .button:hover {
   background-color: white;
 }
+
+.hamburger-icon-text {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.hamburger-icon-text:hover {
+  color: rgb(11, 175, 178);
+}
+
 .button-label {
   color: black;
 }
@@ -18,4 +28,23 @@
 }
 #logo-hamburger {
   flex-flow: nowrap;
+}
+
+#hamburger-menu {
+  text-align: center;
+  margin-top: 25px;
+}
+/* globalStyles.css */
+
+.custom-drawer .ant-drawer-body {
+  padding: 10px;
+}
+
+/* Apply styles only when screen is <= 768px */
+@media (max-width: 1024px) {
+  #hamburger-menu {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const RightBlockContainer = styled.section`
   position: relative;
-  padding: 6.5rem 0 0;
+  padding: 5.5rem 0 2rem;
 
   @media only screen and (max-width: 768px) {
     padding: 4rem 0 5rem;
@@ -28,15 +28,21 @@ export const Span = styled.p`
 export const ContentWrapper = styled.div`
   position: relative;
   max-width: 640px;
-  margin-left: 1rem;
+  margin: 0 auto;
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 768px) {
     margin: 2rem 0;
   }
 `;
 
 export const ButtonWrapper = styled.div`
-  max-width: 400px;
-  min-width: 400px;
-  justify-content: space-between;
+  display: flex;
+  // flex-wrap: wrap;
+  gap: 12px;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 20px;
 `;

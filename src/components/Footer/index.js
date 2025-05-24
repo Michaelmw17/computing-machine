@@ -1,15 +1,19 @@
-import React, { lazy, Fragment,Suspense  } from "react";
-import Loader from "react-loader-spinner";
-import Fade from "react-reveal/Fade";
-import {  Link } from 'react-router-dom';
-import * as S from "./styles";
-import  ScrollToTop from '../../components/ScrollTopFunc';
-const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
-const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
-const MyComp = lazy(() => import("../../components/MyComp/myComp"));
-const MyCompRed = lazy(() => import("../../components/MyCompRed/myComp.js"));
-const MyCompBlue = lazy(() => import("../../components/MyCompBlue/myComp.js"));
-const Container = lazy(() => import("../../common/Container"));
+import React, { lazy, Fragment, Suspense, useRef } from 'react';
+import Loader from 'react-loader-spinner';
+import * as S from './styles';
+import ScrollToTop from '../../components/ScrollTopFunc';
+import { motion, useInView } from 'framer-motion';
+
+const Row = React.lazy(() =>
+  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
+);
+const Col = React.lazy(() =>
+  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
+);
+const MyComp = lazy(() => import('../../components/MyComp/myComp'));
+const MyCompRed = lazy(() => import('../../components/MyCompRed/myComp.js'));
+const MyCompBlue = lazy(() => import('../../components/MyCompBlue/myComp.js'));
+const Container = lazy(() => import('../../common/Container'));
 
 const Mailto = ({ email, subject = '', body = '', children }) => {
   let params = subject || body ? '?' : '';
@@ -18,141 +22,240 @@ const Mailto = ({ email, subject = '', body = '', children }) => {
 
   return <a href={`mailto:${email}${params}`}>{children}</a>;
 };
+
 const Footer = () => {
-const scrollTo = (id) => {
+  const scrollTo = (id) => {
     const element = document.getElementById(id);
-    element.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   };
+
   const scrollToTop = () => {
-    window.scrollTo(0, 0)
-}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <Fragment>
-      <Fade bottom>
+      <motion.div
+        ref={ref}
+        variants={fadeInVariant}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+      >
         <S.Footer>
           <Container id="footer">
             <Row type="flex" justify="space-between">
               <Col lg={9} md={10} sm={12} xs={24}>
-                <S.Title>{("Contact")}</S.Title>
-                <S.Title style={{textTransform: "capitalize"}}>{("Tell us everything")}</S.Title>
+                <S.Title>{'Contact'}</S.Title>
+                <S.Title style={{ textTransform: 'capitalize' }}>
+                  {'Tell us everything'}
+                </S.Title>
                 <S.Para>
-                  {(`Do you have any question regarding our services? 
-                    Feel free to reach out.`)}
+                  {`Do you have any question regarding our services? 
+                    Feel free to reach out.`}
                 </S.Para>
-                <Mailto email="info@jdpelectrical.com.au " subject="Enquire To JDP" body="Hello JDP!" >
-                  <S.Chat>{(`Let's Chat`)}</S.Chat>
+                <Mailto
+                  email="info@jdpelectrical.com.au"
+                  subject="Enquire To JDP"
+                  body="Hello JDP!"
+                >
+                  <S.Chat>{`Email us`}</S.Chat>
                 </Mailto>
               </Col>
-              <Col lg={6} md={6} sm={12} xs={24} >
-              <S.Title>{("JDP Electrical Services")}</S.Title>
-                <S.Large left="true" to="/" onClick={scrollToTop}>
-                  {("Home")}
-                </S.Large>
-                <S.Large left="true"  to="/about" onClick={() => scrollTo("mission")}>
-                  {("About")}
-                </S.Large>
-                <S.Large left="true"  to="/about" onClick={() => scrollTo("Service")}>
-                  {("Services")}
-                </S.Large>
-                <S.Large left="true"  to="/about" onClick={() => scrollTo("Review")}>
-                  {("Reviews")}
-                </S.Large>
-                <S.Large left="true"  to="/about" onClick={() => scrollTo("Team")}>
-                  {("Contact")}
-                </S.Large>
-              </Col>
-              <Col lg={6} md={8} sm={12} xs={24}>
-              <S.Title>{("ADDRESS")}</S.Title>
-                <S.Para>Unit 17 </S.Para>
-                <S.Para>4-6 Chaplin Drive</S.Para>
-                <S.Para> Lane Cove West NSW 2066</S.Para>
-              </Col>
-              <Col lg={9} md={10} sm={12} xs={24}>
-                <S.Title>{("General & Accounts")}</S.Title>
-                <S.Para>
-                <a href="tel:02-9419-7947" id="TextNumberGen">
-                            {("Ph: (02) 9419 7947 ")}
-                </a>
-                </S.Para>
-                <Mailto email=" info@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                <S.Chat>{(`Info@jdpelectrical.com.au`)}</S.Chat>
-                  </Mailto>
-                <S.Large left="true" to="/">
-                  
-                </S.Large>
-                <S.Large left="true" to="/">
-                </S.Large>
-                <Mailto email=" accounts@jdpelectrical.com.au" subject="Enquire To JDP" body="Hello JDP!">
-                  <S.Chat>{(`Accounts@jdpelectrical.com.au`)}</S.Chat>
-                  </Mailto>
-              </Col>
+
               <Col lg={6} md={6} sm={12} xs={24}>
-                <S.Title>{("Joe Panetta")}</S.Title>
-                <S.Para>
-                <a href="tel:0412-450-300" id="TextNumberJoe">
-                            {("Ph: 0412 450 300")}
-                </a>
-                </S.Para>
+                <S.Title>{'JDP Electrical Services'}</S.Title>
+                <S.Large
+                  left="true"
+                  as="a"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToTop();
+                  }}
+                >
+                  {'Home'}
+                </S.Large>
+                <S.Large
+                  left="true"
+                  as="a"
+                  href="#Service"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo('Service');
+                  }}
+                >
+                  {'Services'}
+                </S.Large>
+                <S.Large
+                  left="true"
+                  as="a"
+                  href="#mission"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo('mission');
+                  }}
+                >
+                  {'About'}
+                </S.Large>
+                <S.Large
+                  left="true"
+                  as="a"
+                  href="#Review"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo('Review');
+                  }}
+                >
+                  {'Reviews'}
+                </S.Large>
+                <S.Large
+                  left="true"
+                  as="a"
+                  href="#Team"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo('Team');
+                  }}
+                >
+                  {'Contact'}
+                </S.Large>
               </Col>
+
               <Col lg={6} md={8} sm={12} xs={24}>
-                
-                <S.Title >{("Dominic Panetta")}</S.Title>
-                <S.Para>
-                <a href="tel:0412-479-557" id="TextNumberDom">
-                            {("Ph: 0412 479 557")}
+                <S.Title>{'ADDRESS'}</S.Title>
+                <a
+                  id="AddressJDP"
+                  href="https://www.google.com/maps/place/J.D.P+Electrical+Services+Pty+Ltd/data=!4m2!3m1!1s0x0:0x5c7b67e5e57e4629?sa=X&ved=1t:2428&ictx=111"
+                >
+                  <S.Para>Unit 17</S.Para>
+                  <S.Para>4-6 Chaplin Drive</S.Para>
+                  <S.Para>Lane Cove West NSW 2066</S.Para>
                 </a>
+              </Col>
+
+              <Col lg={9} md={10} sm={12} xs={24}>
+                <S.Title>{'General & Accounts'}</S.Title>
+                <S.Para>
+                  <a href="tel:02-9419-7947" id="TextNumberGen">
+                    {'Ph: (02) 9419 7947 '}
+                  </a>
+                </S.Para>
+                <Mailto
+                  email="info@jdpelectrical.com.au"
+                  subject="Enquire To JDP"
+                  body="Hello JDP!"
+                >
+                  <S.Chat>{`Info@jdpelectrical.com.au`}</S.Chat>
+                </Mailto>
+                <Mailto
+                  email="accounts@jdpelectrical.com.au"
+                  subject="Enquire To JDP"
+                  body="Hello JDP!"
+                >
+                  <S.Chat>{`Accounts@jdpelectrical.com.au`}</S.Chat>
+                </Mailto>
+              </Col>
+
+              <Col lg={6} md={6} sm={12} xs={24}>
+                <S.Title>{'Joe Panetta'}</S.Title>
+                <S.Para>
+                  <a href="tel:0412-450-300" id="TextNumberJoe">
+                    {'Ph: 0412 450 300'}
+                  </a>
                 </S.Para>
               </Col>
-              </Row>
+
+              <Col lg={6} md={8} sm={12} xs={24}>
+                <S.Title>{'Dominic Panetta'}</S.Title>
+                <S.Para>
+                  <a href="tel:0412-479-557" id="TextNumberDom">
+                    {'Ph: 0412 479 557'}
+                  </a>
+                </S.Para>
+              </Col>
+            </Row>
           </Container>
         </S.Footer>
-        <S.Extra>
-          <ScrollToTop>
-              <Container border="true">
-                <Row
-                  type="flex"
-                  align="middle"
-                  style={{ paddingTop: "3rem" }}
-                >
-                <Suspense fallback={<Loader type="Rings" color="#00BFFF"
-                        height={100}
-                        width={100}
-                        timeout={3000}/>
-                                }>
-            <Col xs={{ span: 33, offset: 1  }} lg={{  span: 8, offset: 1 }}>
-                  <Link to="/" >
+      </motion.div>
+
+      <S.Extra>
+        <ScrollToTop>
+          <Container border="true">
+            <Row
+              gutter={[16, 16]}
+              justify="space-around"
+              align="middle"
+              style={{ textAlign: 'center', marginTop: '3rem' }}
+            >
+              <Col xs={24} md={8}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToTop();
+                    }}
+                  >
                     <S.LogoContainer>
-                        <MyComp /> 
+                      <MyComp />
                     </S.LogoContainer>
-                  </Link>
-                  </Col>
-                  
-            <Col xs={{ span: 22, offset: 1  }} lg={{  span: 2, offset: 2 }} style={{marginBottom: "10px"}}>
-                  <Link to="/" >
+                  </a>
+                </div>
+              </Col>
+
+              <Col xs={24} md={8}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToTop();
+                    }}
+                  >
                     <S.LogoContainer>
-                        <MyCompRed />
+                      <MyCompRed />
                     </S.LogoContainer>
-                  </Link>
-                  </Col>
-            <Col xs={{ span: 22, offset: 1  }} lg={{ span: 4, offset: 3  }}>
-                  <Link to="/" >
+                  </a>
+                </div>
+              </Col>
+
+              <Col xs={24} md={8}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToTop();
+                    }}
+                  >
                     <S.LogoContainer>
-                        <MyCompBlue />
+                      <MyCompBlue />
                     </S.LogoContainer>
-                  </Link>
-                  </Col> 
-                  </Suspense>
-                  <S.FooterContainer>
-                  </S.FooterContainer>
-                </Row>
-              </Container>
-            </ScrollToTop>
-        </S.Extra>
-      </Fade>
+                  </a>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </ScrollToTop>
+      </S.Extra>
     </Fragment>
   );
 };
 
-export default (Footer);
+export default Footer;

@@ -1,21 +1,69 @@
 .div-wrapper {
-    background-color: black;
-    display: flex; 
-    justify-content: space-between;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
 }
 .buttonMain {
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 7px 14px;
 }
-.button-label-main {
+.buttonMainAbout,
+.buttonMainHeader {
+  background: #fff;
   color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  border: 2px solid rgb(209, 29, 50);
+  border-radius: 8px;
+  height: 55px;
+  max-width: 180px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 70px;
 }
+
+/* Hover: background red, text and icon white */
+.buttonMainAbout:hover,
+.buttonMainHeader:hover {
+  background: rgb(209, 29, 50);
+  color: #fff;
+}
+
+/* Make text and icon white on hover */
+.buttonMainAbout:hover .p-Call-us-now-main,
+.buttonMainAbout:hover .MuiSvgIcon-root,
+.buttonMainHeader:hover .p-Call-us-now-main,
+.buttonMainHeader:hover .MuiSvgIcon-root {
+  color: #fff;
+  fill: #fff;
+}
+
+/* .button-label-main {
+  color: black;
+} */
 .p-Call-us-now-main {
-  padding: 13px 4px 0 2px;
+  padding: 10px 4px 0 2px;
   font-size: 14px;
+  text-transform: uppercase;
 }
 @media screen and (max-width: 300px) {
   .p-Call-us-now-main {
     font-size: 11px;
   }
+}
+
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Optional: vertically center if container allows */
+    text-align: center; /* Ensures text inside buttons is also centered if needed */
+  }
+}
+
+#mission {
+  position: relative;
+  padding-top: 80px;
+  margin-top: -10px;
 }

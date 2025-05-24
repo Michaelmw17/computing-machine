@@ -1,4 +1,4 @@
-import React, { useState, Fragment, lazy, Suspense } from 'react';
+import React, { useState, Fragment, lazy, Suspense, useEffect } from 'react';
 import './stylesHeader.css';
 import '../../globalStyles';
 import Button from '@material-ui/core/Button';
@@ -12,134 +12,196 @@ import HomeIcon from '@material-ui/icons/Home';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
-import Fade from 'react-reveal/Fade';
-
 import { Link } from 'react-router-dom';
 import * as S from './styles';
+import { motion } from 'framer-motion';
 
 const MyComp = lazy(() => import('../../components/MyComp/myComp'));
-const Row = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
-);
-const Col = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
-);
+const Row = React.lazy(() => import('antd/lib/grid/row'));
+const Col = React.lazy(() => import('antd/lib/grid/col'));
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    margin: 0, // no extra spacing here
+    color: 'rgb(209, 29, 50)',
+    fontSize: 28,
+    transition: 'color 0.3s ease-in-out',
+    '&:hover': {
+      color: 'rgb(170, 20, 40)',
+    },
+  },
+}));
 
 const Header = () => {
-  const [isNavVisible] = useState(false);
-  const [isSmallScreen] = useState(false);
-  const [visible, setVisibility] = useState(false);
+  const [open, setOpen] = useState(false);
+  const classes = useStyles();
 
-  const showDrawer = () => {
-    setVisibility(!visible);
+  const showDrawer = () => setOpen(true);
+  const onClose = () => setOpen(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1023 && open) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [open]);
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', open);
+  }, [open]);
+
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setOpen(false);
   };
 
-  const onClose = () => {
-    setVisibility(!visible);
-  };
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > svg': {
-        margin: theme.spacing(2),
-      },
-    },
-  }));
-  const MenuItem = () => {
-    const classes = useStyles();
-    const scrollTo = (id) => {
-      const element = document.getElementById(id);
-      element.scrollIntoView({
-        behavior: 'smooth',
-      });
-      setVisibility(false);
-    };
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-    };
-    return (
-      <Fragment>
-        <div className={classes.root} style={{ textAlign: 'center' }}>
-          <S.CustomNavLinkSmall>
-            <Link to="/" onClick={scrollToTop}>
-              <Fade up>
-                <HomeIcon style={{ color: 'RGB(209, 29, 50)', fontSize: 28 }} />
-              </Fade>
-              <S.Span>
-                <span>{'Home'}</span>
-              </S.Span>
-            </Link>
-          </S.CustomNavLinkSmall>
-          <S.CustomNavLinkSmall onClick={() => scrollTo('Service')}>
-            <Fade up>
-              <BuildIcon style={{ color: 'RGB(209, 29, 50)', fontSize: 28 }} />
-            </Fade>
-            <S.Span className="Span">
-              <span>{'Services'}</span>
-            </S.Span>
-          </S.CustomNavLinkSmall>
-          <S.CustomNavLinkSmall onClick={() => scrollTo('People')}>
-            <Fade up>
-              <InfoIcon style={{ color: 'RGB(209, 29, 50)', fontSize: 28 }} />
-            </Fade>
-            <S.Span>
-              <span>{'About'}</span>
-            </S.Span>
-          </S.CustomNavLinkSmall>
-          <S.CustomNavLinkSmall onClick={() => scrollTo('Review')}>
-            <Fade up>
-              <RateReviewIcon
-                style={{ color: 'RGB(209, 29, 50)', fontSize: 28 }}
-              />
-            </Fade>
-            <S.Span>
-              <span>{'Reviews'}</span>
-            </S.Span>
-          </S.CustomNavLinkSmall>
-          <S.CustomNavLinkSmall onClick={() => scrollTo('Team')}>
-            <Fade up>
-              <ContactMailIcon
-                style={{ color: 'RGB(209, 29, 50)', fontSize: 28 }}
-              />
-            </Fade>
-            <S.Span>
-              <span>{'Contact'}</span>
-            </S.Span>
-          </S.CustomNavLinkSmall>
-          <S.CustomNavLinkSmall>
-            <div>
-              <a href="tel:02-9419-7947">
-                <Button
-                  classes={{ root: 'button', label: 'button-label' }}
-                  style={{
-                    marginBottom: 40,
-                    background: 'FFF',
-                    color: 'rgb(209, 29, 50)',
-                    fontSize: '1rem',
-                    fontWeight: 600,
-                    width: '100%',
-                    border: '2px solid  rgb(209, 29, 50)',
-                    borderRadius: '8px',
-                    height: '50px',
-                    right: '0',
-                    outline: 'none',
-                    cursor: 'pointer',
-                    maxWidth: '180px',
-                  }}
-                >
-                  <p className="p-CallUs"> CALL US NOW </p>
-                  <PhoneForwardedIcon />
-                </Button>
-              </a>
-            </div>
-          </S.CustomNavLinkSmall>
-          <S.Span></S.Span>
-        </div>
-      </Fragment>
-    );
-  };
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setOpen(false);
   };
+
+  const MenuItem = () => (
+    <Fragment>
+      <div style={{ textAlign: 'center' }} id="hamburger-menu">
+        <S.CustomNavLinkSmall
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToTop();
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <HomeIcon className={classes.icon} />
+          </motion.div>
+          <S.Span>
+            <span>Home</span>
+          </S.Span>
+        </S.CustomNavLinkSmall>
+
+        <S.CustomNavLinkSmall onClick={() => scrollTo('Service')}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+          >
+            <BuildIcon className={classes.icon} />
+          </motion.div>
+          <S.Span>
+            <span>Services</span>
+          </S.Span>
+        </S.CustomNavLinkSmall>
+
+        <S.CustomNavLinkSmall onClick={() => scrollTo('People')}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <InfoIcon className={classes.icon} />
+          </motion.div>
+          <S.Span>
+            <span>About</span>
+          </S.Span>
+        </S.CustomNavLinkSmall>
+
+        <S.CustomNavLinkSmall onClick={() => scrollTo('Review')}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+          >
+            <RateReviewIcon className={classes.icon} />
+          </motion.div>
+          <S.Span>
+            <span>Reviews</span>
+          </S.Span>
+        </S.CustomNavLinkSmall>
+
+        <S.CustomNavLinkSmall onClick={() => scrollTo('Team')}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <ContactMailIcon className={classes.icon} />
+          </motion.div>
+          <S.Span>
+            <span>Contact</span>
+          </S.Span>
+        </S.CustomNavLinkSmall>
+
+        <S.CustomNavLinkSmall>
+          <div>
+            <a href="tel:02-9419-7947">
+              <h6
+                style={{
+                  color: 'black',
+                  fontSize: 20,
+                  textAlign: 'center',
+                  paddingTop: '0',
+                }}
+              >
+                <S.CustomNavLinkSmall noHover>
+                  <div id="ButtonMain">
+                    <Button
+                      classes={{
+                        root: 'buttonMainHeader',
+                        label: 'button-label-main',
+                      }}
+                      style={{
+                        marginBottom: 0,
+                        marginTop: 0,
+                        // background: '#FFF',
+                        // color: 'rgb(209, 29, 50)',
+                        fontSize: '1rem',
+                        fontWeight: 600,
+                        width: '100%',
+                        // border: '2px solid rgb(209, 29, 50)',
+
+                        border: '2px solid  rgb(209, 29, 50)',
+                        borderRadius: '8px',
+                        height: '55px',
+                        right: '0',
+                        outline: 'none',
+                        cursor: 'pointer',
+                        maxWidth: '180px',
+                      }}
+                    >
+                      <p className="p-Call-us-now-main"> Call us now </p>
+                      <PhoneForwardedIcon
+                        className={classes.icon}
+                        style={{
+                          width: '0.6em',
+                          marginBottom: '6px',
+                          color: 'black',
+                        }}
+                      />
+                    </Button>
+                  </div>
+                </S.CustomNavLinkSmall>
+              </h6>
+            </a>
+          </div>
+        </S.CustomNavLinkSmall>
+      </div>
+    </Fragment>
+  );
+
   return (
     <S.Header>
       <S.Container>
@@ -164,21 +226,32 @@ const Header = () => {
               <MyComp rel="preload" />
             </Suspense>
           </S.LogoContainer>
+
           <S.NotHidden>
             <MenuItem />
           </S.NotHidden>
-          <S.Burger onClick={showDrawer}>
+
+          <S.Burger
+            onClick={showDrawer}
+            className={open ? 'burger burger--open' : 'burger burger--closed'}
+          >
             <S.Outline />
           </S.Burger>
         </Row>
+
         <CSSTransition
-          in={!isSmallScreen || isNavVisible}
+          in={open}
           timeout={350}
           classNames="NavAnimation"
           unmountOnExit
         >
-          <Drawer closable={true} visible={visible} onClose={onClose}>
-            <Col style={{}}>
+          <Drawer
+            closable
+            open={open}
+            onClose={onClose}
+            className="custom-drawer"
+          >
+            <Col>
               <S.Label onClick={onClose} style={{ textAlign: 'center' }}>
                 <Col span={12}>
                   <S.Menu>Menu</S.Menu>
