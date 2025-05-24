@@ -1,10 +1,17 @@
 .Joe-image {
-    background: #FFF;
-    margin: 0 10px;
-    height: 100%;
-    width: 100%;
-    max-width: 85%;
-    max-height: 80%;
-    filter: drop-shadow(2.5px 2.5px 5px #000);
-    border-Radius: 5%;
+  display: block;
+  background: #fff;
+  margin-left: 18px;
+  height: 100%;
+  width: 100%;
+  max-width: 85%;
+  max-height: 80%;
+  filter: drop-shadow(2.5px 2.5px 5px #000);
+  border-radius: 5%;
+}
+
+@media (min-width: 992px) {
+  .Joe-image {
+    margin: 0 auto;
+  }
 }

@@ -26,8 +26,20 @@ export const Container = styled.div`
   padding-left: 25px;
   margin-right: auto;
   background: #fff;
+
   @media only screen and (min-width: 768px) {
     height: 99px;
+  }
+`;
+
+// This container keeps nav items in a row
+export const NotHidden = styled.div`
+  display: flex;
+  justify-content: space-around; /* or space-between if preferred */
+  align-items: center;
+
+  @media only screen and (max-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -35,6 +47,7 @@ export const NavLink = styled.div`
   display: inline-block;
   text-align: center;
 `;
+
 export const CustomNavLink = styled.div`
   width: 203px;
   display: inline-block;
@@ -50,45 +63,85 @@ export const ContactWrapper = styled.div`
 `;
 
 export const Burger = styled.div`
-  @media only screen and (max-width: 1289px) {
+  padding: 0.01rem 1rem 1.05rem;
+  display: none;
+
+  @media only screen and (max-width: 1024px) {
     display: block !important;
   }
-  padding: 0.01rem 1.25rem 1.05rem;
-  display: none;
 `;
 
-export const NotHidden = styled.div`
-  @media only screen and (max-width: 1289px) {
-    display: none;
+// THIS is key:
+// Each nav item is inline-flex so they line up horizontally,
+// but inside each item icon + text stack vertically
+export const CustomNavLinkSmall = styled.div`
+  position: relative;
+  overflow: hidden;
+  font-size: 0.9rem;
+  color: #000;
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.2rem;
+  padding: 0.3rem 0.5rem;
+
+  span {
+    margin-top: 0.3rem;
+  }
+
+  &:is(:last-child) {
+    padding: 0;
+    margin: 0;
+  }
+
+  &:not(:last-child):hover {
+    background-color: rgba(209, 29, 50, 0.1);
+    color: rgb(180, 25, 43);
+  }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Inward Ripple Effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: rgba(180, 25, 43, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  }
+
+  &:active::after {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+    transition: transform 0s, opacity 0s;
   }
 `;
 
 export const Menu = styled.h5`
   font-size: 1.37rem;
-  margin-top: -0.45rem;
-  padding: 0 1.56rem 0 0;
+  padding: 0;
   font-weight: 600;
-  border-bottom: 5px solid #111b47;
-`;
-
-export const CustomNavLinkSmall = styled(NavLink)`
-  font-size: 0.9rem;
-  color: #white;
-  transition: color 0.2s ease-in;
-  margin: 1.25rem 0.7rem;
-
-  @media only screen and (max-width: 768px) {
-    margin: 1.25rem 2rem;
-  }
 `;
 
 export const Label = styled.span`
   font-size: 16px;
   font-weight: 500;
   color: #404041;
-  text-align: right;
-  display: flex;
   text-align: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Outline = styled(MenuOutlined)`
@@ -101,6 +154,6 @@ export const Outline = styled(MenuOutlined)`
 export const Span = styled.div`
   cursor: pointer;
   color: #000;
-  font-size: 16;
-  position: 'static';
+  font-size: 16px;
+  position: static;
 `;

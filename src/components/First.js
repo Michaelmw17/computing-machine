@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
-import Href from './MapHerf'
-import {
-  GoogleMap,
-  LoadScript,
-  OverlayView,
-  Marker
-} from "@react-google-maps/api";
-const testData = {
-  text: "View on Google Maps",
-  link: "https://goo.gl/maps/hrBNba4G8a1EbgFg6"
-};
+import React, { useState, useRef } from 'react';
+import Href from './MapHerf';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// Fix default icon issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 const containerStyle = {
   height: `350px`,
@@ -19,85 +20,82 @@ const containerStyle = {
   marginTop: '10px',
   maxWidth: '580px',
   maxHeight: '530px',
-  borderRadius: '14px'
+  borderRadius: '14px',
 };
 
-const center = {
-  lat: -33.8097541497481,
-  lng:  151.14841320640292
+const center = [-33.8097541497481, 151.14841320640292];
+const testData = {
+  text: 'View on Google Maps',
+  link: 'https://goo.gl/maps/hrBNba4G8a1EbgFg6',
 };
 
-function MyComponent(props) {
-  const [isOpened, setOpened] = useState(false);
+function MyComponent() {
+  const [isHovered, setIsHovered] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleMouseOver = () => {
+    clearTimeout(timeoutRef.current);
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 500); // Delay to allow clicking inside
+  };
+
   return (
-    <LoadScript
-      googleMapsApiKey="AIzaSyBWQPgM5WysP6GSH5Ay_Vm037aWajBpT6s">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
+    <div style={containerStyle}>
+      <MapContainer
         center={center}
-        zoom={15}>
-          <Marker
-            title='JDP Electrical'
-            position={center}
-            onClick={() => {
-              setOpened(!isOpened);
-            }} />
-        {isOpened && (
-          <OverlayView
-            position={center}
-            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-            getPixelPositionOffset={(width, height) => ({
-              x: -(width / 2),
-              y: -(height / 330)
-                })}
-                    >
-                    <div style={{ background: `white`, border: `1px solid #ccc`, padding: 5,}}>
-                      <p style={{ textAlign:`center`}}>JDP Electrical </p>
-                      <p style={{ textAlign:`center`}}> 17/4-6 Chaplin Dr, Lane Cove West NSW 2066</p>
-                      <ul className='list-unstyled' >
-                      <li>
-                          <Href
-                              text={testData.text}
-                              url={testData.link} />
-                        </li>
-                      </ul>
+        zoom={15}
+        scrollWheelZoom={false}
+        style={{ height: '100%', width: '100%', borderRadius: '14px' }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        />
+        <Marker
+          position={center}
+          eventHandlers={{
+            mouseover: handleMouseOver,
+            mouseout: handleMouseOut,
+          }}
+        >
+          {isHovered && (
+            <Popup
+              closeButton={false}
+              autoClose={false}
+              closeOnEscapeKey={false}
+              closeOnClick={false}
+              interactive
+            >
+              <div
+                onMouseEnter={() => clearTimeout(timeoutRef.current)}
+                onMouseLeave={handleMouseOut}
+                style={{ textAlign: 'center', minWidth: '200px' }}
+              >
+                <p>
+                  <strong>JDP Electrical</strong>
+                </p>
+                <p>
+                  17/4-6 Chaplin Dr,
+                  <br />
+                  Lane Cove West NSW 2066
+                </p>
+                <ul className="list-unstyled" style={{ padding: 0 }}>
+                  <li>
+                    <Href text={testData.text} url={testData.link} />
+                  </li>
+                </ul>
               </div>
-          </OverlayView>
-        )}
-        <></>
-      </GoogleMap>
-    </LoadScript>
-  )
+            </Popup>
+          )}
+        </Marker>
+      </MapContainer>
+    </div>
+  );
 }
 
-class MyFancyComponent extends React.PureComponent {
-  constructor(props) {
-  super(props);
-  this.delayedShowMarker = this.props.componentDidMount
-};
-  state = {
-    isMarkerShown: false,
-  }
-
-  delayedShowMarker = () => {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 3000)
-  }
-
-  handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false })
-    this.delayedShowMarker()
-  }
-
-
-  render() {
-    return (
-      <MyComponent
-        isMarkerShown={this.state.isMarkerShown}
-        onMarkerClick={this.handleMarkerClick}
-      />
-    )
-  }
-}
-export default React.memo(MyFancyComponent)
+export default React.memo(MyComponent);

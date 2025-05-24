@@ -1,24 +1,50 @@
-import React from "react";
-import Fade from "react-reveal/Fade";
+import React, { lazy } from 'react';
+import { motion } from 'framer-motion';
+import * as S from './styles';
 
-import * as S from "./styles";
-const Row = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row'));
-const Col = React.lazy(() => import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col'));
+const Row = lazy(() =>
+  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
+);
+const Col = lazy(() =>
+  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
+);
 
 const MiddleBlock = ({ title, content, button }) => {
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
   return (
     <S.MiddleBlock>
       <Row type="flex" justify="center" align="middle">
-        <Fade bottom>
-          <S.ContentWrapper>
-            <Col lg={24} md={24} sm={24} xs={24}>
-              <S.Content>{(content)}</S.Content>
-            </Col>
-          </S.ContentWrapper>
-        </Fade>
+        <Col lg={24} md={24} sm={24} xs={24}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInVariant}
+            style={{ width: '100%' }}
+          >
+            <S.ContentWrapper>
+              {title && <h3>{title}</h3>}
+              <S.Content>
+                {content}{' '}
+                <a href="tel:02-9419-7947" id="TextNumber">
+                  (02) 9419 7947
+                </a>
+              </S.Content>
+              {/* Render button(s) here if needed */}
+            </S.ContentWrapper>
+          </motion.div>
+        </Col>
       </Row>
     </S.MiddleBlock>
   );
 };
 
-export default (MiddleBlock);
+export default MiddleBlock;

@@ -1,103 +1,170 @@
 textarea {
-   display: block;
-   overflow: visible;
-   min-height: 100px;
-   max-height: 250px;
-   line-height: 20px;
-   margin-bottom: 5px;
-   border-width: 1px;
-   border-radius: 8px;
-   border-style: solid;
+  display: block;
+  overflow: visible;
+  min-height: 100px;
+  max-height: 250px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-style: solid;
 }
-input, #number, #firstName, #suburb, #inputEmail {
-   width: 100%;
-   border-width: 1px;
-   border-style: solid;
-   outline: none;
-   font-size: 0.875rem;
-   margin: 5px 0;
-   padding: 0.7rem 1.25rem;
-   transition: border-color 0.3s ease-in;
-   border-radius: 8px;
-   color: #000;
+
+input,
+#number,
+#firstName,
+#suburb,
+#inputEmail {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  font-size: 0.875rem;
+  margin: 5px 0;
+  padding: 0.7rem 1.25rem;
+  transition: border-color 0.3s ease-in;
+  border-radius: 8px;
+  color: #000;
 }
 
 #firstName {
-   margin-top: 70px;
+  margin-top: 70px;
 }
+
 #subject {
-   height: 50%;
-   width: 100%;
-   border-width: 1px;
-   border-style: solid;
-   outline: none;
-   font-size: 0.875rem;
-   padding: 1.7rem 1.25rem 1.4rem;
-   transition: border-color 0.3s ease-in;
-   border-radius: 8px;
-   color: #000;
-
+  height: 50%;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  font-size: 0.875rem;
+  padding: 1.7rem 1.25rem 1.4rem;
+  transition: border-color 0.3s ease-in;
+  border-radius: 8px;
+  color: #000;
 }
+
 .formText {
-   margin-left: 1.2rem;
-   font-size: 18px;
+  margin-left: 1.2rem;
+  font-size: 18px;
 }
-.formText:nth-child(2) {
-   margin-bottom: 2rem;
-}
-@media screen and (min-width: 1024px) {
-   .formText:nth-child(2) {
-   margin-bottom: 0rem;
-}
-}
-#TextAddress, #TextNumber, #TextNumberDom, #TextNumberJoe, #TextNumberGen {
-   color: #1890ff;
-}
-#TextAddress:hover, #TextNumber:hover, #TextNumberDom:hover, #TextNumberJoe:hover, #TextNumberGen:hover {
-   color: rgb(209, 29, 50);
-}
-#menu {
-   margin: 5px 1px 2px;
-   width: 98%;
-   background-color: #fff;
-   padding: 0.96rem 0.80rem;
-   color: rgb(73, 73, 73);
-   border-width: 1px;
-   border-style: solid;
-   outline: none;
-   font-size: 0.875rem;
-   transition: border-color 0.3s ease-in;
-   border-radius: 8px;
 
+.formText:nth-child(2) {
+  margin-bottom: 2rem;
 }
+
+@media screen and (min-width: 1024px) {
+  .formText:nth-child(2) {
+    margin-bottom: 0rem;
+  }
+}
+
+#TextAddress,
+#TextNumber,
+#TextNumberDom,
+#TextNumberJoe,
+#TextNumberGen,
+#AddressJDP {
+  color: #1890ff;
+}
+
+#TextAddress:hover,
+#TextNumber:hover,
+#TextNumberDom:hover,
+#TextNumberJoe:hover,
+#TextNumberGen:hover,
+#AddressJDP:hover {
+  color: rgb(209, 29, 50);
+}
+
 .errorMessage {
-   color: rgb(209, 29, 50);
+  color: rgb(209, 29, 50);
 }
+
 .Toastify__toast--success {
-   border: 1px solid #4cb925;
-   background: #bce0ce;
-   color: #0e7a44;
+  border: 1px solid #4cb925;
+  background: #bce0ce;
+  color: #0e7a44;
 }
+
+/* Select wrapper for custom arrow */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Remove native arrow */
+.select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 0.85rem 3rem 0.85rem 1.25rem; /* extra right padding for arrow */
+  color: rgb(73, 73, 73);
+  margin: 5px 0 2px 1px;
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.3s ease-in;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Focus style */
+.select-wrapper select:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 4px #1890ff;
+}
+
+/* Custom arrow using CSS */
+.select-wrapper::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when select is focused */
+.select-wrapper:focus-within::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Responsive adjustments */
 @media only screen and (max-device-width: 991px) {
-   #menu  {
-         width: 100%;
-   }
+  .select-wrapper select {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-device-width: 480px) {
-   #menu  {
-      width: 100%;
-      border-width: 1px;
-      border-style: solid;
-      outline: none;
-      font-size: 0.875rem;
-      margin: 5px 0;
-      padding: 0.7rem 1.25rem;
-      transition: border-color 0.3s ease-in;
-      border-radius: 8px;
-      color: #000;
-   }
+  .select-wrapper select {
+    padding: 0.85rem 3rem 0.85rem 1.25rem;
+    font-size: 0.875rem;
+  }
 }
-select {
-   -webkit-appearance: none;
+
+/* Legacy #menu styles - for backward compatibility if used */
+#menu {
+  margin: 5px 1px 2px;
+  width: 98%;
+  background-color: #fff;
+  color: rgb(73, 73, 73);
+  box-sizing: border-box;
+  /* Removed appearance as it's handled in .select-wrapper select */
+}
+
+/* Keep error message styling */
+.errorMessage {
+  color: rgb(209, 29, 50);
 }

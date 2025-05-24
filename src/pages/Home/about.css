@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap');
+
 .team-section {
   text-align: center;
 }
@@ -131,14 +133,12 @@ Button.btn,
   border: 2px solid rgb(209, 29, 50);
 }
 .btn-radius {
-  margin-top: 10px;
   border-radius: 8px;
   padding: 8px 50px 30px 58px;
   border-radius: 8px;
   height: 60px;
   outline: none;
   cursor: pointer;
-  margin-top: 0.625rem;
   max-width: 180px;
   border-color: rgb(209, 29, 50);
   color: #000;
@@ -148,7 +148,7 @@ Button.btn,
   height: 60px;
   outline: none;
   cursor: pointer;
-  margin-top: 0.625rem;
+
   max-width: 180px;
   background-color: rgb(209, 29, 50);
   color: #fff;
@@ -171,9 +171,15 @@ Button.btn,
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
-#Service {
+/* #Service {
   padding-top: 40px;
+} */
+#Service {
+  position: relative;
+  padding-top: 80px;
+  margin-top: -60px;
 }
+
 #Review {
   padding-top: 100px;
 }

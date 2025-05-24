@@ -37,7 +37,7 @@ const Styles = createGlobalStyle`
     h6
     {
         font-family: 'Poppins', sans-serif;
-        padding: 3.7rem  0.5rem 0.5rem 0.3rem ;
+        padding: 3rem  0.5rem 0.5rem 0.3rem ;
         font-size: 3.255rem;
         line-height: 3.0625rem;
       
@@ -88,7 +88,7 @@ const Styles = createGlobalStyle`
         display: flex;
         flex-direction: column;
         padding: 1.25rem;
-        padding-top: 2.5rem;
+        padding-top: 0.5rem;
         padding-right: 2rem;
         text-align: center;
     }

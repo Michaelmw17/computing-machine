@@ -6,8 +6,7 @@ export const MiddleBlock = styled.section`
   display: flex;
   justify-content: center;
   color: Red;
-  font-size: 32px
-  @media screen and (max-width: 768px) {
+  font-size: 32px @media screen and (max-width: 768px) {
     padding: 0.5rem 0 3rem;
   }
 `;

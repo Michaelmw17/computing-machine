@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Footer = styled.footer`
-  background: #F7F9FB;
+  background: #f7f9fb;
   padding: 2.5rem 0;
 `;
 
@@ -26,7 +26,7 @@ export const NavLink = styled(Link)`
   &:hover,
   &:active,
   &:focus {
-    color: rgb(209, 29, 50)
+    color: rgb(209, 29, 50);
   }
 `;
 
@@ -57,7 +57,19 @@ export const Extra = styled.section`
 export const LogoContainer = styled.div`
   display: flex;
   position: relative;
-  
+`;
+
+// Add this to your styled-components file
+export const LogoRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const Select = styled.div`
@@ -69,13 +81,9 @@ export const Select = styled.div`
 `;
 
 export const Para = styled.div`
-  color: rgba(2, 7, 62, 0.8);
   max-width: 225px;
   font-size: 18px;
   width: 100%;
-    &:nth-child(2) {
-        margin-top: 20px;
-    }
 `;
 
 export const Large = styled(Link)`
@@ -91,11 +99,11 @@ export const Large = styled(Link)`
   margin-top: -0.525rem;
 
   &:hover {
-    color: rgb(209, 29, 50)
+    color: rgb(209, 29, 50);
   }
   &:nth-child(2) {
-        margin-top: 20px;
-    }
+    margin-top: 20px;
+  }
 `;
 export const Mailto = styled(Link)`
   font-size: 16px;
@@ -116,14 +124,15 @@ export const Mailto = styled(Link)`
 
 export const Chat = styled.p`
   color: rgba(2, 7, 62, 0.8);
-  max-width: 85px;
+  display: block;
+  width: fit-content;
   border-bottom: 1px solid rgba(2, 7, 62, 0.8);
   cursor: pointer;
   margin-top: 1rem;
   font-size: 1rem;
 
   &:hover {
-    border-bottom: 1px solid rgb(255, 130, 92);
+    border-bottom: 1px solid rgb(209, 29, 50);
     color: rgb(209, 29, 50);
   }
 `;
