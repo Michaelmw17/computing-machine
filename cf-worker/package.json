@@ -1,0 +1,14 @@
+{
+  "name": "jdp-contact-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that proxies contact-form submissions to EmailJS so the EmailJS keys aren't exposed in the browser bundle.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

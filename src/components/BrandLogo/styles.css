@@ -1,0 +1,17 @@
+.brand-logo {
+  display: block;
+  height: 55px;
+  width: auto;
+  max-width: 100%;
+  margin: 15px 0 0 30px;
+  background: #fff;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 600px) {
+  .brand-logo {
+    margin: 10px 0 0 0;
+    height: 55px;
+    width: auto;
+  }
+}

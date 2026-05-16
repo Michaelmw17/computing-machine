@@ -1,21 +1,28 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
-import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Row from 'antd/lib/grid/row';
+import Col from 'antd/lib/grid/col';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import * as S from './styles';
 import './stylesForm.css';
-import Loader from 'react-loader-spinner';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import Spinner from '../../common/Spinner';
 
-const Row = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
-);
-const Col = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
-);
-const OtherComponent = lazy(() => import('../First.js'));
+const LocationMap = lazy(() => import('../LocationMap'));
 const Block = lazy(() => import('../Block'));
+
+// Contact-form submissions go to a Cloudflare Worker that holds the EmailJS
+// secrets server-side (see cf-worker/). Set this env var to the deployed
+// Worker URL — locally in .env.local, on prod in Amplify env vars.
+const CONTACT_API_URL = process.env.REACT_APP_CONTACT_API_URL;
+
+if (process.env.NODE_ENV !== 'production' && !CONTACT_API_URL) {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'REACT_APP_CONTACT_API_URL missing. The contact form will fail until you set it. See cf-worker/README.md.',
+  );
+}
 
 const ContactForm = ({ title, content, id }) => {
   const {
@@ -25,9 +32,12 @@ const ContactForm = ({ title, content, id }) => {
     formState: { errors },
   } = useForm();
   const [disabled, setDisabled] = useState(false);
+  // Time-gate: bots auto-fill and submit in milliseconds. Humans need at least
+  // a few seconds to read placeholders and type. Reject anything faster.
+  const mountedAt = useRef(Date.now());
+  const MIN_FILL_MS = 3000;
 
-  // Function that displays a success toast on bottom right of the page when form submission is successful
-  const toastifySuccess = () => {
+  const showSuccessToast = () => {
     toast.success('Form sent!', {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 5000,
@@ -39,40 +49,54 @@ const ContactForm = ({ title, content, id }) => {
       toastId: 'notifyToast',
     });
   };
-  // Function called on submit that uses emailjs to send email of valid contact form
-  const onSubmit = async (data) => {
-    // Destrcture data object
-    const { firstName, email, subject, message, menu, suburb, number } = data;
-    try {
-      // Disable form while processing submission
-      setDisabled(true);
 
-      // Define template params
-      const templateParams = {
-        firstName,
-        email,
-        subject,
-        message,
-        menu,
-        suburb,
-        number,
-      };
+  const showErrorToast = () => {
+    toast.error(
+      'Sorry, we couldn’t send your message. Please call us on (02) 9419 7947 or try again.',
+      {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 6000,
+        className: 'submit-feedback error',
+        toastId: 'notifyToastError',
+      },
+    );
+  };
 
-      // Use emailjs to email contact form data
-      await emailjs.send(
-        'service_a9ktqlp',
-        'template_l0mglga',
-        templateParams,
-        'user_yw3a8DYtaKOIm8KcBtk2L'
-      );
-      // Reset contact form fields after submission
+  const onSubmit = async (formData) => {
+    // Honeypot: real users never see/fill this field. Bots fill every input.
+    // (The Worker also enforces these, but checking client-side avoids a
+    // pointless network round-trip when we already know it's spam.)
+    const filledTooFast = Date.now() - mountedAt.current < MIN_FILL_MS;
+    if (formData.website || filledTooFast) {
       reset();
-      // Display success toast
-      toastifySuccess();
-      // Re-enable form submission
+      showSuccessToast();
+      return;
+    }
+    if (!CONTACT_API_URL) {
+      showErrorToast();
+      return;
+    }
+    setDisabled(true);
+    const payload = {
+      ...formData,
+      subject:
+        formData.subject ||
+        `Website enquiry from ${formData.firstName || 'a visitor'}`,
+      formAgeMs: Date.now() - mountedAt.current,
+    };
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`Bad response: ${response.status}`);
+      reset();
+      showSuccessToast();
+    } catch (err) {
+      showErrorToast();
+    } finally {
       setDisabled(false);
-    } catch (e) {
-      console.log(e);
     }
   };
 
@@ -88,106 +112,106 @@ const ContactForm = ({ title, content, id }) => {
               noValidate
               autoComplete="off"
             >
+              {/* Honeypot — hidden from real users, bots fill every input */}
+              <input
+                {...register('website')}
+                type="text"
+                tabIndex="-1"
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  opacity: 0,
+                  pointerEvents: 'none',
+                }}
+              />
+
               <Col span={24}>
                 <input
                   {...register('firstName', {
-                    required: {
-                      value: true,
-                      message: 'Please enter your name',
-                    },
+                    required: 'Please enter your name',
                     maxLength: {
-                      value: 30,
-                      message: 'Please use 30 characters or less',
+                      value: 60,
+                      message: 'Please use 60 characters or less',
                     },
                   })}
                   type="text"
                   name="firstName"
                   id="firstName"
-                  placeholder="Name *"
-                ></input>
+                  placeholder="Your name *"
+                  aria-label="Your name"
+                  aria-required="true"
+                  aria-invalid={errors.firstName ? 'true' : 'false'}
+                  autoComplete="name"
+                />
                 {errors.firstName && (
                   <span className="errorMessage">
                     {errors.firstName.message}
                   </span>
                 )}
               </Col>
-              <Col span={24}>
-                <input
-                  type="email"
-                  name="email"
-                  {...register('email', {
-                    required: true,
-                    pattern:
-                      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  })}
-                  className="form-control formInput"
-                  placeholder="JohnSmith@email.com *"
-                  id="inputEmail"
-                ></input>
-                {errors.email && (
-                  <span className="errorMessage">
-                    Please enter a valid email address
-                  </span>
-                )}
-              </Col>
+
               <Col span={24}>
                 <input
                   {...register('number', {
-                    required: true,
-                    pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s.0-9]*$/,
+                    required: 'Please enter a phone number we can reach you on',
+                    pattern: {
+                      value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s.0-9]*$/,
+                      message: 'Please enter a valid phone number',
+                    },
                   })}
-                  type="text"
+                  type="tel"
+                  inputMode="tel"
                   name="number"
                   id="number"
-                  placeholder="Phone Number *"
-                  autoComplete="off"
-                ></input>
+                  placeholder="Phone number *"
+                  aria-label="Phone number"
+                  aria-required="true"
+                  aria-invalid={errors.number ? 'true' : 'false'}
+                  autoComplete="tel"
+                />
                 {errors.number && (
-                  <span className="errorMessage">
-                    Please enter your phone number
-                  </span>
+                  <span className="errorMessage">{errors.number.message}</span>
                 )}
               </Col>
+
               <Col span={24}>
-                <input
-                  {...register('suburb', {
-                    required: {
-                      value: true,
-                      message: 'Please enter your suburb',
-                    },
+                <textarea
+                  rows={4}
+                  name="message"
+                  {...register('message', {
+                    required: 'Tell us briefly what you need help with',
                     maxLength: {
-                      value: 30,
-                      message: 'Please use 30 characters or less',
+                      value: 500,
+                      message: 'Please use 500 characters or less',
                     },
                   })}
-                  type="text"
-                  name="suburb"
-                  id="suburb"
-                  placeholder="Suburb Name*"
-                ></input>
-                {errors.suburb && (
-                  <span className="errorMessage suburb">
-                    {errors.suburb.message}
-                  </span>
+                  className="form-control formInput"
+                  placeholder="How can we help? *"
+                  aria-label="How can we help?"
+                  aria-required="true"
+                  aria-invalid={errors.message ? 'true' : 'false'}
+                />
+                {errors.message && (
+                  <span className="errorMessage">{errors.message.message}</span>
                 )}
               </Col>
-              <Row type="flex" justify="space-between">
-                <Col span={24} lg={12} md={24} sm={24}>
+
+              <Row type="flex" gutter={[12, 0]}>
+                <Col xs={24} md={12}>
                   <div className="select-wrapper">
                     <select
                       name="menu"
                       id="menu"
                       defaultValue=""
-                      {...register('menu', {
-                        required: {
-                          value: true,
-                          message: 'Please select from menu',
-                        },
-                      })}
-                      aria-invalid={errors.menu ? 'true' : 'false'}
+                      aria-label="Type of work"
+                      {...register('menu')}
                     >
                       <option value="" disabled hidden>
-                        What can we help you with? *
+                        Type of work (optional)
                       </option>
                       <option value="Residential">Residential</option>
                       <option value="Strata / Property Maintenance">
@@ -196,77 +220,60 @@ const ContactForm = ({ title, content, id }) => {
                       <option value="Commercial">Commercial</option>
                       <option value="Other">Other</option>
                     </select>
-                    {errors.menu && (
-                      <span role="alert" className="errorMessage">
-                        {errors.menu.message}
-                      </span>
-                    )}
                   </div>
                 </Col>
 
-                <Col span={24} lg={12} md={24} sm={24}>
+                <Col xs={24} md={12}>
                   <input
                     type="text"
-                    name="subject"
-                    {...register('subject', {
-                      required: {
-                        value: true,
-                        message: 'Please enter a subject',
-                      },
+                    name="suburb"
+                    {...register('suburb', {
                       maxLength: {
-                        value: 55,
-                        message: 'Subject cannot exceed 55 characters',
+                        value: 60,
+                        message: 'Please use 60 characters or less',
                       },
                     })}
-                    className="form-control formInput"
-                    placeholder="Subject *"
-                    id="subject"
-                  ></input>
-                  {errors.subject && (
-                    <span className="errorMessage">
-                      {errors.subject.message}
+                    placeholder="Suburb (optional)"
+                    id="suburb"
+                    aria-label="Suburb"
+                    autoComplete="address-level2"
+                  />
+                  {errors.suburb && (
+                    <span className="errorMessage suburb">
+                      {errors.suburb.message}
                     </span>
                   )}
                 </Col>
               </Row>
+
               <Col span={24}>
-                <textarea
-                  rows={3}
-                  name="message"
-                  {...register('message', {
-                    required: {
-                      value: true,
-                      message: 'Please enter your message',
-                    },
-                    maxLength: {
-                      value: 300,
-                      message: 'Please use 300 characters or less',
-                    },
-                    minLength: {
-                      value: 2,
-                      message: 'Please use more then  2 characters. max: 300',
+                <input
+                  type="email"
+                  name="email"
+                  {...register('email', {
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: 'Please enter a valid email address',
                     },
                   })}
                   className="form-control formInput"
-                  placeholder="Message *"
-                ></textarea>
-                {errors.message && (
-                  <span className="errorMessage">{errors.message.message}</span>
+                  placeholder="Email (optional)"
+                  id="inputEmail"
+                  aria-label="Email address"
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                  autoComplete="email"
+                />
+                {errors.email && (
+                  <span className="errorMessage">{errors.email.message}</span>
                 )}
               </Col>
               <S.Button
                 className="submit-btn"
                 disabled={disabled}
                 type="submit"
-                onClick={() => {
-                  register(
-                    'firstName',
-                    { type: 'focus' },
-                    { shouldFocus: true }
-                  );
-                }}
               >
-                Submit
+                {disabled ? 'Sending…' : 'Send enquiry'}
               </S.Button>
             </form>
             <ToastContainer />
@@ -284,22 +291,50 @@ const ContactForm = ({ title, content, id }) => {
                 </a>
               </div>
             </div>
-            <Suspense
-              fallback={
-                <div>
-                  <Loader
-                    type="BallTriangle"
-                    color="#00BFFF"
-                    height={80}
-                    width={80}
-                  />
+            <LazyLoadComponent
+              threshold={200}
+              placeholder={
+                <div
+                  aria-hidden="true"
+                  style={{
+                    height: 350,
+                    maxWidth: 580,
+                    margin: '10px 20px',
+                    borderRadius: 14,
+                    background:
+                      'linear-gradient(135deg, #f3f5f7 0%, #e8ecef 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#999',
+                    fontSize: '0.95rem',
+                  }}
+                >
+                  Map loading…
                 </div>
               }
             >
-              <LazyLoadComponent>
-                <OtherComponent />
-              </LazyLoadComponent>
-            </Suspense>
+              <Suspense
+                fallback={
+                  <div
+                    style={{
+                      height: 350,
+                      maxWidth: 580,
+                      margin: '10px 20px',
+                      borderRadius: 14,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: '#f3f5f7',
+                    }}
+                  >
+                    <Spinner />
+                  </div>
+                }
+              >
+                <LocationMap />
+              </Suspense>
+            </LazyLoadComponent>
           </Col>
         </Row>
       </S.Contact>

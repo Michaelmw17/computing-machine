@@ -3,6 +3,33 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// CRA loads .env files automatically; the custom `npm run dev` webpack build
+// doesn't, so references like process.env.REACT_APP_* would explode at
+// runtime (webpack 5 dropped the Node `process` polyfill).
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const envFiles = [
+  `.env.${NODE_ENV}.local`,
+  NODE_ENV !== 'test' && '.env.local',
+  `.env.${NODE_ENV}`,
+  '.env',
+].filter(Boolean);
+for (const file of envFiles) {
+  require('dotenv').config({ path: path.resolve(__dirname, file) });
+}
+
+const clientEnv = Object.keys(process.env)
+  .filter((key) => /^REACT_APP_/.test(key))
+  .reduce(
+    (acc, key) => {
+      acc[`process.env.${key}`] = JSON.stringify(process.env[key]);
+      return acc;
+    },
+    {
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL || ''),
+    }
+  );
+
 module.exports = {
   mode: 'development',
 
@@ -66,9 +93,7 @@ module.exports = {
       linkType: 'text/css',
     }),
 
-    new webpack.DefinePlugin({
-      'process.env.PUBLIC_URL': JSON.stringify(''), // can be changed if needed
-    }),
+    new webpack.DefinePlugin(clientEnv),
   ],
 
   devServer: {

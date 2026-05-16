@@ -1,0 +1,14 @@
+.jdp-spinner {
+  display: inline-block;
+  border-style: solid;
+  border-width: 6px;
+  border-radius: 50%;
+  animation: jdp-spinner-rotate 0.9s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes jdp-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

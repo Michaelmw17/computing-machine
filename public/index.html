@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Cache-control" content="public" />
@@ -7,17 +7,86 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="theme-color" content="#FFF" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="msapplication-TileColor" content="#da532c" />
+
+    <!-- Primary SEO -->
+    <title>JDP Electrical Services | Lane Cove & North Shore Electrician Sydney</title>
     <meta
       name="description"
-      content="JDP Electrical Services offer a complete range of electrical 
-    installations and services throughout the Sydney Metropolitan and 
-    North Shore Region. Lane Cove, NSW, Australia 2066, North Shore Electrician."
+      content="Family-owned electrician based in Lane Cove West, serving Sydney's North Shore for 30+ years. Lighting, power, switchboards, repairs and installations. Call (02) 9419 7947."
     />
+    <meta
+      name="keywords"
+      content="electrician Lane Cove, North Shore electrician, Sydney electrician, JDP Electrical, residential electrician Sydney, commercial electrician North Shore, electrical services Lane Cove West"
+    />
+    <link rel="canonical" href="https://www.jdpelectrical.com.au/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JDP Electrical Services" />
+    <meta
+      property="og:title"
+      content="JDP Electrical Services | Lane Cove & North Shore Electrician"
+    />
+    <meta
+      property="og:description"
+      content="Family-owned electrician serving Sydney's North Shore for 30+ years. Lighting, power, switchboards, repairs and installations."
+    />
+    <meta property="og:url" content="https://www.jdpelectrical.com.au/" />
+    <meta
+      property="og:image"
+      content="https://www.jdpelectrical.com.au/JDP-BRANDING-04.png"
+    />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="JDP Electrical Services | Lane Cove & North Shore Electrician"
+    />
+    <meta
+      name="twitter:description"
+      content="Family-owned electrician serving Sydney's North Shore for 30+ years. Lighting, power, switchboards, repairs and installations."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.jdpelectrical.com.au/JDP-BRANDING-04.png"
+    />
+
+    <!-- Preload the LCP hero image so it starts fetching before JS parses.
+         imagesrcset / imagesizes match the responsive <picture> in HeroImage,
+         so mobile downloads the 480w variant (~20 KB) instead of the 768w. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset="/images/light3_480.webp 480w, /images/light3_768.webp 768w, /images/light3_1536.webp 1536w"
+      imagesizes="(min-width: 900px) 50vw, 85vw"
+      fetchpriority="high"
+    />
+
+    <!-- Google Fonts: preconnect early, then load the stylesheet async via the
+         media-swap trick so it doesn't block first paint. Falls back gracefully
+         for no-JS users via the <noscript> tag. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Ubuntu:wght@400;500;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Ubuntu:wght@400;500;700&display=swap"
+      />
+    </noscript>
+
     <base href="/" />
 
-    <!-- ✅ REMOVE %PUBLIC_URL% and use root-relative paths -->
     <link
       rel="manifest"
       crossorigin="use-credentials"
@@ -29,9 +98,196 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000" />
 
-    <title>JDP Electrical Services Pty Ltd</title>
+    <!-- LocalBusiness structured data: drives Google's local pack and rich results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "@id": "https://www.jdpelectrical.com.au/#business",
+        "name": "JDP Electrical Services",
+        "legalName": "J.D.P Electrical Services Pty Ltd",
+        "alternateName": "JDP Electrical",
+        "url": "https://www.jdpelectrical.com.au/",
+        "logo": "https://www.jdpelectrical.com.au/JDP-BRANDING-04.png",
+        "image": "https://www.jdpelectrical.com.au/JDP-BRANDING-04.png",
+        "telephone": "+61294197947",
+        "email": "info@jdpelectrical.com.au",
+        "description": "Family-owned and operated electrician on Sydney's Lower North Shore for over 30 years. Specialising in lighting, power, switchboards, repairs and installations for residential, strata and commercial clients.",
+        "priceRange": "$$",
+        "currenciesAccepted": "AUD",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 17, 4-6 Chaplin Drive",
+          "addressLocality": "Lane Cove West",
+          "addressRegion": "NSW",
+          "postalCode": "2066",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -33.8097541497481,
+          "longitude": 151.14841320640292
+        },
+        "hasMap": "https://goo.gl/maps/hrBNba4G8a1EbgFg6",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "16:00"
+          }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Sydney" },
+          { "@type": "AdministrativeArea", "name": "North Shore, Sydney" },
+          { "@type": "City", "name": "Lane Cove" },
+          { "@type": "City", "name": "Lane Cove West" },
+          { "@type": "City", "name": "Chatswood" },
+          { "@type": "City", "name": "North Sydney" },
+          { "@type": "City", "name": "Mosman" },
+          { "@type": "City", "name": "Willoughby" }
+        ],
+        "serviceType": [
+          "Residential electrical services",
+          "Commercial electrical services",
+          "Strata and property maintenance",
+          "Lighting installation",
+          "Switchboard upgrades",
+          "Electrical repairs and installations"
+        ],
+        "founder": [
+          { "@type": "Person", "name": "Joe Panetta" },
+          { "@type": "Person", "name": "Dominic Panetta" }
+        ],
+        "foundingDate": "1994",
+        "knowsAbout": [
+          "Residential wiring",
+          "Lighting design and installation",
+          "Switchboard upgrades",
+          "Power point installation",
+          "Smoke alarm installation",
+          "Commercial electrical fit-outs",
+          "Strata electrical maintenance"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/JDPElectrical"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <noscript>
+      JDP Electrical Services — Lane Cove West, NSW. Family-owned electrician serving Sydney's North Shore for 30+ years. Call (02) 9419 7947 or email info@jdpelectrical.com.au.
+    </noscript>
+    <!-- Static above-the-fold paint. This MUST live outside #root: React's
+         createRoot().render() clears #root on mount, which would remove the
+         inline hero image and force LCP to re-evaluate against whatever React
+         renders later (3–4 s away). By keeping the shell as a sibling of
+         #root, the hero stays in the DOM the entire time, the LCP element is
+         never removed, and the timestamp sticks at first paint. A small
+         inline script hides the shell once React mounts so it doesn't overlap
+         the rendered app — hiding after paint doesn't reset LCP per the spec.
+         Inline styles only so there's no extra render-blocking CSS request. -->
+    <div id="static-shell">
+      <div
+        style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 1rem 1.25rem; max-width: 1200px; margin: 0 auto;"
+      >
+        <img
+          src="/JDP-BRANDING-04.webp"
+          width="550"
+          height="79"
+          alt="JDP Electrical Services logo"
+          style="display: block; height: 55px; width: auto; max-width: 100%; margin: 15px 0 0;"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 2rem;"
+        >
+          <div style="flex: 1 1 320px;">
+            <h1
+              style="font-size: clamp(1.75rem, 4vw, 2.6rem); line-height: 1.2; color: #000; margin: 0 0 1rem; max-width: 30ch;"
+            >
+              Welcome to<br />JDP Electrical Services
+            </h1>
+            <p style="color: #333; font-size: 1rem; max-width: 55ch; margin: 0;">
+              North Shore's most trusted and experienced family electrical
+              contractors, with over 60 years combined experience.
+            </p>
+          </div>
+          <div style="flex: 1 1 320px;">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/images/light3_480.webp 480w, /images/light3_768.webp 768w, /images/light3_1536.webp 1536w"
+                sizes="(min-width: 900px) 50vw, 85vw"
+              />
+              <img
+                src="/images/light3_768.jpg"
+                width="768"
+                height="596"
+                alt="Lighting installation by JDP Electrical Services"
+                style="display: block; width: 100%; height: auto; max-width: 100%; border-radius: 5%; filter: drop-shadow(7.5px 8.5px 12px #000); margin-top: 1rem;"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="root"></div>
+    <style>
+      /* Stack the shell on top of the React tree (z-index) and fade it out
+         after React mounts. Critically, we use `opacity` (not display/
+         visibility) so the shell's elements stay LCP-candidates per Chrome's
+         LCP implementation — `display: none` and `visibility: hidden` revoke
+         candidacy and force LCP to fall back to the React-rendered paragraph
+         (which only paints once JS executes, ~6s on throttled mobile).
+         pointer-events:none lets clicks through to the (eventually visible)
+         React tree underneath. */
+      #static-shell {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        pointer-events: none;
+        transition: opacity 0.2s ease-out;
+      }
+      #static-shell.is-faded {
+        opacity: 0;
+      }
+      #root {
+        position: relative;
+        z-index: 0;
+      }
+    </style>
+    <script>
+      // Fade the shell out once React has rendered. Using opacity (not
+      // display:none) keeps the shell's elements eligible as LCP candidates
+      // per Chrome's LCP implementation — so the preloaded hero image stays
+      // the LCP element instead of being overridden by whatever React paints
+      // 4+ seconds later.
+      (function () {
+        var root = document.getElementById('root');
+        if (!root) return;
+        var fade = function () {
+          var shell = document.getElementById('static-shell');
+          if (shell) shell.classList.add('is-faded');
+        };
+        var obs = new MutationObserver(function (_, observer) {
+          if (root.firstElementChild) {
+            // Wait one extra frame so LCP has a chance to fire on the shell
+            // hero before we start fading.
+            requestAnimationFrame(function () {
+              requestAnimationFrame(fade);
+            });
+            observer.disconnect();
+          }
+        });
+        obs.observe(root, { childList: true });
+      })();
+    </script>
   </body>
 </html>

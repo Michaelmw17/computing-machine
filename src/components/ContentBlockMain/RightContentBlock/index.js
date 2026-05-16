@@ -1,21 +1,13 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import BuildlIcon from '@mui/icons-material/Build';
+import Row from 'antd/lib/grid/row';
+import Col from 'antd/lib/grid/col';
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton';
-import './styling.css';
 import Button from '../../../common/Button';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
-import BuildlIcon from '@material-ui/icons/Build';
-import Loader from 'react-loader-spinner';
-import { motion } from 'framer-motion';
+import HeroImage from '../../HeroImage';
 import * as S from './styles';
-
-const Row = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
-);
-const Col = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
-);
-
-const Image = lazy(() => import('../../MyCompMain/myComp.js'));
+import './styling.css';
 
 const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
   const scrollTo = (id) => {
@@ -88,28 +80,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
         </Col>
 
         <Col xs={{ span: 22, offset: 1 }} lg={{ span: 11, offset: 1 }}>
-          <motion.div
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <Suspense
-              fallback={
-                <div>
-                  <Loader
-                    type="Rings"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={3000}
-                  />
-                </div>
-              }
-            >
-              <Image rel="preload" id="JDP-Electrical-light" />
-            </Suspense>
-          </motion.div>
+          <HeroImage rel="preload" id="JDP-Electrical-light" />
         </Col>
       </Row>
     </S.RightBlockContainer>

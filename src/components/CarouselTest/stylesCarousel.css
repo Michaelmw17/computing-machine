@@ -1,48 +1,55 @@
-#Paper ,#PaperH2 {
-  color: #FFF;
+#Paper,
+#PaperH2 {
+  color: #fff;
 }
 .containerCar {
-  padding: 60px;
+  padding: 40px 60px 60px;
   background: rgb(209, 29, 50);
 }
 .review {
   font-size: 24px;
   margin-top: 10px;
-  color: white
+  color: white;
 }
 #review-h1 {
   color: white;
-  margin-top:-80px;
   font-size: 34px;
   text-align: center;
+  padding: 2rem 0.5rem 0.5rem 0.3rem;
 }
-#review-p{
+@media only screen and (max-width: 767px) {
+  #review-h1 {
+    padding: 1rem 0.5rem 0.5rem 0.3rem;
+    font-size: 1.925rem;
+  }
+}
+#review-p {
   color: white;
   font-size: 23px;
 }
 
-#review-icon{
+#review-icon {
   color: white;
   font-size: 23px;
 }
 
-#Name   {
+#Name {
   color: white;
   text-align: right;
   font-size: 24px;
 }
-.Icon   {
+.Icon {
   color: white;
   text-align: center;
 }
 .star-icon {
-    color: #ccc;
-    font-size: 24px;
-    vertical-align: middle;
+  color: #ccc;
+  font-size: 24px;
+  vertical-align: middle;
 }
 
 .star-icon.filled {
-    color: #F7A115;
+  color: #f7a115;
 }
 
 .reviews-text {
@@ -57,4 +64,105 @@
   position: absolute;
   right: 0px;
   width: 225px;
+}
+
+/* ---- Hand-rolled carousel (replaces react-material-ui-carousel) -------- */
+
+.jdp-carousel {
+  position: relative;
+  width: 100%;
+}
+
+/* Paper-equivalent block: keeps every existing #Paper / .containerCar rule
+   working without pulling in @mui/material/Paper. */
+.jdp-carousel-paper {
+  background: #fff;
+  color: #fff;
+  box-shadow:
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.jdp-carousel__viewport {
+  position: relative;
+}
+
+.jdp-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.jdp-carousel__nav:hover,
+.jdp-carousel__nav:focus-visible {
+  background: rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.jdp-carousel__nav--prev {
+  left: 6px;
+}
+
+.jdp-carousel__nav--next {
+  right: 6px;
+}
+
+.jdp-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0 4px;
+}
+
+/* The visible dot stays 10px, but the button itself is sized at 24px with a
+   transparent background ring so the hit area meets WCAG 2.5.5 (24px min). */
+.jdp-carousel__dot {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jdp-carousel__dot::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.jdp-carousel__dot:hover::before {
+  background: #999;
+}
+
+.jdp-carousel__dot--active::before {
+  background: rgb(209, 29, 50);
+  transform: scale(1.2);
 }

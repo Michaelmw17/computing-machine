@@ -105,6 +105,37 @@ export const Large = styled(Link)`
     margin-top: 20px;
   }
 `;
+
+export const NavButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 16px;
+  color: rgba(2, 7, 62, 0.8);
+  text-align: ${(props) => (props.left ? 'left' : '')};
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
+  line-height: 24px;
+  display: block;
+  margin-bottom: 0.625rem;
+  margin-top: -0.525rem;
+
+  &:hover {
+    color: rgb(209, 29, 50);
+  }
+  &:nth-child(2) {
+    margin-top: 20px;
+  }
+`;
+
+export const LogoButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+`;
 export const Mailto = styled(Link)`
   font-size: 16px;
   color: rgba(2, 7, 62, 0.8);

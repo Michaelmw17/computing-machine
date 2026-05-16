@@ -1,0 +1,14 @@
+name = "jdp-contact-proxy"
+main = "src/index.js"
+compatibility_date = "2024-10-01"
+
+# Secrets are NOT defined here — set via `wrangler secret put` so they don't
+# end up in source control. See README.md.
+#
+# Required secrets:
+#   EMAILJS_SERVICE_ID
+#   EMAILJS_TEMPLATE_ID
+#   EMAILJS_PUBLIC_KEY
+
+[observability]
+enabled = true

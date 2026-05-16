@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect } from 'react';
 import MissionContent from '../../content/MissionContent.json';
 import MiddleBlockContent from '../../content/MiddleBlockContent.json';
 import MiddleBlockContentTwo from '../../content/MiddleBlockContentTwo.json';
@@ -15,23 +15,27 @@ const FlipperCards = lazy(() => import('../../components/FlippingCards'));
 const Carousel = lazy(() => import('../../components/CarouselTest/Carousel'));
 const ContentBlock = lazy(() => import('../../components/ContentBlock'));
 const ContactFrom = lazy(() => import('../../components/ContactForm'));
-const MiddleBlock = lazy(() => import('../../components/MiddleBlock'));
-const MiddleBlockOne = lazy(() => import('../../components/MiddleBlockOne'));
-const MiddleBlockTwo = lazy(() => import('../../components/MiddleBlockTwo'));
-const MiddleBlockTwoRed = lazy(() =>
-  import('../../components/MiddleBlockTwoRed')
+const ServicesIntro = lazy(() => import('../../components/ServicesIntro'));
+const ServicesDescription = lazy(() =>
+  import('../../components/ServicesDescription')
 );
+const PhoneCallout = lazy(() => import('../../components/PhoneCallout'));
+const ServicesQuote = lazy(() => import('../../components/ServicesQuote'));
 const Container = lazy(() => import('../../common/Container'));
 const ScrollToTop = lazy(() => import('../../common/ScrollToTop'));
 
 const Home = () => {
-  document.body.scroll = 'yes';
-  document.body.style.overflow = 'visible';
-  document.height = window.innerHeight;
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'visible';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
   return (
-    <>
-      <div className="whiteContainer">
-        <Container>
+    <main className="whiteContainer">
+      <Container>
           <Header />
           <ScrollToTop />
           <ContentBlockMain
@@ -45,14 +49,14 @@ const Home = () => {
           />
         </Container>
         <div id="Service">
-          <MiddleBlock
+          <ServicesIntro
             title={MiddleBlockContent.title}
             content={MiddleBlockContent.text}
           />
           <FlipperCards />
-          <MiddleBlockOne content={MiddleBlockContentTwo.text} />
-          <MiddleBlockTwoRed content={MiddleBlockTwoRedText.text} />
-          <MiddleBlockTwo content={MiddleBlockContentThree.text} />
+          <ServicesDescription content={MiddleBlockContentTwo.text} />
+          <ServicesQuote content={MiddleBlockTwoRedText.text} />
+          <PhoneCallout content={MiddleBlockContentThree.text} />
         </div>
         <Container>
           <div id="People"></div>
@@ -74,8 +78,7 @@ const Home = () => {
           id="Team"
         />
         <Footer />
-      </div>
-    </>
+    </main>
   );
 };
 

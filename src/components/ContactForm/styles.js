@@ -70,6 +70,14 @@ export const Button = styled.button`
     border: 2px solid rgb(209, 29, 50);
   }
 
+  /* On phones: full-width CTA, no float, text wraps cleanly below */
+  @media only screen and (max-width: 767px) {
+    max-width: 100%;
+    float: none;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+  }
   @media only screen and (max-width: 1024px) {
     width: ${(props) => (props.width ? '180px' : '100%')};
   }

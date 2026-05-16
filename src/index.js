@@ -1,19 +1,76 @@
-import React from "react"
-import { BrowserRouter } from "react-router-dom";
-import ReactDOM from "react-dom";
-import "antd/dist/antd.css";
-import Router from "./router";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import {
+  ThemeProvider,
+  createTheme,
+  StyledEngineProvider,
+} from '@mui/material/styles';
+import { ThemeProvider as LegacyThemeProvider } from '@mui/styles';
+import { LazyMotion } from 'framer-motion';
+// Only the antd components we actually use: base reset + Row/Col + Drawer.
+// Importing antd/dist/antd.css pulls 670+ KB of styles for every antd component;
+// per-component imports cut that to ~130 KB and unblock first paint. The base
+// style import is required — Row/Col and the rest of the page rely on antd's
+// normalize/reset (box-sizing, body margin, etc.).
+import 'antd/lib/style/index.css';
+import 'antd/lib/grid/style/index.css';
+import 'antd/lib/drawer/style/index.css';
+import Router from './router';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+// MUI v5: @mui/styles (makeStyles) needs an explicit theme — v4 used to inject
+// one automatically. Both providers are required while makeStyles call-sites
+// remain.
+const muiTheme = createTheme();
+
+// Load framer-motion animation features asynchronously so the ~25 KB of
+// `domAnimation` code doesn't block first paint. `m.*` renders immediately
+// without animations until the features chunk resolves.
+const loadAnimationFeatures = () =>
+  import('framer-motion').then((mod) => mod.domAnimation);
+
+// StyledEngineProvider injectFirst makes emotion inject MUI's styles before
+// our hand-written CSS so .call-us-button / .light / etc. can override MUI
+// defaults the same way they did in v4 with JSS.
 const App = () => (
-  <BrowserRouter   basename={process.env.PUBLIC_URL}>
-      <Router />
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={muiTheme}>
+        <LegacyThemeProvider theme={muiTheme}>
+          <LazyMotion features={loadAnimationFeatures} strict>
+            <Router />
+          </LazyMotion>
+        </LegacyThemeProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   </BrowserRouter>
 );
 
-ReactDOM.render(<App />, document.getElementById("root"));
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.
-serviceWorkerRegistration.register();
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+// Pre-warm the Home chunk in parallel with the rest of the boot path so that
+// by the time we mount, lazy(Home) resolves synchronously and React doesn't
+// need to fall back to <Suspense fallback={null}> (which would unmount the
+// static skeleton and leave a blank screen mid-load).
+const homeReady = import('./pages/Home');
+
+// Defer React's first render until the browser has painted the static
+// skeleton (logo + heading + hero image) so LCP records the preloaded hero
+// at ~1 s instead of the React-rendered one at ~5 s. requestIdleCallback
+// fires after first paint + idle; the 1500 ms timeout is the upper bound so
+// we never strand the app on a busy main thread.
+const mount = () => {
+  homeReady.then(() => root.render(<App />));
+};
+if ('requestIdleCallback' in window) {
+  window.requestIdleCallback(mount, { timeout: 1500 });
+} else {
+  setTimeout(mount, 200);
+}
+
+// Unregister: the service worker was adding IndexedDB/cache init overhead on
+// first paint and stale-asset risk on deploys without much benefit for a small
+// static landing page. Run register() if you want offline support back.
+serviceWorkerRegistration.unregister();

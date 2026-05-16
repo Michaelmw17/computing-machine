@@ -2,11 +2,15 @@ version: 1
 frontend:
   phases:
     preBuild:
+      # `npm ci` installs the exact versions in package-lock.json — same as our
+      # local builds. --legacy-peer-deps matches the install flag we've been
+      # using locally (needed because MUI v5 and antd v4 don't fully agree on
+      # React peer ranges).
       commands:
-        - yarn install
+        - npm ci --legacy-peer-deps
     build:
       commands:
-        - yarn run build
+        - npm run build
   artifacts:
     baseDirectory: build
     files:

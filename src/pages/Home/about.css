@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap');
+/* Fonts are loaded via <link> in public/index.html with preconnect — keeping
+   them here as @import would block render. */
 
 .team-section {
   text-align: center;
@@ -171,33 +172,51 @@ Button.btn,
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
-/* #Service {
-  padding-top: 40px;
-} */
-#Service {
-  position: relative;
-  padding-top: 80px;
-  margin-top: -60px;
+/* ---- Section rhythm ---------------------------------------------------- */
+/* Every primary section gets the same top/bottom padding so the page reads
+   with a consistent vertical beat. Anchored ids also offset for the fixed
+   header so jump-to-section links don't hide content underneath. */
+:root {
+  --jdp-section-py: 40px;
+  --jdp-section-py-mobile: 20px;
+  --jdp-header-offset: 99px;
 }
 
+#Service,
+#People,
+#mission,
+#Review,
+#Team {
+  scroll-margin-top: var(--jdp-header-offset);
+}
+
+#Service,
 #Review {
-  padding-top: 100px;
+  position: relative;
+  padding-top: var(--jdp-section-py);
+  padding-bottom: var(--jdp-section-py);
 }
 
-@media only screen and (max-width: 480px) {
-  #Service {
-    padding-top: 75px;
-    padding-bottom: -50px;
-  }
-  #mission {
-    padding-top: 45px;
+@media (max-width: 767px) {
+  #Service,
+  #Review {
+    padding-top: var(--jdp-section-py-mobile);
+    padding-bottom: var(--jdp-section-py-mobile);
   }
 }
+
+#Service h3,
+#People ~ * h3,
+#Team h3 {
+  padding: 1rem 0.5rem 0.5rem 0.3rem;
+}
+
 .whiteContainer {
   max-width: 2000px;
   margin: auto;
   overflow: visible;
 }
+
 body {
   overflow: visible;
 }

@@ -11,12 +11,13 @@ export const Up = styled.div`
   position: fixed;
   right: 100px;
   bottom: 50px;
-  z-index: 10;
+  z-index: 1100;
   width: 40px;
   height: 40px;
   cursor: pointer;
 
-  @media screen and (max-width: 1024px) {
-      right: 20px;
+  @media screen and (max-width: 767px) {
+    right: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0));
   }
 `;

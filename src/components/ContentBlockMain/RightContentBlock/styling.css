@@ -32,14 +32,26 @@
 
 @media (max-width: 768px) {
   .button-group {
+    justify-content: center;
+  }
+  /* Antd's justify="start" on the button row leaves empty space on the
+     right at this size; center the col instead so the buttons sit under
+     the text. */
+  #Button-top.ant-row-start {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .button-group {
     flex-direction: column;
     gap: 10px;
     padding: 0 12px;
   }
 }
-@media (min-width: 424px) {
+@media (min-width: 415px) {
   .Main-Title {
-    padding: 1.7rem 0.5rem 0.5rem 0.3rem;
+    padding: 1rem 0.5rem 0.5rem 0.3rem;
     font-size: 30px;
     font-weight: bold;
   }

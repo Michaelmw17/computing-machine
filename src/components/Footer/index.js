@@ -1,18 +1,21 @@
-import React, { lazy, Fragment, Suspense, useRef } from 'react';
-import Loader from 'react-loader-spinner';
+import React, { lazy, Fragment, useRef } from 'react';
+import Row from 'antd/lib/grid/row';
+import Col from 'antd/lib/grid/col';
 import * as S from './styles';
 import ScrollToTop from '../../components/ScrollTopFunc';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 
-const Row = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
+const BrandLogo = lazy(() => import('../../components/BrandLogo'));
+const InTheCovePartnerLogo = lazy(() =>
+  import('../../components/PartnerLogo').then((m) => ({
+    default: m.InTheCovePartnerLogo,
+  }))
 );
-const Col = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
+const NecaPartnerLogo = lazy(() =>
+  import('../../components/PartnerLogo').then((m) => ({
+    default: m.NecaPartnerLogo,
+  }))
 );
-const MyComp = lazy(() => import('../../components/MyComp/myComp'));
-const MyCompRed = lazy(() => import('../../components/MyCompRed/myComp.js'));
-const MyCompBlue = lazy(() => import('../../components/MyCompBlue/myComp.js'));
 const Container = lazy(() => import('../../common/Container'));
 
 const Mailto = ({ email, subject = '', body = '', children }) => {
@@ -51,7 +54,7 @@ const Footer = () => {
 
   return (
     <Fragment>
-      <motion.div
+      <m.div
         ref={ref}
         variants={fadeInVariant}
         initial="hidden"
@@ -80,61 +83,37 @@ const Footer = () => {
 
               <Col lg={6} md={6} sm={12} xs={24}>
                 <S.Title>{'JDP Electrical Services'}</S.Title>
-                <S.Large
+                <S.NavButton left="true" type="button" onClick={scrollToTop}>
+                  Home
+                </S.NavButton>
+                <S.NavButton
                   left="true"
-                  as="a"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToTop();
-                  }}
+                  type="button"
+                  onClick={() => scrollTo('Service')}
                 >
-                  {'Home'}
-                </S.Large>
-                <S.Large
+                  Services
+                </S.NavButton>
+                <S.NavButton
                   left="true"
-                  as="a"
-                  href="#Service"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo('Service');
-                  }}
+                  type="button"
+                  onClick={() => scrollTo('mission')}
                 >
-                  {'Services'}
-                </S.Large>
-                <S.Large
+                  About
+                </S.NavButton>
+                <S.NavButton
                   left="true"
-                  as="a"
-                  href="#mission"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo('mission');
-                  }}
+                  type="button"
+                  onClick={() => scrollTo('Review')}
                 >
-                  {'About'}
-                </S.Large>
-                <S.Large
+                  Reviews
+                </S.NavButton>
+                <S.NavButton
                   left="true"
-                  as="a"
-                  href="#Review"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo('Review');
-                  }}
+                  type="button"
+                  onClick={() => scrollTo('Team')}
                 >
-                  {'Reviews'}
-                </S.Large>
-                <S.Large
-                  left="true"
-                  as="a"
-                  href="#Team"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo('Team');
-                  }}
-                >
-                  {'Contact'}
-                </S.Large>
+                  Contact
+                </S.NavButton>
               </Col>
 
               <Col lg={6} md={8} sm={12} xs={24}>
@@ -192,7 +171,7 @@ const Footer = () => {
             </Row>
           </Container>
         </S.Footer>
-      </motion.div>
+      </m.div>
 
       <S.Extra>
         <ScrollToTop>
@@ -205,49 +184,31 @@ const Footer = () => {
             >
               <Col xs={24} md={8}>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToTop();
-                    }}
+                  <S.LogoButton
+                    type="button"
+                    aria-label="Scroll to top"
+                    onClick={scrollToTop}
                   >
                     <S.LogoContainer>
-                      <MyComp />
+                      <BrandLogo />
                     </S.LogoContainer>
-                  </a>
+                  </S.LogoButton>
                 </div>
               </Col>
 
               <Col xs={24} md={8}>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToTop();
-                    }}
-                  >
-                    <S.LogoContainer>
-                      <MyCompRed />
-                    </S.LogoContainer>
-                  </a>
+                  <S.LogoContainer>
+                    <InTheCovePartnerLogo />
+                  </S.LogoContainer>
                 </div>
               </Col>
 
               <Col xs={24} md={8}>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToTop();
-                    }}
-                  >
-                    <S.LogoContainer>
-                      <MyCompBlue />
-                    </S.LogoContainer>
-                  </a>
+                  <S.LogoContainer>
+                    <NecaPartnerLogo />
+                  </S.LogoContainer>
                 </div>
               </Col>
             </Row>

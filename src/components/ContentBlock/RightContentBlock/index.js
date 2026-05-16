@@ -1,19 +1,14 @@
 import React, { Suspense, lazy } from 'react';
-import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
-
-import Loader from 'react-loader-spinner';
-import Button from '@material-ui/core/Button';
-import { motion } from 'framer-motion';
+import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
+import Button from '@mui/material/Button';
+import Row from 'antd/lib/grid/row';
+import Col from 'antd/lib/grid/col';
+import { m } from 'framer-motion';
+import Spinner from '../../../common/Spinner';
 import ButtonAnimated from '../../../common/ButtonAnimation/AnimationButton';
 import * as S from './styles';
 import './styling.css';
 
-const Row = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/row')
-);
-const Col = React.lazy(() =>
-  import(/* webpackChunkName: "sula-antd" */ 'antd/lib/grid/col')
-);
 const ImageMain = lazy(() => import('../../LazyImages/index.js'));
 
 const slideLeft = {
@@ -39,7 +34,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
       <S.RightBlockContainer>
         <Row type="flex" justify="space-between" align="middle" id={id}>
           <Col lg={12} md={24} sm={24} xs={24}>
-            <motion.div
+            <m.div
               variants={slideLeft}
               initial="hidden"
               whileInView="visible"
@@ -92,10 +87,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                       <div id="ButtonMain">
                         <a href="tel:02-9419-7947">
                           <Button
-                            classes={{
-                              root: 'buttonMainAbout',
-                              label: 'button-label-main',
-                            }}
+                            className="call-us-button"
                             style={{
                               marginBottom: 0,
                               marginTop: 70,
@@ -111,7 +103,7 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                               maxWidth: '180px',
                             }}
                           >
-                            <p className="p-Call-us-now-main"> Call us now </p>
+                            <p className="call-us-label">Call us now</p>
                             <PhoneForwardedIcon
                               style={{
                                 width: '0.7em',
@@ -158,31 +150,19 @@ const RightBlock = ({ title, content, contentTwo, button, icon, id }) => {
                   </div>
                 </Row>
               </S.ContentWrapper>
-            </motion.div>
+            </m.div>
           </Col>
-          <Col xs={{ span: 22, offset: 2 }} lg={{ span: 11, offset: 1 }}>
-            <motion.div
+          <Col xs={{ span: 22, offset: 1 }} lg={{ span: 11, offset: 1 }}>
+            <m.div
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Suspense
-                fallback={
-                  <div>
-                    <Loader
-                      type="Rings"
-                      color="#00BFFF"
-                      height={100}
-                      width={100}
-                      timeout={3000}
-                    />
-                  </div>
-                }
-              >
+              <Suspense fallback={<Spinner />}>
                 <ImageMain rel="preload" id="JoeDominic" />
               </Suspense>
-            </motion.div>
+            </m.div>
           </Col>
         </Row>
       </S.RightBlockContainer>

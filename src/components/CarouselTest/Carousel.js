@@ -1,48 +1,30 @@
-import React, { useRef } from 'react';
-import Carousel from 'react-material-ui-carousel';
-import { Paper } from '@material-ui/core';
-import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-import { motion, useInView } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import { m, useInView } from 'framer-motion';
 import './stylesCarousel.css';
 
-export default function Example(props) {
-  const items = [
-    {
-      description:
-        "Mary (Mosman) - 'Joe and Dominic have been our electricians for over 12 years, delivering high quality service including major electrical renovations and outdoor lighting. Joe and Dominic are a pleasure to have working in our home and we highly recommend their services.'",
-    },
-    {
-      description:
-        "Callum - 'Fast, professional and reliable. Highly recommend'",
-    },
-    {
-      description:
-        "Bryant (Lane Cove North) - 'Polite, professional, honest and timely. Very competitive rates. A breath of fresh air and would highly recommend them.'",
-    },
-  ];
-
-  return (
-    <Carousel
-      autoPlay={false}
-      navButtonsAlwaysVisible={true}
-      navButtonsProps={{
-        style: { backgroundColor: 'transparent' },
-      }}
-    >
-      {items.map((item, i) => (
-        <Item key={i} item={item} />
-      ))}
-    </Carousel>
-  );
-}
+const items = [
+  {
+    description:
+      "Mary (Mosman) - 'Joe and Dominic have been our electricians for over 12 years, delivering high quality service including major electrical renovations and outdoor lighting. Joe and Dominic are a pleasure to have working in our home and we highly recommend their services.'",
+  },
+  {
+    description:
+      "Callum - 'Fast, professional and reliable. Highly recommend'",
+  },
+  {
+    description:
+      "Bryant (Lane Cove North) - 'Polite, professional, honest and timely. Very competitive rates. A breath of fresh air and would highly recommend them.'",
+  },
+];
 
 const Item = ({ item }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
   return (
-    <Paper id="Paper">
-      <motion.div
+    <div id="Paper" className="jdp-carousel-paper">
+      <m.div
         ref={ref}
         initial={{ opacity: 0, y: 100 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -74,7 +56,58 @@ const Item = ({ item }) => {
             </p>
           </div>
         </div>
-      </motion.div>
-    </Paper>
+      </m.div>
+    </div>
   );
 };
+
+export default function ReviewsCarousel() {
+  const [index, setIndex] = useState(0);
+  const count = items.length;
+
+  const goTo = (next) => setIndex(((next % count) + count) % count);
+  const prev = () => goTo(index - 1);
+  const next = () => goTo(index + 1);
+
+  return (
+    <div className="jdp-carousel" role="region" aria-roledescription="carousel">
+      <button
+        type="button"
+        className="jdp-carousel__nav jdp-carousel__nav--prev"
+        aria-label="Previous review"
+        onClick={prev}
+      >
+        ‹
+      </button>
+
+      <div className="jdp-carousel__viewport">
+        <Item key={index} item={items[index]} />
+      </div>
+
+      <button
+        type="button"
+        className="jdp-carousel__nav jdp-carousel__nav--next"
+        aria-label="Next review"
+        onClick={next}
+      >
+        ›
+      </button>
+
+      <div className="jdp-carousel__dots" role="tablist">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            role="tab"
+            aria-selected={i === index}
+            aria-label={`Review ${i + 1}`}
+            className={`jdp-carousel__dot${
+              i === index ? ' jdp-carousel__dot--active' : ''
+            }`}
+            onClick={() => goTo(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}

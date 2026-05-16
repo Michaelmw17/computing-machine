@@ -2,10 +2,10 @@ import React from "react";
 import MyListResidential from '../../common/MyListResidential/list'
 import MyListCommercial from '../../common/MyListCommercial/Clist'
 import PinnedSubheaderList from '../../common/MyListStrata/list'
-import HomeIcon from '@material-ui/icons/Home';
-import BusinessIcon from '@material-ui/icons/Business';
-import BuildSharpIcon from '@material-ui/icons/BuildSharp';
-import {  Grid  } from "@material-ui/core";
+import HomeIcon from '@mui/icons-material/Home';
+import BusinessIcon from '@mui/icons-material/Business';
+import BuildSharpIcon from '@mui/icons-material/BuildSharp';
+import {  Grid  } from "@mui/material";
 import { Row } from 'antd';
 import ContainerCardFlip from '../../components/ContainerCardFlip';
 

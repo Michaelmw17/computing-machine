@@ -1,0 +1,53 @@
+# AWS Amplify custom HTTP headers.
+#
+# This file is copied verbatim from /public to /build by CRA, then read by
+# Amplify during deploy. Amplify applies these headers to the CloudFront
+# distribution.
+#
+# Strategy
+# --------
+# - index.html and customHttp.yml itself must NEVER be cached aggressively —
+#   browsers must re-fetch them on every visit so they discover new asset
+#   hashes after a deploy.
+# - Hashed static assets (CRA's /static/js/main.<hash>.js, /static/css/...,
+#   media/) are content-addressed: each deploy produces new filenames, so the
+#   old ones are never overwritten. Safe to cache for a year.
+# - The service-worker.js file must NOT be cached so the browser can detect
+#   the new tombstone SW and run it.
+
+customHeaders:
+  - pattern: '**/index.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-cache, no-store, must-revalidate'
+      - key: 'Pragma'
+        value: 'no-cache'
+
+  - pattern: '/service-worker.js'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-cache, no-store, must-revalidate'
+
+  - pattern: '/static/**/*'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+
+  - pattern: '**/*.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2)'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+
+  # Sensible security headers while we're configuring HTTP responses.
+  - pattern: '**/*'
+    headers:
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'X-Frame-Options'
+        value: 'DENY'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'Permissions-Policy'
+        value: 'geolocation=(), microphone=(), camera=(), payment=()'

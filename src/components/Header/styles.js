@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 
 export const Header = styled.header`
   position: fixed;
@@ -8,7 +8,7 @@ export const Header = styled.header`
   left: 0;
   width: 100%;
   height: 99px;
-  z-index: 10;
+  z-index: 1100;
   background: #fff;
 `;
 
@@ -32,13 +32,13 @@ export const Container = styled.div`
   }
 `;
 
-// This container keeps nav items in a row
+// Desktop nav: visible at 768px and up.
 export const NotHidden = styled.div`
   display: flex;
-  justify-content: space-around; /* or space-between if preferred */
+  justify-content: space-around;
   align-items: center;
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 991px) {
     display: none;
   }
 `;
@@ -62,11 +62,17 @@ export const ContactWrapper = styled.div`
   display: inline-block;
 `;
 
-export const Burger = styled.div`
-  padding: 0.01rem 1rem 1.05rem;
+export const Burger = styled.button`
+  position: relative;
+  z-index: 1101; /* above antd Drawer (1000) and the fixed Header (1100) */
   display: none;
+  background: none;
+  border: none;
+  padding: 0.01rem 1rem 1.05rem;
+  cursor: pointer;
+  color: inherit;
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 991px) {
     display: block !important;
   }
 `;
@@ -101,7 +107,7 @@ export const CustomNavLinkSmall = styled.div`
     color: rgb(180, 25, 43);
   }
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 991px) {
     font-size: 1.1rem;
     margin: 0.5rem 0;
   }
@@ -129,26 +135,20 @@ export const CustomNavLinkSmall = styled.div`
   }
 `;
 
-export const Menu = styled.h5`
-  font-size: 1.37rem;
-  padding: 0;
-  font-weight: 600;
-`;
-
-export const Label = styled.span`
-  font-size: 16px;
-  font-weight: 500;
-  color: #404041;
+const iconStyles = `
+  padding-top: 40px;
+  font-size: 22px;
   text-align: center;
-  display: flex;
-  justify-content: center;
+  transition: transform 0.2s ease;
 `;
 
 export const Outline = styled(MenuOutlined)`
-  padding-top: 40px;
-  font-size: 22px;
+  ${iconStyles}
   padding-right: ${(props) => (props.padding ? '10px' : '')};
-  text-align: center;
+`;
+
+export const CloseIcon = styled(CloseOutlined)`
+  ${iconStyles}
 `;
 
 export const Span = styled.div`

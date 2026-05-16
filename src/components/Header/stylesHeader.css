@@ -37,14 +37,61 @@
 /* globalStyles.css */
 
 .custom-drawer .ant-drawer-body {
-  padding: 10px;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Apply styles only when screen is <= 768px */
-@media (max-width: 1024px) {
+.custom-drawer .ant-drawer-header-title {
+  flex-direction: row-reverse;
+}
+
+.custom-drawer .ant-drawer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Mobile drawer menu (≤991px): stack items vertically with comfortable tap targets */
+@media (max-width: 991px) {
   #hamburger-menu {
     text-align: center;
     display: flex;
     flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  #hamburger-menu > div {
+    width: 100%;
+    padding: 14px 24px;
+    margin: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    border-radius: 0;
+    text-align: left;
+  }
+
+  #hamburger-menu > div span {
+    margin-top: 0;
+    font-size: 1.05rem;
+  }
+
+  /* Push the "Call us now" button to the bottom with a divider */
+  #hamburger-menu > div:last-child {
+    margin-top: auto;
+    padding: 16px 24px 8px;
+    border-top: 1px solid #eee;
+    justify-content: center;
+  }
+
+  #hamburger-menu #ButtonMain {
+    width: 100%;
+  }
+
+  #hamburger-menu #ButtonMain .call-us-button {
+    max-width: 100% !important;
+    margin-top: 0 !important;
   }
 }

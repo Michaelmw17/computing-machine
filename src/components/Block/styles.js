@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Content = styled.p`
-  margin-top: -5.5rem;
-  margin-left: 0.8rem;
-  font-size: 20px
+  margin: 0.5rem 0 0 0.3rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #444;
 `;
 
 export const Container = styled.div`
@@ -12,6 +13,5 @@ export const Container = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  border-radius: 3rem;
   max-width: 600px;
 `;

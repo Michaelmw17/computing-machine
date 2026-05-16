@@ -2,8 +2,13 @@
 
 # dependencies
 /node_modules
+node_modules/
 /.pnp
 .pnp.js
+
+# Cloudflare Worker artifacts and credentials — never commit
+cf-worker/.wrangler/
+cf-worker/.dev.vars
 
 # testing
 /coverage
@@ -13,9 +18,15 @@
 
 # misc
 .DS_Store
+
+# env files — never commit real keys
+# .env (build flags only) and .env.example (template) are committed; locals are not.
 .env.local
+.env.development
 .env.development.local
+.env.test
 .env.test.local
+.env.production
 .env.production.local
 
 npm-debug.log*

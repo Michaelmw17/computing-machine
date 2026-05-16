@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
+import makeStyles from '@mui/styles/makeStyles';
+import List from '@mui/material/List';
 import './style.css'
 
 const words = [

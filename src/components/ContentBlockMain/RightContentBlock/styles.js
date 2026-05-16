@@ -37,7 +37,7 @@ export const ContentWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
   justify-content: start;
   align-items: center;
@@ -45,4 +45,8 @@ export const ButtonWrapper = styled.div`
   max-width: 100%;
   min-width: 0;
   margin-top: 20px;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;

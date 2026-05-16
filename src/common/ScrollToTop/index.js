@@ -1,37 +1,60 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
+import React, { useEffect, useState } from 'react';
+import makeStyles from '@mui/styles/makeStyles';
+import IconButton from '@mui/material/IconButton';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as S from './styles';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
+const SHOW_AFTER_PX = 300;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
       color: 'white',
       background: 'rgb(178, 4, 24)',
-
-      // Add hover effect
       '&:hover': {
-        backgroundColor: 'rgb(240, 4, 32)', // Hover background color
+        backgroundColor: 'rgb(240, 4, 32)',
       },
     },
   },
 }));
-const Input = () => {
+
+const ScrollToTopButton = () => {
   const classes = useStyles();
-  const scrollUp = () => {
-    const element = document.getElementById('Main-Title');
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest',
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Hide while the mobile drawer is open — Header toggles this body class.
+      const drawerOpen = document.body.classList.contains('menu-open');
+      setVisible(!drawerOpen && window.scrollY > SHOW_AFTER_PX);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // React to drawer open/close even when the user isn't scrolling.
+    const observer = new MutationObserver(onScroll);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
     });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      observer.disconnect();
+    };
+  }, []);
+
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (!visible) return null;
+
   return (
-    <S.Up onClick={scrollUp}>
+    <S.Up onClick={scrollUp} aria-label="Back to top">
       <div className={classes.root}>
-        <IconButton color="secondary" aria-label="add an alarm">
+        <IconButton color="secondary" aria-label="Back to top" size="large">
           <KeyboardArrowUpIcon />
         </IconButton>
       </div>
@@ -39,4 +62,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default ScrollToTopButton;

@@ -1,61 +1,110 @@
-textarea {
+/* ---------- Contact form input system -----------------------------------
+ *
+ * Every field — input, textarea, select — uses the same height, padding,
+ * font and border so the form reads as a tight, consistent grid.
+ * `height` is set explicitly (not via padding) so cross-browser select
+ * rendering can't break alignment with sibling inputs.
+ * ------------------------------------------------------------------------ */
+
+:root {
+  --jdp-input-h: 52px;
+  --jdp-input-px: 1rem;
+  --jdp-input-bg: #fff;
+  --jdp-input-border: #c8c8c8;
+  --jdp-input-border-focus: rgb(209, 29, 50);
+  --jdp-input-text: #1a1a1a;
+  --jdp-input-placeholder: #8a8a8a;
+  --jdp-input-radius: 10px;
+  --jdp-input-font: 0.95rem;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form select {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--jdp-input-h);
+  margin: 0 0 12px 0;
+  padding: 0 var(--jdp-input-px);
+  border: 1px solid var(--jdp-input-border);
+  border-radius: var(--jdp-input-radius);
+  background: var(--jdp-input-bg);
+  color: var(--jdp-input-text);
+  font-size: var(--jdp-input-font);
+  font-family: inherit;
+  line-height: normal;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: var(--jdp-input-placeholder);
+}
+
+#contact-form select:has(option[value=""]:checked) {
+  color: var(--jdp-input-placeholder);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus,
+#contact-form select:focus {
+  border-color: var(--jdp-input-border-focus);
+  box-shadow: 0 0 0 3px rgba(209, 29, 50, 0.12);
+}
+
+#contact-form textarea {
+  height: auto;
+  min-height: 120px;
+  max-height: 280px;
+  padding: 0.85rem var(--jdp-input-px);
+  resize: vertical;
   display: block;
-  overflow: visible;
-  min-height: 100px;
-  max-height: 250px;
-  line-height: 20px;
-  margin-bottom: 5px;
-  border-width: 1px;
-  border-radius: 8px;
-  border-style: solid;
 }
 
-input,
-#number,
-#firstName,
-#suburb,
-#inputEmail {
+#contact-form .select-wrapper {
+  position: relative;
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  outline: none;
-  font-size: 0.875rem;
-  margin: 5px 0;
-  padding: 0.7rem 1.25rem;
-  transition: border-color 0.3s ease-in;
-  border-radius: 8px;
-  color: #000;
+  margin-bottom: 12px;
 }
 
-#firstName {
-  margin-top: 70px;
+#contact-form .select-wrapper select {
+  margin-bottom: 0; /* wrapper owns the spacing */
+  padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
 }
 
-#subject {
-  height: 50%;
-  width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  outline: none;
-  font-size: 0.875rem;
-  padding: 1.7rem 1.25rem 1.4rem;
-  transition: border-color 0.3s ease-in;
-  border-radius: 8px;
-  color: #000;
+#contact-form .select-wrapper::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+  transform: translateY(-75%) rotate(45deg);
 }
+
+/* ---------- Sidebar contact info ---------------------------------------- */
 
 .formText {
   margin-left: 1.2rem;
-  font-size: 18px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .formText:nth-child(2) {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .formText:nth-child(2) {
-    margin-bottom: 0rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -65,7 +114,9 @@ input,
 #TextNumberJoe,
 #TextNumberGen,
 #AddressJDP {
-  color: #1890ff;
+  /* Darkened from #1890ff (3.8:1 on white, fails WCAG AA) to #0958d9
+     (~6.3:1, passes AA for normal-sized body text). */
+  color: #0958d9;
 }
 
 #TextAddress:hover,
@@ -77,94 +128,33 @@ input,
   color: rgb(209, 29, 50);
 }
 
+/* ---------- "Prefer to talk now" fallback under the submit button ------- */
+
+.call-fallback {
+  clear: both; /* sits cleanly below the floated submit on desktop */
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .call-fallback {
+    text-align: center;
+  }
+}
+
+/* ---------- Validation & toast ------------------------------------------ */
+
 .errorMessage {
+  display: block;
   color: rgb(209, 29, 50);
+  font-size: 0.825rem;
+  margin: -8px 0 8px 4px;
 }
 
 .Toastify__toast--success {
   border: 1px solid #4cb925;
   background: #bce0ce;
   color: #0e7a44;
-}
-
-/* Select wrapper for custom arrow */
-.select-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-/* Remove native arrow */
-.select-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 100%;
-  padding: 0.85rem 3rem 0.85rem 1.25rem; /* extra right padding for arrow */
-  color: rgb(73, 73, 73);
-  margin: 5px 0 2px 1px;
-  background-color: #fff;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  outline: none;
-  transition: border-color 0.3s ease-in;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-/* Focus style */
-.select-wrapper select:focus {
-  border-color: #1890ff;
-  box-shadow: 0 0 4px #1890ff;
-}
-
-/* Custom arrow using CSS */
-.select-wrapper::after {
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-right: 2px solid #555;
-  border-bottom: 2px solid #555;
-  transform: translateY(-50%) rotate(45deg);
-  transition: transform 0.3s ease;
-}
-
-/* Rotate arrow when select is focused */
-.select-wrapper:focus-within::after {
-  transform: translateY(-50%) rotate(-135deg);
-}
-
-/* Responsive adjustments */
-@media only screen and (max-device-width: 991px) {
-  .select-wrapper select {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-device-width: 480px) {
-  .select-wrapper select {
-    padding: 0.85rem 3rem 0.85rem 1.25rem;
-    font-size: 0.875rem;
-  }
-}
-
-/* Legacy #menu styles - for backward compatibility if used */
-#menu {
-  margin: 5px 1px 2px;
-  width: 98%;
-  background-color: #fff;
-  color: rgb(73, 73, 73);
-  box-sizing: border-box;
-  /* Removed appearance as it's handled in .select-wrapper select */
-}
-
-/* Keep error message styling */
-.errorMessage {
-  color: rgb(209, 29, 50);
 }

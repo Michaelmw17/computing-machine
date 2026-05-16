@@ -4,9 +4,7 @@ const Styles = createGlobalStyle`
     body,
     html,
     a {
-        font-family: 'Open Sans';
         font-family: 'Ubuntu', sans-serif;
-        font-display: swap;
     }
 
 
@@ -40,8 +38,8 @@ const Styles = createGlobalStyle`
         padding: 3rem  0.5rem 0.5rem 0.3rem ;
         font-size: 3.255rem;
         line-height: 3.0625rem;
-      
-        @media only screen and (max-width: 414px) {
+
+        @media only screen and (max-width: 425px) {
           font-size: 1.925rem;
         }
         h1,h2,h3,h4,h5,h6::first-letter {

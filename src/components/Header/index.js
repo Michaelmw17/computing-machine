@@ -1,24 +1,19 @@
-import React, { useState, Fragment, lazy, Suspense, useEffect } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import './stylesHeader.css';
 import '../../globalStyles';
-import Button from '@material-ui/core/Button';
-import Loader from 'react-loader-spinner';
+import Button from '@mui/material/Button';
+import Row from 'antd/lib/grid/row';
 import { Drawer } from 'antd';
-import { CSSTransition } from 'react-transition-group';
-import { makeStyles } from '@material-ui/core/styles';
-import BuildIcon from '@material-ui/icons/Build';
-import InfoIcon from '@material-ui/icons/Info';
-import HomeIcon from '@material-ui/icons/Home';
-import RateReviewIcon from '@material-ui/icons/RateReview';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
-import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
-import { Link } from 'react-router-dom';
+import makeStyles from '@mui/styles/makeStyles';
+import BuildIcon from '@mui/icons-material/Build';
+import InfoIcon from '@mui/icons-material/Info';
+import HomeIcon from '@mui/icons-material/Home';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
 import * as S from './styles';
-import { motion } from 'framer-motion';
-
-const MyComp = lazy(() => import('../../components/MyComp/myComp'));
-const Row = React.lazy(() => import('antd/lib/grid/row'));
-const Col = React.lazy(() => import('antd/lib/grid/col'));
+import { m } from 'framer-motion';
+import BrandLogo from '../../components/BrandLogo';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -41,7 +36,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1023 && open) {
+      if (window.innerWidth >= 992 && open) {
         setOpen(false);
       }
     };
@@ -56,7 +51,29 @@ const Header = () => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 99;
+      // Anchor to the first heading inside the section so section padding
+      // doesn't push the title to the middle of the viewport. If the id is
+      // on an empty marker div, look inside the next sibling.
+      let target = element.querySelector('h1, h2, h3, h4');
+      if (
+        !target &&
+        element.children.length === 0 &&
+        element.nextElementSibling
+      ) {
+        target =
+          element.nextElementSibling.querySelector('h1, h2, h3, h4') ||
+          element.nextElementSibling;
+      }
+      target = target || element;
+      // Use offsetTop chain (not getBoundingClientRect) so any framer-motion
+      // transform on a parent — e.g. the Carousel's initial translateY(100) —
+      // doesn't shift the computed target position.
+      let absoluteTop = 0;
+      for (let el = target; el; el = el.offsetParent) {
+        absoluteTop += el.offsetTop;
+      }
+      window.scrollTo({ top: absoluteTop - headerOffset, behavior: 'smooth' });
     }
     setOpen(false);
   };
@@ -76,70 +93,70 @@ const Header = () => {
             scrollToTop();
           }}
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.1, duration: 0.5 }}
           >
             <HomeIcon className={classes.icon} />
-          </motion.div>
+          </m.div>
           <S.Span>
             <span>Home</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Service')}>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.15, duration: 0.5 }}
           >
             <BuildIcon className={classes.icon} />
-          </motion.div>
+          </m.div>
           <S.Span>
             <span>Services</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('People')}>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <InfoIcon className={classes.icon} />
-          </motion.div>
+          </m.div>
           <S.Span>
             <span>About</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Review')}>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.25, duration: 0.5 }}
           >
             <RateReviewIcon className={classes.icon} />
-          </motion.div>
+          </m.div>
           <S.Span>
             <span>Reviews</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Team')}>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <ContactMailIcon className={classes.icon} />
-          </motion.div>
+          </m.div>
           <S.Span>
             <span>Contact</span>
           </S.Span>
@@ -147,22 +164,23 @@ const Header = () => {
 
         <S.CustomNavLinkSmall>
           <div>
-            <a href="tel:02-9419-7947">
-              <h6
+            <a
+              href="tel:02-9419-7947"
+              aria-label="Call JDP Electrical on (02) 9419 7947"
+            >
+              <span
                 style={{
                   color: 'black',
                   fontSize: 20,
                   textAlign: 'center',
                   paddingTop: '0',
+                  display: 'block',
                 }}
               >
                 <S.CustomNavLinkSmall noHover>
                   <div id="ButtonMain">
                     <Button
-                      classes={{
-                        root: 'buttonMainHeader',
-                        label: 'button-label-main',
-                      }}
+                      className="call-us-button"
                       style={{
                         marginBottom: 0,
                         marginTop: 0,
@@ -182,7 +200,7 @@ const Header = () => {
                         maxWidth: '180px',
                       }}
                     >
-                      <p className="p-Call-us-now-main"> Call us now </p>
+                      <p className="call-us-label">Call us now</p>
                       <PhoneForwardedIcon
                         className={classes.icon}
                         style={{
@@ -194,7 +212,7 @@ const Header = () => {
                     </Button>
                   </div>
                 </S.CustomNavLinkSmall>
-              </h6>
+              </span>
             </a>
           </div>
         </S.CustomNavLinkSmall>
@@ -212,19 +230,7 @@ const Header = () => {
           id="logo-hamburger"
         >
           <S.LogoContainer to="/" aria-label="homepage" onClick={scrollToTop}>
-            <Suspense
-              fallback={
-                <Loader
-                  type="Rings"
-                  color="#00BFFF"
-                  height={100}
-                  width={100}
-                  timeout={3000}
-                />
-              }
-            >
-              <MyComp rel="preload" />
-            </Suspense>
+            <BrandLogo rel="preload" />
           </S.LogoContainer>
 
           <S.NotHidden>
@@ -232,35 +238,27 @@ const Header = () => {
           </S.NotHidden>
 
           <S.Burger
-            onClick={showDrawer}
+            type="button"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={open ? onClose : showDrawer}
             className={open ? 'burger burger--open' : 'burger burger--closed'}
           >
-            <S.Outline />
+            {open ? <S.CloseIcon /> : <S.Outline />}
           </S.Burger>
         </Row>
 
-        <CSSTransition
-          in={open}
-          timeout={350}
-          classNames="NavAnimation"
-          unmountOnExit
+        <Drawer
+          closable={false}
+          open={open}
+          onClose={onClose}
+          className="custom-drawer"
+          title="Menu"
+          placement="right"
+          width={320}
         >
-          <Drawer
-            closable
-            open={open}
-            onClose={onClose}
-            className="custom-drawer"
-          >
-            <Col>
-              <S.Label onClick={onClose} style={{ textAlign: 'center' }}>
-                <Col span={12}>
-                  <S.Menu>Menu</S.Menu>
-                </Col>
-              </S.Label>
-            </Col>
-            <MenuItem />
-          </Drawer>
-        </CSSTransition>
+          <MenuItem />
+        </Drawer>
       </S.Container>
     </S.Header>
   );
