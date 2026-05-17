@@ -1,19 +1,16 @@
 # AWS Amplify custom HTTP headers.
 #
-# This file is copied verbatim from /public to /build by CRA, then read by
-# Amplify during deploy. Amplify applies these headers to the CloudFront
-# distribution.
+# Vite copies this file verbatim from /public to /build, where Amplify reads
+# it during deploy and applies the headers to the CloudFront distribution.
 #
 # Strategy
 # --------
 # - index.html and customHttp.yml itself must NEVER be cached aggressively —
 #   browsers must re-fetch them on every visit so they discover new asset
 #   hashes after a deploy.
-# - Hashed static assets (CRA's /static/js/main.<hash>.js, /static/css/...,
-#   media/) are content-addressed: each deploy produces new filenames, so the
-#   old ones are never overwritten. Safe to cache for a year.
-# - The service-worker.js file must NOT be cached so the browser can detect
-#   the new tombstone SW and run it.
+# - Hashed assets in /assets are content-addressed by Vite: each deploy
+#   produces new filenames, so old ones are never overwritten. Safe to cache
+#   for a year.
 
 customHeaders:
   - pattern: '**/index.html'
@@ -23,12 +20,15 @@ customHeaders:
       - key: 'Pragma'
         value: 'no-cache'
 
+  # The tombstone SW (see public/service-worker.js) must never be cached,
+  # otherwise an updated tombstone could not reach returning visitors who
+  # still have the old Workbox SW installed.
   - pattern: '/service-worker.js'
     headers:
       - key: 'Cache-Control'
         value: 'no-cache, no-store, must-revalidate'
 
-  - pattern: '/static/**/*'
+  - pattern: '/assets/**/*'
     headers:
       - key: 'Cache-Control'
         value: 'public, max-age=31536000, immutable'
@@ -51,3 +51,25 @@ customHeaders:
         value: 'max-age=31536000; includeSubDomains'
       - key: 'Permissions-Policy'
         value: 'geolocation=(), microphone=(), camera=(), payment=()'
+      # Strict CSP. Notes on each directive:
+      # - script-src 'self' only — no 'unsafe-inline', no 'unsafe-eval'.
+      #   The previously-inline mount-fade script lives in /mount-fade.js
+      #   so it loads same-origin. <script type="application/ld+json"> is
+      #   data, not executable, and is exempt from script-src.
+      # - style-src 'unsafe-inline' is unavoidable: MUI, styled-components
+      #   and framer-motion all inject <style> tags and inline style="…"
+      #   attributes at runtime. Style-based XSS is materially harder than
+      #   script-based XSS, so this is the standard tradeoff.
+      # - img-src includes *.tile.openstreetmap.org so the Leaflet map
+      #   in the Contact section can load OSM tiles. Tiles come in as
+      #   <img> elements (not fetch), so connect-src does not need it.
+      # - connect-src includes the Cloudflare Worker that proxies the
+      #   contact form to EmailJS. If you rename or move that worker,
+      #   update this value (it's also referenced in cf-worker/wrangler.toml
+      #   and .env.local as REACT_APP_CONTACT_API_URL).
+      # - frame-ancestors 'none' duplicates X-Frame-Options DENY (CSP is
+      #   the modern equivalent; we keep both for older browsers).
+      # - upgrade-insecure-requests is a no-op for localhost (HTTP) but
+      #   forces HTTPS for any stray http:// asset references in prod.
+      - key: 'Content-Security-Policy'
+        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org; font-src 'self'; connect-src 'self' https://jdp-contact-proxy.michaelmw17.workers.dev; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"

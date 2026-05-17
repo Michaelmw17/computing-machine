@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'rgb(209, 29, 50)',
     color: '#FFF',
     position: 'relative',
-    padding: 0,
+    paddingLeft: 40,
     paddingRight: 25,
     margin: 0,
     borderRadius: '15px',

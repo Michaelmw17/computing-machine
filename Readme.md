@@ -9,84 +9,55 @@
 <p align="center">
 <a href="https://www.jdpelectrical.com.au">https://www.jdpelectrical.com.au</a>
 </p>
-<p align="center">
-  Sleek, simple and  intuitive front-end for faster and easier web development.
-</p>
 
+## JDP Electrical Services
 
-## JDP Electrical Services 
+SPA React app for JDP Electrical Services — North Shore's most trusted and experienced family electrical contractors, with over 60 years combined experience.
 
-Developed SPA React App For JDP Electrical Services North Shore’s most trusted and experienced family electrical contractors, with over 60 years combined experience.
-
-Deployed with AWS Amplify Services 
-
-
-
-
-## Table of contents
-
-- [Quick start](#quick-start)
-- [Status](#status)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Contributing](#contributing)
-- [Community](#community)
-- [Acknowledgments](#acknowledgments)
-- [Creators](#creators)
-- [Copyright and license](#copyright-and-license)
-
+Built with Vite + React 18. Deployed with AWS Amplify. Contact form submissions are proxied through a Cloudflare Worker (see [`cf-worker/README.md`](cf-worker/README.md)) so EmailJS credentials stay off the browser bundle.
 
 ## Quick start
 
-Several quick start options are available:
+```bash
+git clone https://github.com/Michaelmw17/computing-machine.git
+cd computing-machine
+npm install --legacy-peer-deps
+```
 
-- [Computing-Machine](https://github.com/Michaelmw17/computing-machine)
-- Clone the repo: `git clone https://github.com/Michaelmw17/computing-machine.git`
-- Install with [npm](https://www.npmjs.com/): `npm install`
-- Install with [yarn](https://yarnpkg.com/): `yarn add`
+`--legacy-peer-deps` is required because MUI v5 and antd v4 disagree on their React peer ranges.
 
+### Local development
 
+```bash
+npm run dev
+```
 
+Opens [http://localhost:3000](http://localhost:3000) with Vite's dev server and HMR.
+
+### Production build
+
+```bash
+npm run build      # emits the static site into /build
+npm run start      # serves /build on http://localhost:3000 via `vite preview`
+```
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first reach out [Michaelmw1@outlook.com](Michaelmw1@outlook.com) 
-
-### Running documentation locally & build commands
-
-
-Local
-1. Run `npm install` to install the Node.js dependencies.
-2. From the root `/src` directory, run `npm run start` in the command line.
-4. Open `http://localhost:3000/` in your browser, and voilà.
-
-Build
-1.  Run `npm install` to install the Node.js dependencies.
-2. From the root `/src` directory, run `serve -s build` in the command line.
-4.  Open `http://localhost:5000/` in your browser, and voilà.
-
-## Contributing
-
-- `git add .` ,  `git commit -m 'message'`,  `git push` [Computing-machine](https://github.com/Michaelmw17/computing-machine)
+Reach out to [Michaelmw1@outlook.com](mailto:Michaelmw1@outlook.com).
 
 ## Acknowledgments
 
-Resources I found helpful and would like to give credit to.
-
-* [Antd](https://ant.design/)
-* [Emailjs](https://emailjs.com)
-* [Material UI](https://material-ui.com)
-* [Img Shields](https://shields.io)
-* [GitHub](https://github.com)
-* [React](https://reactjs.org/)
-
+- [Vite](https://vitejs.dev)
+- [Antd](https://ant.design)
+- [Material UI](https://mui.com)
+- [React](https://react.dev)
+- [EmailJS](https://emailjs.com)
 
 ## Creators
 
 **Michael Watt**
 
-- <https://twitter.com/michaelDaleyOne>
 - <https://github.com/michaelmw17>
-
 
 ## Copyright and license
 

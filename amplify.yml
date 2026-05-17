@@ -2,11 +2,15 @@ version: 1
 frontend:
   phases:
     preBuild:
+      # Vite 8 requires Node 20+. Pin via .nvmrc so the build doesn't depend
+      # on whatever the Amplify build image defaults to.
+      #
       # `npm ci` installs the exact versions in package-lock.json — same as our
       # local builds. --legacy-peer-deps matches the install flag we've been
       # using locally (needed because MUI v5 and antd v4 don't fully agree on
       # React peer ranges).
       commands:
+        - nvm use $(cat .nvmrc) || nvm install $(cat .nvmrc)
         - npm ci --legacy-peer-deps
     build:
       commands:

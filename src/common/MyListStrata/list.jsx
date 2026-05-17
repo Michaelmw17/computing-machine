@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'RGB(209, 29, 50)',
     color: '#FFF',
     position: 'relative',
-    padding: 0,
+    paddingLeft: 40,
     paddingRight: 30,
     margin: 0,
     listStyle: 'none',

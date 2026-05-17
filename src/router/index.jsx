@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import routes from './config';
 import GlobalStyles from '../globalStyles';
 
 // Home is lazy-loaded again now that the static skeleton in index.html covers
@@ -25,19 +24,7 @@ const Router = () => {
             <Redirect to={location.pathname.replace(/\/+$/, '')} />
           )}
         />
-        {routes.map((routeItem) => {
-          return (
-            <Route
-              key={routeItem.component}
-              path={routeItem.path}
-              exact={routeItem.exact}
-              component={lazy(() => import(`../pages/${routeItem.component}/index.jsx`))}
-            />
-          );
-        })}
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Route exact path={['/', '/home']} component={Home} />
       </Switch>
     </Suspense>
   );

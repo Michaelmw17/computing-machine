@@ -6,11 +6,11 @@ export const Footer = styled.footer`
   padding: 2.5rem 0;
 `;
 
-export const Title = styled.h4`
+export const Title = styled.h3`
   font-size: 18px;
   text-transform: uppercase;
   color: #000;
-  padding: 1.5rem 0 0;
+  padding: 0;
   line-height: 1.5rem;
 
   @media screen and (max-width: 414px) {

@@ -56,6 +56,13 @@ const root = createRoot(container);
 // static skeleton and leave a blank screen mid-load).
 const homeReady = import('./pages/Home');
 
+// Pre-warm the Contact chunk too. The shell's "Contact Us" anchor points at
+// #Team, which lives in the Contact section. On slow 3G we measured the
+// Contact chunk taking ~1.9 s — that's how long the form anchor target is
+// missing after React mounts. Kicking off the request here makes it overlap
+// the rest of the boot path instead of waiting for React's first commit.
+import('./sections/Contact');
+
 // Defer React's first render until the browser has painted the static
 // skeleton (logo + heading + hero image) so LCP records the preloaded hero
 // at ~1 s instead of the React-rendered one at ~5 s. requestIdleCallback

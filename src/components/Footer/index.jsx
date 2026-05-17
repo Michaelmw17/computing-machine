@@ -2,19 +2,19 @@ import React, { lazy, Fragment, useRef } from 'react';
 import { Row } from 'antd';
 import { Col } from 'antd';
 import * as S from './styles';
-import ScrollToTop from '../../components/ScrollTopFunc';
+import ScrollToTopOnRouteChange from '../../components/ScrollToTopOnRouteChange';
 import { m, useInView } from 'framer-motion';
 
 const BrandLogo = lazy(() => import('../../components/BrandLogo'));
 const InTheCovePartnerLogo = lazy(() =>
   import('../../components/PartnerLogo').then((m) => ({
     default: m.InTheCovePartnerLogo,
-  }))
+  })),
 );
 const NecaPartnerLogo = lazy(() =>
   import('../../components/PartnerLogo').then((m) => ({
     default: m.NecaPartnerLogo,
-  }))
+  })),
 );
 const Container = lazy(() => import('../../common/Container'));
 
@@ -174,7 +174,7 @@ const Footer = () => {
       </m.div>
 
       <S.Extra>
-        <ScrollToTop>
+        <ScrollToTopOnRouteChange>
           <Container border="true">
             <Row
               gutter={[16, 16]}
@@ -213,7 +213,7 @@ const Footer = () => {
               </Col>
             </Row>
           </Container>
-        </ScrollToTop>
+        </ScrollToTopOnRouteChange>
       </S.Extra>
     </Fragment>
   );

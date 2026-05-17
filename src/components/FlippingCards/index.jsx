@@ -19,11 +19,11 @@ const FlipperCards = () => {
     <Row justify="center">
         <div className="card">
             <div className="card-front">
-                <h1   className="title" >Residential</h1>
+                <h3   className="title" >Residential</h3>
                 <HomeIcon  style={{ fontSize: 230 }} />
                 </div>
                 <div className="card-back">
-                <h1 className="title-two">Residential</h1>
+                <h3 className="title-two">Residential</h3>
                     <div className="social-icons">
                     <MyListResidential/>
                     </div>
@@ -35,11 +35,11 @@ const FlipperCards = () => {
             <Row justify="center">
                 <div className="card">
                     <div className="card-front">
-                        <h1 className="title-two">Strata / Property Maintenance</h1>
+                        <h3 className="title-two">Strata / Property Maintenance</h3>
                         <BuildSharpIcon  style={{ fontSize: 185, padding: '35px 0 0',  }} />
                         </div>
                         <div className="card-back">
-                            <h1 className="title-two">Strata / Property Maintenance</h1>
+                            <h3 className="title-two">Strata / Property Maintenance</h3>
                                 <div className="social-icons">
                                 <PinnedSubheaderList/>
                             </div>
@@ -51,11 +51,11 @@ const FlipperCards = () => {
                 <Row justify="center">
                     <div className="card">
                         <div className="card-front">
-                            <h1 className="title" >Commercial</h1>
+                            <h3 className="title" >Commercial</h3>
                             <BusinessIcon  style={{ fontSize: 200 }} />
                             </div>
                         <div className="card-back">
-                            <h1 className="title-two">Commercial</h1>
+                            <h3 className="title-two">Commercial</h3>
                                 <div className="social-icons">
                                 <MyListCommercial/>
                             </div>

@@ -12,7 +12,6 @@ import { RateReview as RateReviewIcon } from '@mui/icons-material';
 import { ContactMail as ContactMailIcon } from '@mui/icons-material';
 import { PhoneForwarded as PhoneForwardedIcon } from '@mui/icons-material';
 import * as S from './styles';
-import { m } from 'framer-motion';
 import BrandLogo from '../../components/BrandLogo';
 
 const useStyles = makeStyles((theme) => ({
@@ -93,70 +92,35 @@ const Header = () => {
             scrollToTop();
           }}
         >
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-          >
-            <HomeIcon className={classes.icon} />
-          </m.div>
+          <HomeIcon className={classes.icon} />
           <S.Span>
             <span>Home</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Service')}>
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-          >
-            <BuildIcon className={classes.icon} />
-          </m.div>
+          <BuildIcon className={classes.icon} />
           <S.Span>
             <span>Services</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('People')}>
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <InfoIcon className={classes.icon} />
-          </m.div>
+          <InfoIcon className={classes.icon} />
           <S.Span>
             <span>About</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Review')}>
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.25, duration: 0.5 }}
-          >
-            <RateReviewIcon className={classes.icon} />
-          </m.div>
+          <RateReviewIcon className={classes.icon} />
           <S.Span>
             <span>Reviews</span>
           </S.Span>
         </S.CustomNavLinkSmall>
 
         <S.CustomNavLinkSmall onClick={() => scrollTo('Team')}>
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <ContactMailIcon className={classes.icon} />
-          </m.div>
+          <ContactMailIcon className={classes.icon} />
           <S.Span>
             <span>Contact</span>
           </S.Span>

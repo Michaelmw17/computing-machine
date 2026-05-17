@@ -10,7 +10,7 @@ const Block = ({ title, content }) => {
         animate={{ opacity: 1, x: 0 }} // fade in & slide to original
         transition={{ duration: 0.5 }}
       >
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <S.TextWrapper>
           <S.Content>{content}</S.Content>
         </S.TextWrapper>
