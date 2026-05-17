@@ -64,7 +64,10 @@ export const ContactWrapper = styled.div`
 
 export const Burger = styled.button`
   position: relative;
-  z-index: 1101; /* above antd Drawer (1000) and the fixed Header (1100) */
+  /* antd Drawer's content-wrapper can climb past z-index:1000 on its own
+     stacking context — keep the burger comfortably above everything so the
+     X toggle stays tappable while the drawer is open. */
+  z-index: 1500;
   display: none;
   background: none;
   border: none;
@@ -147,8 +150,13 @@ export const Outline = styled(MenuOutlined)`
   padding-right: ${(props) => (props.padding ? '10px' : '')};
 `;
 
-export const CloseIcon = styled(CloseOutlined)`
-  ${iconStyles}
+/* Custom close icon for the drawer header — matches the burger's size/colour/
+   weight exactly. No padding-top because antd's drawer header handles its own
+   vertical alignment. */
+export const DrawerCloseIcon = styled(CloseOutlined)`
+  font-size: 22px;
+  color: #000;
+  font-weight: inherit;
 `;
 
 export const Span = styled.div`

@@ -56,24 +56,24 @@
     color: white;
     
     }
-.Title, .Title-Two {
+.title, .title-two {
     color: white;
     text-transform:  uppercase;
     padding: 20px 0 0;
     font-size: 20px;
 }
-.Title-Two {
+.title-two {
     padding: 10px 0 0;
     line-height: 1.5;
 }
-.MyListStrata {
+.my-list-strata {
     color: white;
     text-transform:  uppercase;
     font-size: 20px;
-    padding: 0px ​0; 
+    padding: 0px ​0;
 }
 @media only screen and (min-width: 1000px) {
-    .ContainerFlipper {
+    .container-flipper {
         font-size: 14px;
     }
 }

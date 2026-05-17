@@ -115,18 +115,19 @@ export const NavButton = styled.button`
   color: rgba(2, 7, 62, 0.8);
   text-align: ${(props) => (props.left ? 'left' : '')};
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
   text-transform: capitalize;
-  line-height: 24px;
+  line-height: 1.6;
   display: block;
-  margin-bottom: 0.625rem;
-  margin-top: -0.525rem;
+  margin: 0 0 0.5rem 0;
 
   &:hover {
     color: rgb(209, 29, 50);
   }
-  &:nth-child(2) {
-    margin-top: 20px;
+
+  /* First nav item sits closer to the title so the column has tighter rhythm */
+  &:first-of-type {
+    margin-top: 0.25rem;
   }
 `;
 

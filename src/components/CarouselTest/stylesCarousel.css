@@ -2,7 +2,7 @@
 #PaperH2 {
   color: #fff;
 }
-.containerCar {
+.container-car {
   padding: 40px 60px 60px;
   background: rgb(209, 29, 50);
 }
@@ -73,7 +73,7 @@
   width: 100%;
 }
 
-/* Paper-equivalent block: keeps every existing #Paper / .containerCar rule
+/* Paper-equivalent block: keeps every existing #Paper / .container-car rule
    working without pulling in @mui/material/Paper. */
 .jdp-carousel-paper {
   background: #fff;

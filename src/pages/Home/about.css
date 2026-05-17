@@ -102,7 +102,7 @@
     padding: 30px 20px 0;
   }
 }
-.Link {
+.link {
   margin-bottom: 600px;
   display: absolute;
 }
@@ -211,7 +211,7 @@ Button.btn,
   padding: 1rem 0.5rem 0.5rem 0.3rem;
 }
 
-.whiteContainer {
+.white-container {
   max-width: 2000px;
   margin: auto;
   overflow: visible;
